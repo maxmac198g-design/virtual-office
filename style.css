@@ -1,0 +1,1246 @@
+/* ================================================================
+   PIXEL HQ — Virtual Office  (Glassmorphism Dark Mode)
+   ================================================================ */
+
+/* ── Tokens ──────────────────────────────────────────────────── */
+:root {
+  /* Background */
+  --bg:           #0d1117;
+  --wall-bg:      #070b14;
+  --wall-border:  rgba(0, 212, 255, 0.18);
+
+  /* Room floors */
+  --floor-main:   rgba(11, 22, 44, 0.97);
+  --floor-meet:   rgba(14, 10, 34, 0.97);
+  --floor-break:  rgba(16, 14, 10, 0.97);
+  --floor-hall:   rgba(8, 14, 26, 0.97);
+
+  /* Accents */
+  --accent:       #00d4ff;
+  --accent-glow:  rgba(0, 212, 255, 0.15);
+  --purple:       #7c3aed;
+  --purple-glow:  rgba(124, 58, 237, 0.15);
+
+  /* Glass surfaces */
+  --glass:        rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  /* Furniture */
+  --desk-face:    #0b1628;
+  --desk-top:     rgba(0, 212, 255, 0.55);
+  --chair-bg:     #080f1e;
+  --monitor-case: #050d18;
+  --screen-fg:    #00d4ff;
+
+  /* Text */
+  --room-label:   rgba(0, 212, 255, 0.42);
+
+  /* HUD */
+  --hud-bg:       rgba(6, 9, 18, 0.96);
+  --hud-border:   rgba(0, 212, 255, 0.12);
+  --hud-fg:       rgba(255, 255, 255, 0.88);
+  --hud-accent:   #00d4ff;
+
+  /* Dialog */
+  --dialog-bg:    rgba(8, 12, 24, 0.95);
+  --dialog-fg:    #ffffff;
+
+  /* Tile pattern */
+  --tile-dot:     rgba(0, 212, 255, 0.05);
+
+  /* Fonts */
+  --font-ui:      'Inter', system-ui, -apple-system, sans-serif;
+  --font-pixel:   'Press Start 2P', monospace;
+}
+
+/* Night theme — deep purple vibe */
+[data-theme="night"] {
+  --bg:           #07050f;
+  --wall-bg:      #04030a;
+  --wall-border:  rgba(168, 85, 247, 0.18);
+  --floor-main:   rgba(10, 6, 26, 0.97);
+  --floor-meet:   rgba(12, 6, 28, 0.97);
+  --floor-break:  rgba(10, 6, 8, 0.97);
+  --floor-hall:   rgba(6, 4, 16, 0.97);
+  --accent:       #a855f7;
+  --accent-glow:  rgba(168, 85, 247, 0.15);
+  --room-label:   rgba(168, 85, 247, 0.42);
+  --hud-border:   rgba(168, 85, 247, 0.12);
+  --hud-accent:   #a855f7;
+  --screen-fg:    #c084fc;
+  --wall-border:  rgba(168, 85, 247, 0.15);
+  --tile-dot:     rgba(168, 85, 247, 0.04);
+  --desk-top:     rgba(168, 85, 247, 0.5);
+}
+
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 52px 1fr 36px;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+  user-select: none;
+  transition: background 0.5s ease;
+}
+
+button { cursor: pointer; font-family: inherit; background: none; border: none; }
+[hidden] { display: none !important; }
+
+/* ── HUD Bars ────────────────────────────────────────────────── */
+.hud {
+  background: var(--hud-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--hud-fg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  transition: background 0.5s ease, border-color 0.5s ease;
+}
+
+.hud-top {
+  border-bottom: 1px solid var(--hud-border);
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.6);
+  z-index: 100;
+}
+
+.hud-bottom {
+  border-top: 1px solid var(--hud-border);
+  z-index: 100;
+}
+
+.hud-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Logo dot + title */
+.hud-logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent-glow);
+  animation: logoPulse 3s ease-in-out infinite;
+  flex-shrink: 0;
+  transition: background 0.5s, box-shadow 0.5s;
+}
+
+@keyframes logoPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.hud-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--hud-fg);
+}
+
+/* Center pill + clock */
+.hud-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.online-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e, 0 0 12px rgba(34, 197, 94, 0.4);
+  animation: dotPulse 2.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.hud-sep {
+  color: var(--hud-border);
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.hud-clock {
+  font-size: 13px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  color: var(--hud-accent);
+  transition: color 0.5s;
+}
+
+/* Day/Night button */
+.hud-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--hud-fg);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.hud-btn:hover {
+  background: var(--accent-glow);
+  border-color: rgba(0, 212, 255, 0.35);
+  color: var(--accent);
+}
+.hud-btn:active { transform: scale(0.97); }
+
+[data-theme="night"] .hud-btn:hover {
+  background: var(--accent-glow);
+  border-color: rgba(168, 85, 247, 0.35);
+  color: var(--accent);
+}
+
+.btn-icon { font-size: 14px; }
+
+/* Status bar */
+.status-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.02em;
+}
+.status-keys {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+  white-space: nowrap;
+}
+
+/* ── Office World ─────────────────────────────────────────────── */
+.office-world {
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background 0.5s ease;
+  position: relative;
+}
+
+/* ── Office Map ──────────────────────────────────────────────── */
+.office-map {
+  position: relative;
+  width: 940px;
+  height: 540px;
+  background: var(--wall-bg);
+  border: 1px solid var(--wall-border);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(0, 0, 0, 0.8),
+    inset 0 0 40px rgba(0, 0, 0, 0.4);
+  transition: background 0.5s ease, border-color 0.5s ease;
+  flex-shrink: 0;
+}
+
+/* ── Rooms (shared) ──────────────────────────────────────────── */
+.room {
+  position: absolute;
+  transition: background 0.5s ease;
+}
+
+/* Floor dot grid */
+.room::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(circle, var(--tile-dot) 1px, transparent 1px);
+  background-size: 24px 24px;
+  transition: background-image 0.5s ease;
+}
+
+.room-label {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--room-label);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 20;
+  text-transform: uppercase;
+  transition: color 0.5s;
+}
+
+/* ── Room: Hallway ───────────────────────────────────────────── */
+.room-hallway {
+  left: 10px; top: 10px;
+  width: 920px; height: 44px;
+  background: var(--floor-hall);
+  border: 1px solid var(--wall-border);
+}
+
+.hall-light {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  background: radial-gradient(ellipse at 50% 0, rgba(0, 212, 255, 0.07) 0%, transparent 85%);
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.5s;
+}
+.hl-1 { left: 10%; }
+.hl-2 { left: 50%; transform: translateX(-50%); }
+.hl-3 { right: 10%; }
+
+[data-theme="night"] .hall-light {
+  background: radial-gradient(ellipse at 50% 0, rgba(168, 85, 247, 0.06) 0%, transparent 80%);
+}
+
+/* ── Room: Main Office ───────────────────────────────────────── */
+.room-main {
+  left: 10px; top: 64px;
+  width: 560px; height: 310px;
+  background: var(--floor-main);
+  border: 1px solid var(--wall-border);
+  overflow: visible;
+}
+
+/* ── Room: Meeting Room ──────────────────────────────────────── */
+.room-meeting {
+  left: 580px; top: 64px;
+  width: 350px; height: 310px;
+  background: var(--floor-meet);
+  border: 1px solid var(--wall-border);
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.5s ease, box-shadow 0.3s ease;
+}
+.room-meeting:hover {
+  box-shadow: inset 0 0 50px rgba(0, 212, 255, 0.06), 0 0 0 1px rgba(0, 212, 255, 0.25);
+}
+.room-meeting:hover .room-hint { opacity: 1; }
+.room-meeting:focus { outline: none; box-shadow: 0 0 0 2px var(--accent); }
+
+[data-theme="night"] .room-meeting:hover {
+  box-shadow: inset 0 0 50px rgba(168, 85, 247, 0.06), 0 0 0 1px rgba(168, 85, 247, 0.25);
+}
+
+/* ── Room: Break Room ────────────────────────────────────────── */
+.room-break {
+  left: 10px; top: 384px;
+  width: 290px; height: 146px;
+  background: var(--floor-break);
+  border: 1px solid var(--wall-border);
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.5s ease, box-shadow 0.3s ease;
+}
+.room-break:hover {
+  box-shadow: inset 0 0 40px rgba(0, 212, 255, 0.05), 0 0 0 1px rgba(0, 212, 255, 0.2);
+}
+.room-break:hover .room-hint { opacity: 1; }
+.room-break:focus { outline: none; box-shadow: 0 0 0 2px var(--accent); }
+
+/* Room hints */
+.room-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  padding: 5px 12px;
+  border: 1px solid var(--accent-glow);
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Occupancy badge */
+.room-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 4px 9px;
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  z-index: 15;
+}
+
+.occ-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+/* ── Door Gaps ───────────────────────────────────────────────── */
+.door-gap {
+  position: absolute;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  z-index: 5;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.15);
+  transition: background 0.5s, border-color 0.5s;
+}
+.door-meet-top {
+  top: -10px; left: 50%; transform: translateX(-50%);
+  width: 44px; height: 10px;
+}
+.door-break-top {
+  top: -10px; left: 42%; transform: translateX(-42%);
+  width: 36px; height: 10px;
+}
+
+/* ── Decorative Plants ───────────────────────────────────────── */
+.decor-plant {
+  position: absolute;
+  left: var(--px);
+  top: var(--py);
+  font-size: 20px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 5;
+  filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.1));
+}
+
+/* ════════════════════════════════════════════════════════════════
+   DESK SLOTS
+   ════════════════════════════════════════════════════════════════ */
+.desk-slot {
+  position: absolute;
+  width: 150px;
+  height: 145px;
+  cursor: pointer;
+  overflow: visible;
+  z-index: 2;
+}
+
+/* Positions within room-main */
+.desk-slot[data-member="max"]  { left: 40px;  top: 52px; }
+.desk-slot[data-member="mark"] { left: 205px; top: 52px; }
+.desk-slot[data-member="john"] { left: 370px; top: 52px; }
+
+.desk-slot:focus { outline: none; }
+.desk-slot:focus .desk {
+  box-shadow:
+    0 0 0 2px var(--accent),
+    0 0 20px var(--accent-glow),
+    0 0 40px rgba(0, 0, 0, 0.4);
+}
+.desk-slot:hover .desk {
+  box-shadow:
+    0 0 16px var(--accent-glow),
+    0 0 32px rgba(0, 0, 0, 0.3);
+}
+.desk-slot:hover .char-sprite-wrap {
+  filter: brightness(1.15);
+}
+
+/* ── Chair ───────────────────────────────────────────────────── */
+.desk-chair {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 42px;
+  height: 26px;
+  background: var(--chair-bg);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 4px;
+  z-index: 1;
+}
+.desk-chair::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 6px;
+  right: 6px;
+  height: 7px;
+  background: #0a1422;
+  border: 1px solid rgba(0, 212, 255, 0.08);
+  border-radius: 3px 3px 0 0;
+}
+
+/* ── Desk surface ────────────────────────────────────────────── */
+.desk {
+  position: absolute;
+  bottom: 26px;
+  left: 5px;
+  right: 5px;
+  height: 36px;
+  background: var(--desk-face);
+  border: 1px solid rgba(0, 212, 255, 0.12);
+  border-top: 2px solid var(--desk-top);
+  border-radius: 4px;
+  z-index: 3;
+  transition: box-shadow 0.25s ease, border-color 0.5s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Monitor ─────────────────────────────────────────────────── */
+.monitor {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 22px;
+  background: var(--monitor-case);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 3px;
+  z-index: 4;
+}
+.monitor-screen {
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  right: 3px;
+  bottom: 2px;
+  background: rgba(0, 212, 255, 0.08);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 6px rgba(0, 212, 255, 0.3),
+    inset 0 0 8px rgba(0, 212, 255, 0.12);
+  transition: background 0.5s, box-shadow 0.5s;
+}
+.screen-text {
+  font-size: 6px;
+  font-weight: 700;
+  font-family: var(--font-pixel);
+  color: var(--screen-fg);
+  animation: screenFlicker 3s steps(2) infinite;
+  transition: color 0.5s;
+}
+@keyframes screenFlicker {
+  0%, 100% { opacity: 1; }
+  48%, 52% { opacity: 0.6; }
+}
+
+[data-theme="night"] .monitor-screen {
+  background: rgba(168, 85, 247, 0.08);
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.35), inset 0 0 10px rgba(168, 85, 247, 0.12);
+}
+
+/* ── Nametag (keeps pixel font!) ─────────────────────────────── */
+.char-nametag {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-pixel);
+  font-size: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  letter-spacing: 0.14em;
+  text-shadow:
+    0 0 8px var(--accent),
+    1px 1px 0 rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+  z-index: 2;
+  transition: text-shadow 0.5s;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   CHARACTER SPRITES — CSS box-shadow pixel art
+   16×16 grid at 4px per pixel = 64×64px bounding box
+   Shadow syntax: Xpx Ypx 0 0 color  (X = col×4, Y = row×4)
+   ════════════════════════════════════════════════════════════════ */
+
+/* Sprite container — bobs up/down */
+.char-sprite-wrap {
+  position: absolute;
+  top: 14px;
+  left: 43px;
+  width: 56px;
+  height: 68px;
+  overflow: visible;
+  z-index: 4;
+  animation: charBob 2.2s ease-in-out infinite;
+}
+
+@keyframes charBob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-4px); }
+}
+
+/* Status dot above head */
+.char-status-dot {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  z-index: 6;
+}
+
+.status-online {
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e, 0 0 14px rgba(34, 197, 94, 0.5);
+  animation: statusPulse 2.4s ease-in-out infinite;
+}
+.status-busy {
+  background: #f59e0b;
+  box-shadow: 0 0 6px #f59e0b, 0 0 14px rgba(245, 158, 11, 0.5);
+  animation: statusPulse 1.8s ease-in-out infinite;
+}
+.status-offline {
+  background: #4b5563;
+  box-shadow: 0 0 4px rgba(75, 85, 99, 0.4);
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+  50%       { opacity: 0.55; transform: translateX(-50%) scale(0.88); }
+}
+
+/* Base sprite element — 4×4px, box-shadow extends outward */
+.sprite {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   MAX — Robot: steel head, antenna, glowing cyan eyes, blue-grey body
+   Colors: antenna #c8d0e0  head #9aadc0  border #2a3850
+           eye #00d4ff  body #4a5a80  leg #2a3050  foot #101520
+   ════════════════════════════════════════════════════════════════ */
+.sprite-max {
+  box-shadow:
+    /* Row 0 — antenna top */
+    28px  0px 0 0 #c8d0e0, 32px  0px 0 0 #c8d0e0,
+    /* Row 1 — antenna base */
+    24px  4px 0 0 #c8d0e0, 28px  4px 0 0 #c8d0e0, 32px  4px 0 0 #c8d0e0, 36px  4px 0 0 #c8d0e0,
+    /* Row 2 — head top (cols 4-11) */
+    16px  8px 0 0 #9aadc0, 20px  8px 0 0 #9aadc0, 24px  8px 0 0 #9aadc0, 28px  8px 0 0 #9aadc0,
+    32px  8px 0 0 #9aadc0, 36px  8px 0 0 #9aadc0, 40px  8px 0 0 #9aadc0, 44px  8px 0 0 #9aadc0,
+    /* Row 3 — head (border col4,11; grey inner 5-10) */
+    16px 12px 0 0 #2a3850, 44px 12px 0 0 #2a3850,
+    20px 12px 0 0 #9aadc0, 24px 12px 0 0 #9aadc0, 28px 12px 0 0 #9aadc0,
+    32px 12px 0 0 #9aadc0, 36px 12px 0 0 #9aadc0, 40px 12px 0 0 #9aadc0,
+    /* Row 4 — eyes row (border col4,11; grey 5,7,8,10; cyan eyes 6,9) */
+    16px 16px 0 0 #2a3850, 44px 16px 0 0 #2a3850,
+    20px 16px 0 0 #9aadc0, 28px 16px 0 0 #9aadc0, 32px 16px 0 0 #9aadc0, 40px 16px 0 0 #9aadc0,
+    24px 16px 0 0 #00d4ff, 36px 16px 0 0 #00d4ff,
+    /* Row 5 — head lower (border col4,11; grey inner) */
+    16px 20px 0 0 #2a3850, 44px 20px 0 0 #2a3850,
+    20px 20px 0 0 #9aadc0, 24px 20px 0 0 #9aadc0, 28px 20px 0 0 #9aadc0,
+    32px 20px 0 0 #9aadc0, 36px 20px 0 0 #9aadc0, 40px 20px 0 0 #9aadc0,
+    /* Row 6 — mouth strip (all dark) */
+    16px 24px 0 0 #2a3850, 20px 24px 0 0 #2a3850, 24px 24px 0 0 #2a3850, 28px 24px 0 0 #2a3850,
+    32px 24px 0 0 #2a3850, 36px 24px 0 0 #2a3850, 40px 24px 0 0 #2a3850, 44px 24px 0 0 #2a3850,
+    /* Row 7 — upper body/neck (cols 5-10) */
+    20px 28px 0 0 #4a5a80, 24px 28px 0 0 #4a5a80, 28px 28px 0 0 #4a5a80,
+    32px 28px 0 0 #4a5a80, 36px 28px 0 0 #4a5a80, 40px 28px 0 0 #4a5a80,
+    /* Row 8 — body + wide arms (arms cols 3-4 and 11-12) */
+    12px 32px 0 0 #4a5a80, 16px 32px 0 0 #4a5a80,
+    20px 32px 0 0 #4a5a80, 24px 32px 0 0 #4a5a80, 28px 32px 0 0 #4a5a80,
+    32px 32px 0 0 #4a5a80, 36px 32px 0 0 #4a5a80, 40px 32px 0 0 #4a5a80,
+    44px 32px 0 0 #4a5a80, 48px 32px 0 0 #4a5a80,
+    /* Row 9 — body + arms (arm col3, body 4-11, arm 12) */
+    12px 36px 0 0 #4a5a80,
+    16px 36px 0 0 #4a5a80, 20px 36px 0 0 #4a5a80, 24px 36px 0 0 #4a5a80, 28px 36px 0 0 #4a5a80,
+    32px 36px 0 0 #4a5a80, 36px 36px 0 0 #4a5a80, 40px 36px 0 0 #4a5a80, 44px 36px 0 0 #4a5a80,
+    48px 36px 0 0 #4a5a80,
+    /* Row 10 — body (cols 4-11) */
+    16px 40px 0 0 #4a5a80, 20px 40px 0 0 #4a5a80, 24px 40px 0 0 #4a5a80, 28px 40px 0 0 #4a5a80,
+    32px 40px 0 0 #4a5a80, 36px 40px 0 0 #4a5a80, 40px 40px 0 0 #4a5a80, 44px 40px 0 0 #4a5a80,
+    /* Row 11 — lower body (cols 4-11) */
+    16px 44px 0 0 #4a5a80, 20px 44px 0 0 #4a5a80, 24px 44px 0 0 #4a5a80, 28px 44px 0 0 #4a5a80,
+    32px 44px 0 0 #4a5a80, 36px 44px 0 0 #4a5a80, 40px 44px 0 0 #4a5a80, 44px 44px 0 0 #4a5a80,
+    /* Row 12 — legs (left cols 4-6, right cols 9-11) */
+    16px 48px 0 0 #2a3050, 20px 48px 0 0 #2a3050, 24px 48px 0 0 #2a3050,
+    36px 48px 0 0 #2a3050, 40px 48px 0 0 #2a3050, 44px 48px 0 0 #2a3050,
+    /* Row 13 — legs narrow (left cols 4-5, right cols 10-11) */
+    16px 52px 0 0 #2a3050, 20px 52px 0 0 #2a3050,
+    40px 52px 0 0 #2a3050, 44px 52px 0 0 #2a3050,
+    /* Row 14 — feet */
+    16px 56px 0 0 #101520, 20px 56px 0 0 #101520,
+    40px 56px 0 0 #101520, 44px 56px 0 0 #101520;
+}
+
+/* Max blink — dim the cyan eyes */
+.sprite-max-blink {
+  box-shadow:
+    24px 16px 0 0 #1a4a58,
+    36px 16px 0 0 #1a4a58;
+  opacity: 0;
+  animation: blink 5s steps(1) infinite;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   MARK — Dark brown hair, blue shirt, dark pants
+   Colors: hair #3d1f08  skin #f5c5a3  eye #1a0a04
+           shirt #2563eb  pants #1e293b  shoe #0f172a
+   ════════════════════════════════════════════════════════════════ */
+.sprite-mark {
+  box-shadow:
+    /* Row 1 — hair top (cols 5-9) */
+    20px  4px 0 0 #3d1f08, 24px  4px 0 0 #3d1f08, 28px  4px 0 0 #3d1f08,
+    32px  4px 0 0 #3d1f08, 36px  4px 0 0 #3d1f08,
+    /* Row 2 — hair wide (cols 4-10) */
+    16px  8px 0 0 #3d1f08, 20px  8px 0 0 #3d1f08, 24px  8px 0 0 #3d1f08,
+    28px  8px 0 0 #3d1f08, 32px  8px 0 0 #3d1f08, 36px  8px 0 0 #3d1f08, 40px  8px 0 0 #3d1f08,
+    /* Row 3 — hair sides (4,10); face (5-9) */
+    16px 12px 0 0 #3d1f08, 40px 12px 0 0 #3d1f08,
+    20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
+    32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
+    /* Row 4 — hair sides (4,10); face (5,7,9); eyes (6,8) */
+    16px 16px 0 0 #3d1f08, 40px 16px 0 0 #3d1f08,
+    20px 16px 0 0 #f5c5a3, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f5c5a3,
+    24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
+    /* Row 5 — hair sides (4,10); face (5-9) */
+    16px 20px 0 0 #3d1f08, 40px 20px 0 0 #3d1f08,
+    20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
+    32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
+    /* Row 6 — chin hair (cols 5-9) */
+    20px 24px 0 0 #3d1f08, 24px 24px 0 0 #3d1f08, 28px 24px 0 0 #3d1f08,
+    32px 24px 0 0 #3d1f08, 36px 24px 0 0 #3d1f08,
+    /* Row 7 — shirt + arms (arms at 3,11; shirt 5-9) */
+    12px 28px 0 0 #2563eb,
+    20px 28px 0 0 #2563eb, 24px 28px 0 0 #2563eb, 28px 28px 0 0 #2563eb,
+    32px 28px 0 0 #2563eb, 36px 28px 0 0 #2563eb,
+    44px 28px 0 0 #2563eb,
+    /* Row 8 — shirt wide + arms (arms at 3,11; shirt 4-10) */
+    12px 32px 0 0 #2563eb,
+    16px 32px 0 0 #2563eb, 20px 32px 0 0 #2563eb, 24px 32px 0 0 #2563eb, 28px 32px 0 0 #2563eb,
+    32px 32px 0 0 #2563eb, 36px 32px 0 0 #2563eb, 40px 32px 0 0 #2563eb,
+    44px 32px 0 0 #2563eb,
+    /* Row 9 — shirt (cols 4-10) */
+    16px 36px 0 0 #2563eb, 20px 36px 0 0 #2563eb, 24px 36px 0 0 #2563eb, 28px 36px 0 0 #2563eb,
+    32px 36px 0 0 #2563eb, 36px 36px 0 0 #2563eb, 40px 36px 0 0 #2563eb,
+    /* Row 10 — shirt bottom (cols 4-10) */
+    16px 40px 0 0 #2563eb, 20px 40px 0 0 #2563eb, 24px 40px 0 0 #2563eb, 28px 40px 0 0 #2563eb,
+    32px 40px 0 0 #2563eb, 36px 40px 0 0 #2563eb, 40px 40px 0 0 #2563eb,
+    /* Row 11 — pants left (4-6) + right (8-10) */
+    16px 44px 0 0 #1e293b, 20px 44px 0 0 #1e293b, 24px 44px 0 0 #1e293b,
+    32px 44px 0 0 #1e293b, 36px 44px 0 0 #1e293b, 40px 44px 0 0 #1e293b,
+    /* Row 12 — pants */
+    16px 48px 0 0 #1e293b, 20px 48px 0 0 #1e293b, 24px 48px 0 0 #1e293b,
+    32px 48px 0 0 #1e293b, 36px 48px 0 0 #1e293b, 40px 48px 0 0 #1e293b,
+    /* Row 13 — pants narrowed (4-5, 9-10) */
+    16px 52px 0 0 #1e293b, 20px 52px 0 0 #1e293b,
+    36px 52px 0 0 #1e293b, 40px 52px 0 0 #1e293b,
+    /* Row 14 — shoes (4-5, 9-10) */
+    16px 56px 0 0 #0f172a, 20px 56px 0 0 #0f172a,
+    36px 56px 0 0 #0f172a, 40px 56px 0 0 #0f172a;
+}
+
+/* Mark blink */
+.sprite-mark-blink {
+  box-shadow:
+    24px 16px 0 0 #f5c5a3,
+    32px 16px 0 0 #f5c5a3;
+  opacity: 0;
+  animation: blink 5.5s steps(1) infinite;
+  animation-delay: -1.8s;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   JOHN — Blonde hair, green shirt, dark pants
+   Colors: hair #e8c84a  skin #f5c5a3  eye #1a0a04
+           shirt #16a34a  pants #1e293b  shoe #0f172a
+   ════════════════════════════════════════════════════════════════ */
+.sprite-john {
+  box-shadow:
+    /* Row 1 — hair top (cols 5-9) */
+    20px  4px 0 0 #e8c84a, 24px  4px 0 0 #e8c84a, 28px  4px 0 0 #e8c84a,
+    32px  4px 0 0 #e8c84a, 36px  4px 0 0 #e8c84a,
+    /* Row 2 — hair wide (cols 4-10) */
+    16px  8px 0 0 #e8c84a, 20px  8px 0 0 #e8c84a, 24px  8px 0 0 #e8c84a,
+    28px  8px 0 0 #e8c84a, 32px  8px 0 0 #e8c84a, 36px  8px 0 0 #e8c84a, 40px  8px 0 0 #e8c84a,
+    /* Row 3 — hair sides (4,10); face (5-9) */
+    16px 12px 0 0 #e8c84a, 40px 12px 0 0 #e8c84a,
+    20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
+    32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
+    /* Row 4 — hair sides (4,10); face (5,7,9); eyes (6,8) */
+    16px 16px 0 0 #e8c84a, 40px 16px 0 0 #e8c84a,
+    20px 16px 0 0 #f5c5a3, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f5c5a3,
+    24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
+    /* Row 5 — hair sides (4,10); face (5-9) */
+    16px 20px 0 0 #e8c84a, 40px 20px 0 0 #e8c84a,
+    20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
+    32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
+    /* Row 6 — chin hair (cols 5-9) */
+    20px 24px 0 0 #e8c84a, 24px 24px 0 0 #e8c84a, 28px 24px 0 0 #e8c84a,
+    32px 24px 0 0 #e8c84a, 36px 24px 0 0 #e8c84a,
+    /* Row 7 — shirt + arms */
+    12px 28px 0 0 #16a34a,
+    20px 28px 0 0 #16a34a, 24px 28px 0 0 #16a34a, 28px 28px 0 0 #16a34a,
+    32px 28px 0 0 #16a34a, 36px 28px 0 0 #16a34a,
+    44px 28px 0 0 #16a34a,
+    /* Row 8 — shirt wide + arms */
+    12px 32px 0 0 #16a34a,
+    16px 32px 0 0 #16a34a, 20px 32px 0 0 #16a34a, 24px 32px 0 0 #16a34a, 28px 32px 0 0 #16a34a,
+    32px 32px 0 0 #16a34a, 36px 32px 0 0 #16a34a, 40px 32px 0 0 #16a34a,
+    44px 32px 0 0 #16a34a,
+    /* Row 9 — shirt */
+    16px 36px 0 0 #16a34a, 20px 36px 0 0 #16a34a, 24px 36px 0 0 #16a34a, 28px 36px 0 0 #16a34a,
+    32px 36px 0 0 #16a34a, 36px 36px 0 0 #16a34a, 40px 36px 0 0 #16a34a,
+    /* Row 10 — shirt bottom */
+    16px 40px 0 0 #16a34a, 20px 40px 0 0 #16a34a, 24px 40px 0 0 #16a34a, 28px 40px 0 0 #16a34a,
+    32px 40px 0 0 #16a34a, 36px 40px 0 0 #16a34a, 40px 40px 0 0 #16a34a,
+    /* Row 11 — pants */
+    16px 44px 0 0 #1e293b, 20px 44px 0 0 #1e293b, 24px 44px 0 0 #1e293b,
+    32px 44px 0 0 #1e293b, 36px 44px 0 0 #1e293b, 40px 44px 0 0 #1e293b,
+    /* Row 12 — pants */
+    16px 48px 0 0 #1e293b, 20px 48px 0 0 #1e293b, 24px 48px 0 0 #1e293b,
+    32px 48px 0 0 #1e293b, 36px 48px 0 0 #1e293b, 40px 48px 0 0 #1e293b,
+    /* Row 13 — pants narrowed */
+    16px 52px 0 0 #1e293b, 20px 52px 0 0 #1e293b,
+    36px 52px 0 0 #1e293b, 40px 52px 0 0 #1e293b,
+    /* Row 14 — shoes */
+    16px 56px 0 0 #0f172a, 20px 56px 0 0 #0f172a,
+    36px 56px 0 0 #0f172a, 40px 56px 0 0 #0f172a;
+}
+
+/* John blink */
+.sprite-john-blink {
+  box-shadow:
+    24px 16px 0 0 #f5c5a3,
+    32px 16px 0 0 #f5c5a3;
+  opacity: 0;
+  animation: blink 4.8s steps(1) infinite;
+  animation-delay: -0.9s;
+}
+
+/* Shared blink keyframe */
+@keyframes blink {
+  0%, 85%       { opacity: 0; }
+  87%, 92%      { opacity: 1; }
+  94%, 100%     { opacity: 0; }
+}
+
+/* ── Coffee Machine Sprite ─────────────────────────────────────── */
+/* Updated to match dark theme */
+.sprite-coffee {
+  box-shadow:
+    /* water tank */
+     4px  0px 0 0 #1a6888,  8px  0px 0 0 #1a6888, 12px  0px 0 0 #1a6888,
+     4px  4px 0 0 #1a6888,  8px  4px 0 0 #1a6888, 12px  4px 0 0 #1a6888,
+    /* body */
+     4px  8px 0 0 #0e1828,  8px  8px 0 0 #0e1828, 12px  8px 0 0 #0e1828,
+     0px 12px 0 0 #0e1828,  4px 12px 0 0 #0e1828,  8px 12px 0 0 #0e1828, 12px 12px 0 0 #0e1828,
+     0px 16px 0 0 #0e1828,  4px 16px 0 0 #0e1828,  8px 16px 0 0 #00d4ff, 12px 16px 0 0 #0e1828,
+     0px 20px 0 0 #0e1828,  4px 20px 0 0 #0e1828,  8px 20px 0 0 #0e1828, 12px 20px 0 0 #0e1828,
+    /* nozzle */
+     4px 24px 0 0 #0e1828,  8px 24px 0 0 #0e1828,
+    /* cup */
+     4px 28px 0 0 #c8d8f0,  8px 28px 0 0 #c8d8f0,
+     0px 32px 0 0 #c8d8f0,  4px 32px 0 0 #c8d8f0,  8px 32px 0 0 #c8d8f0,
+     4px 36px 0 0 #c8d8f0,  8px 36px 0 0 #c8d8f0;
+}
+
+/* ── Coffee Area ─────────────────────────────────────────────── */
+.coffee-area {
+  position: absolute;
+  top: 24px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coffee-sprite-wrap {
+  width: 20px;
+  height: 44px;
+  position: relative;
+  overflow: visible;
+}
+
+.coffee-steam {
+  font-size: 11px;
+  color: rgba(0, 212, 255, 0.4);
+  animation: steamRise 2.4s ease-in-out infinite;
+  line-height: 1;
+  margin-bottom: 2px;
+  letter-spacing: -2px;
+  transition: color 0.5s;
+}
+
+@keyframes steamRise {
+  0%, 100% { opacity: 0.2; transform: translateY(0); }
+  50%       { opacity: 0.7; transform: translateY(-6px); }
+}
+
+.break-counter {
+  position: absolute;
+  bottom: 16px;
+  left: 68px;
+  width: 185px;
+  height: 32px;
+  background: var(--desk-face);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-top: 2px solid var(--desk-top);
+  border-radius: 4px;
+  transition: background 0.5s, border-color 0.5s;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   CONFERENCE TABLE & CHAIRS
+   ════════════════════════════════════════════════════════════════ */
+.conf-area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 180px;
+}
+
+.conf-table {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 80px;
+  background: rgba(10, 18, 40, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  border-top: 2px solid rgba(0, 212, 255, 0.4);
+  border-radius: 6px;
+  z-index: 2;
+  overflow: hidden;
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.6),
+    inset 0 0 20px rgba(0, 212, 255, 0.03);
+  transition: border-color 0.5s, box-shadow 0.5s;
+}
+
+.conf-table-shine {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 35px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+}
+
+.conf-chair {
+  position: absolute;
+  background: var(--chair-bg);
+  border: 1px solid rgba(0, 212, 255, 0.08);
+  border-radius: 3px;
+  z-index: 1;
+  transition: background 0.5s;
+}
+
+.cc-tl { width:26px; height:18px; top:24px;  left:22px; }
+.cc-tr { width:26px; height:18px; top:24px;  right:22px; }
+.cc-bl { width:26px; height:18px; bottom:24px; left:22px; }
+.cc-br { width:26px; height:18px; bottom:24px; right:22px; }
+.cc-l  { width:18px; height:26px; top:77px;  left:0; }
+.cc-r  { width:18px; height:26px; top:77px;  right:0; }
+
+/* ════════════════════════════════════════════════════════════════
+   GLASS DIALOG
+   ════════════════════════════════════════════════════════════════ */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000;
+}
+
+.dialog-box {
+  background: var(--dialog-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 212, 255, 0.22);
+  border-radius: 16px;
+  color: var(--dialog-fg);
+  font-family: var(--font-ui);
+  width: 480px;
+  max-width: 92vw;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(0, 212, 255, 0.07),
+    0 30px 100px rgba(0, 0, 0, 0.85);
+  animation: dialogIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: border-color 0.5s, box-shadow 0.5s;
+}
+
+@keyframes dialogIn {
+  from { opacity: 0; transform: scale(0.94) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+[data-theme="night"] .dialog-box {
+  border-color: rgba(168, 85, 247, 0.22);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(168, 85, 247, 0.07),
+    0 30px 100px rgba(0, 0, 0, 0.85);
+}
+
+/* Dialog Header */
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 20px 16px;
+}
+
+.dialog-portrait {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px var(--accent-glow);
+  transition: background 0.5s, border-color 0.5s, box-shadow 0.5s;
+}
+
+[data-theme="night"] .dialog-portrait {
+  background: var(--accent-glow);
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.dialog-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.dialog-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.dialog-role {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.dialog-status {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.dialog-status.online { color: #22c55e; }
+.dialog-status.busy   { color: #f59e0b; }
+.dialog-status.offline{ color: #6b7280; }
+
+.dialog-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.dialog-close:hover {
+  background: rgba(255, 60, 60, 0.15);
+  border-color: rgba(255, 60, 60, 0.3);
+  color: #ff6060;
+}
+
+/* Divider */
+.dialog-divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0, 212, 255, 0.2) 20%,
+    rgba(0, 212, 255, 0.2) 80%,
+    transparent);
+  margin: 0 20px;
+  transition: background 0.5s;
+}
+
+[data-theme="night"] .dialog-divider {
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(168, 85, 247, 0.2) 20%,
+    rgba(168, 85, 247, 0.2) 80%,
+    transparent);
+}
+
+/* Dialog body text */
+.dialog-body {
+  padding: 16px 20px 12px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+  white-space: pre-line;
+}
+
+/* Tags */
+.dialog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 20px 14px;
+}
+
+.dlg-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 3px 10px;
+  border-radius: 20px;
+  transition: background 0.5s, color 0.5s, border-color 0.5s;
+}
+
+[data-theme="night"] .dlg-tag {
+  color: var(--accent);
+  background: var(--accent-glow);
+  border-color: rgba(168, 85, 247, 0.2);
+}
+
+/* Action buttons */
+.dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 20px 16px;
+}
+
+.dlg-action {
+  padding: 8px 16px;
+  background: var(--glass);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  color: var(--accent);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s, transform 0.1s;
+}
+.dlg-action:hover {
+  background: var(--accent-glow);
+  border-color: rgba(0, 212, 255, 0.4);
+  transform: translateY(-1px);
+}
+.dlg-action:active { transform: translateY(0); }
+
+[data-theme="night"] .dlg-action {
+  border-color: rgba(168, 85, 247, 0.2);
+  color: var(--accent);
+}
+[data-theme="night"] .dlg-action:hover {
+  background: var(--accent-glow);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+/* Cursor row */
+.dialog-cursor-row {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 14px;
+}
+
+.dialog-cursor {
+  font-size: 12px;
+  color: var(--accent);
+  animation: cursorBob 1.2s ease-in-out infinite;
+  opacity: 0.6;
+  transition: color 0.5s;
+}
+
+@keyframes cursorBob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
+}
+
+/* ── Toast notification ──────────────────────────────────────── */
+#pixelToast {
+  position: fixed;
+  bottom: 56px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(10, 14, 26, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 10px;
+  color: #00d4ff;
+  padding: 10px 20px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 8000;
+  white-space: nowrap;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 212, 255, 0.1);
+}

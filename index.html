@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="day">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel HQ — Virtual Office</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══ HUD TOP BAR ═══ -->
+  <header class="hud hud-top">
+    <div class="hud-section hud-left">
+      <span class="hud-logo-dot"></span>
+      <span class="hud-title">PIXEL HQ</span>
+    </div>
+    <div class="hud-section hud-center">
+      <div class="hud-pill">
+        <span class="online-dot"></span>
+        <span id="onlineCount">3</span>/3&nbsp;ONLINE
+      </div>
+      <span class="hud-sep">|</span>
+      <span class="hud-clock" id="liveClock">00:00:00</span>
+    </div>
+    <div class="hud-section hud-right">
+      <button class="hud-btn" id="dayNightBtn" aria-label="Toggle day/night">
+        <span class="btn-icon">☀</span>
+        <span class="btn-label">DAY</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ OFFICE WORLD ═══ -->
+  <main class="office-world" id="officeWorld">
+    <div class="office-map" id="officeMap">
+
+      <!-- HALLWAY -->
+      <div class="room room-hallway">
+        <span class="room-label">HALLWAY</span>
+        <div class="hall-light hl-1"></div>
+        <div class="hall-light hl-2"></div>
+        <div class="hall-light hl-3"></div>
+      </div>
+
+      <!-- ══ MAIN OFFICE ══ -->
+      <div class="room room-main" id="roomMain">
+        <span class="room-label">MAIN&nbsp;OFFICE</span>
+        <div class="decor-plant" style="--px:8px;--py:8px">🌿</div>
+        <div class="decor-plant" style="--px:520px;--py:8px">🌿</div>
+        <div class="decor-plant" style="--px:8px;--py:256px">🌵</div>
+        <div class="decor-plant" style="--px:520px;--py:256px">🌵</div>
+
+        <!-- ▶ MAX DESK -->
+        <div class="desk-slot" data-member="max" id="deskMax" tabindex="0" role="button" aria-label="Max - AI Assistant">
+          <div class="desk-chair"></div>
+          <div class="char-sprite-wrap" id="spriteWrapMax">
+            <div class="char-status-dot status-online"></div>
+            <div class="sprite sprite-max"></div>
+            <div class="sprite sprite-max-blink"></div>
+          </div>
+          <div class="desk">
+            <div class="monitor"><div class="monitor-screen"><span class="screen-text">AI</span></div></div>
+          </div>
+          <div class="char-nametag">MAX</div>
+        </div>
+
+        <!-- ▶ MARK DESK -->
+        <div class="desk-slot" data-member="mark" id="deskMark" tabindex="0" role="button" aria-label="Mark - Team Member">
+          <div class="desk-chair"></div>
+          <div class="char-sprite-wrap" id="spriteWrapMark">
+            <div class="char-status-dot status-online"></div>
+            <div class="sprite sprite-mark"></div>
+            <div class="sprite sprite-mark-blink"></div>
+          </div>
+          <div class="desk">
+            <div class="monitor"><div class="monitor-screen"><span class="screen-text">··</span></div></div>
+          </div>
+          <div class="char-nametag">MARK</div>
+        </div>
+
+        <!-- ▶ JOHN DESK -->
+        <div class="desk-slot" data-member="john" id="deskJohn" tabindex="0" role="button" aria-label="John - Team Member">
+          <div class="desk-chair"></div>
+          <div class="char-sprite-wrap" id="spriteWrapJohn">
+            <div class="char-status-dot status-busy"></div>
+            <div class="sprite sprite-john"></div>
+            <div class="sprite sprite-john-blink"></div>
+          </div>
+          <div class="desk">
+            <div class="monitor"><div class="monitor-screen"><span class="screen-text">··</span></div></div>
+          </div>
+          <div class="char-nametag">JOHN</div>
+        </div>
+
+      </div><!-- /room-main -->
+
+      <!-- ══ MEETING ROOM ══ -->
+      <div class="room room-meeting" id="roomMeeting"
+           tabindex="0" role="button" aria-label="Meeting Room – click to join">
+        <span class="room-label">MEETING&nbsp;ROOM</span>
+        <div class="door-gap door-meet-top"></div>
+
+        <div class="room-badge">
+          <span class="occ-dot status-online"></span>
+          2&nbsp;IN&nbsp;ROOM
+        </div>
+
+        <div class="conf-area">
+          <div class="conf-chair cc-tl"></div>
+          <div class="conf-chair cc-tr"></div>
+          <div class="conf-table">
+            <div class="conf-table-shine"></div>
+          </div>
+          <div class="conf-chair cc-bl"></div>
+          <div class="conf-chair cc-br"></div>
+          <div class="conf-chair cc-l"></div>
+          <div class="conf-chair cc-r"></div>
+        </div>
+
+        <div class="room-hint">▶ JOIN MEETING</div>
+      </div>
+
+      <!-- ══ BREAK ROOM ══ -->
+      <div class="room room-break" id="roomBreak"
+           tabindex="0" role="button" aria-label="Break Room – click for coffee">
+        <span class="room-label">BREAK&nbsp;ROOM</span>
+        <div class="door-gap door-break-top"></div>
+
+        <div class="coffee-area">
+          <div class="coffee-steam" id="coffeeSmoke">≈≈</div>
+          <div class="coffee-sprite-wrap">
+            <div class="sprite sprite-coffee"></div>
+          </div>
+        </div>
+
+        <div class="break-counter"></div>
+        <div class="room-hint">☕ GET COFFEE</div>
+      </div>
+
+    </div><!-- /office-map -->
+  </main>
+
+  <!-- ═══ GLASS DIALOG ═══ -->
+  <div class="dialog-overlay" id="dialogOverlay" hidden aria-modal="true" role="dialog">
+    <div class="dialog-box" id="dialogBox" tabindex="-1">
+      <div class="dialog-header">
+        <div class="dialog-portrait" id="dialogPortrait"></div>
+        <div class="dialog-meta">
+          <div class="dialog-name" id="dialogName">—</div>
+          <div class="dialog-role" id="dialogRole">—</div>
+          <div class="dialog-status" id="dialogStatus"></div>
+        </div>
+        <button class="dialog-close" id="dialogClose" aria-label="Close">✕</button>
+      </div>
+      <div class="dialog-divider"></div>
+      <div class="dialog-body" id="dialogText">—</div>
+      <div class="dialog-tags" id="dialogTags"></div>
+      <div class="dialog-actions" id="dialogActions"></div>
+      <div class="dialog-cursor-row">
+        <span class="dialog-cursor">▼</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ HUD BOTTOM STATUS BAR ═══ -->
+  <footer class="hud hud-bottom">
+    <span class="status-text" id="statusText">▶&nbsp;Click a character or room to interact</span>
+    <span class="status-keys">[ESC]&nbsp;Close &nbsp;·&nbsp; [Click]&nbsp;Select</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
