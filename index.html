@@ -20,7 +20,7 @@
     <div class="hud-section hud-center">
       <div class="hud-pill">
         <span class="online-dot"></span>
-        <span id="onlineCount">5</span>/5&nbsp;ONLINE
+        <span id="onlineCount">6</span>/6&nbsp;ONLINE
       </div>
       <span class="hud-sep">|</span>
       <span class="hud-clock" id="liveClock">00:00:00</span>
@@ -70,11 +70,14 @@
               <div class="window-sun" id="windowSun"></div>
               <div class="window-cloud wc1"></div>
               <div class="window-cloud wc2"></div>
-              <!-- Doha skyline -->
+              <div class="window-cloud wc3"></div>
+              <!-- Doha skyline — enhanced -->
               <div class="window-building wb1"></div>
               <div class="window-building wb2"></div>
+              <div class="window-building wb-mid"></div>
               <div class="window-building wb3"></div>
               <div class="window-building wb-torch"></div>
+              <div class="window-building wb4b"></div>
               <div class="window-building wb5"></div>
             </div>
             <div class="window-div window-div-h"></div>
@@ -151,6 +154,24 @@
             <div class="desk-plant-sm">🌸</div>
           </div>
           <div class="char-nametag">AMANDA</div>
+        </div>
+
+        <!-- ▶ JAMES DESK -->
+        <div class="desk-slot" data-member="james" id="deskJames" tabindex="0" role="button" aria-label="James - Senior Developer">
+          <div class="char-shadow"></div>
+          <div class="desk-chair"></div>
+          <div class="char-sprite-wrap" id="spriteWrapJames">
+            <div class="char-status-dot status-online"></div>
+            <div class="sprite sprite-james"></div>
+            <div class="sprite sprite-james-blink"></div>
+          </div>
+          <div class="desk">
+            <div class="monitor"><div class="monitor-screen"><span class="screen-text">DEV</span></div></div>
+            <div class="desk-keyboard"></div>
+            <div class="desk-cup"></div>
+            <div class="desk-papers"></div>
+          </div>
+          <div class="char-nametag">JAMES</div>
         </div>
 
         <!-- Water cooler -->
@@ -372,6 +393,7 @@
             <div class="mm-dot mm-john" id="mmJohn" title="JOHN"></div>
             <div class="mm-dot mm-ron" id="mmRon" title="RON"></div>
             <div class="mm-dot mm-amanda" id="mmAmanda" title="AMANDA"></div>
+            <div class="mm-dot mm-james" id="mmJames" title="JAMES"></div>
           </div>
           <div class="mm-meeting"></div>
           <div class="mm-break"></div>
@@ -391,6 +413,7 @@
         <div class="dialog-meta">
           <div class="dialog-name" id="dialogName">—</div>
           <div class="dialog-role" id="dialogRole">—</div>
+          <div class="dialog-model" id="dialogModel"></div>
           <div class="dialog-status" id="dialogStatus"></div>
         </div>
         <button class="dialog-close" id="dialogClose" aria-label="Close">✕</button>

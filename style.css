@@ -1559,6 +1559,71 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   animation-delay: -1.2s;
 }
 
+/* ════════════════════════════════════════════════════════════════
+   JAMES — Dark skin, black hair, grey hoodie, developer look
+   Colors: hair #1a1a1a  skin #8B5E3C  eye #1a0a04
+           hoodie #4a4a4a  pants #2a2a3a  shoe #111
+   ════════════════════════════════════════════════════════════════ */
+.sprite-james {
+  box-shadow:
+    /* Row 1 — hair top */
+    20px  4px 0 0 #1a1a1a, 24px  4px 0 0 #1a1a1a, 28px  4px 0 0 #1a1a1a,
+    32px  4px 0 0 #1a1a1a, 36px  4px 0 0 #1a1a1a,
+    /* Row 2 — hair wide */
+    16px  8px 0 0 #1a1a1a, 20px  8px 0 0 #1a1a1a, 24px  8px 0 0 #1a1a1a,
+    28px  8px 0 0 #1a1a1a, 32px  8px 0 0 #1a1a1a, 36px  8px 0 0 #1a1a1a, 40px  8px 0 0 #1a1a1a,
+    /* Row 3 — hair sides, face */
+    16px 12px 0 0 #1a1a1a, 40px 12px 0 0 #1a1a1a,
+    20px 12px 0 0 #8B5E3C, 24px 12px 0 0 #8B5E3C, 28px 12px 0 0 #8B5E3C,
+    32px 12px 0 0 #8B5E3C, 36px 12px 0 0 #8B5E3C,
+    /* Row 4 — eyes */
+    16px 16px 0 0 #1a1a1a, 40px 16px 0 0 #1a1a1a,
+    20px 16px 0 0 #8B5E3C, 28px 16px 0 0 #8B5E3C, 36px 16px 0 0 #8B5E3C,
+    24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
+    /* Row 5 — face lower */
+    16px 20px 0 0 #1a1a1a, 40px 20px 0 0 #1a1a1a,
+    20px 20px 0 0 #8B5E3C, 24px 20px 0 0 #8B5E3C, 28px 20px 0 0 #8B5E3C,
+    32px 20px 0 0 #8B5E3C, 36px 20px 0 0 #8B5E3C,
+    /* Row 6 — smile */
+    20px 24px 0 0 #6B3F1A, 24px 24px 0 0 #8B5E3C, 28px 24px 0 0 #7a4a20,
+    32px 24px 0 0 #8B5E3C, 36px 24px 0 0 #6B3F1A,
+    /* Row 7 — hoodie collar */
+    12px 28px 0 0 #4a4a4a, 16px 28px 0 0 #4a4a4a, 20px 28px 0 0 #5a5a5a, 24px 28px 0 0 #4a4a4a,
+    28px 28px 0 0 #5a5a5a, 32px 28px 0 0 #4a4a4a, 36px 28px 0 0 #5a5a5a,
+    40px 28px 0 0 #4a4a4a, 44px 28px 0 0 #4a4a4a,
+    /* Row 8 — hoodie body */
+    12px 32px 0 0 #4a4a4a, 16px 32px 0 0 #4a4a4a, 20px 32px 0 0 #4a4a4a, 24px 32px 0 0 #4a4a4a,
+    28px 32px 0 0 #4a4a4a, 32px 32px 0 0 #4a4a4a, 36px 32px 0 0 #4a4a4a,
+    40px 32px 0 0 #4a4a4a, 44px 32px 0 0 #4a4a4a,
+    /* Row 9 — hoodie */
+    16px 36px 0 0 #4a4a4a, 20px 36px 0 0 #4a4a4a, 24px 36px 0 0 #4a4a4a, 28px 36px 0 0 #555,
+    32px 36px 0 0 #4a4a4a, 36px 36px 0 0 #4a4a4a, 40px 36px 0 0 #4a4a4a,
+    /* Row 10 — hoodie lower */
+    16px 40px 0 0 #4a4a4a, 20px 40px 0 0 #4a4a4a, 24px 40px 0 0 #4a4a4a, 28px 40px 0 0 #4a4a4a,
+    32px 40px 0 0 #4a4a4a, 36px 40px 0 0 #4a4a4a, 40px 40px 0 0 #4a4a4a,
+    /* Row 11 — pants */
+    16px 44px 0 0 #2a2a3a, 20px 44px 0 0 #2a2a3a, 24px 44px 0 0 #2a2a3a,
+    32px 44px 0 0 #2a2a3a, 36px 44px 0 0 #2a2a3a, 40px 44px 0 0 #2a2a3a,
+    /* Row 12 — pants */
+    16px 48px 0 0 #2a2a3a, 20px 48px 0 0 #2a2a3a, 24px 48px 0 0 #2a2a3a,
+    32px 48px 0 0 #2a2a3a, 36px 48px 0 0 #2a2a3a, 40px 48px 0 0 #2a2a3a,
+    /* Row 13 — pants narrowed */
+    16px 52px 0 0 #2a2a3a, 20px 52px 0 0 #2a2a3a,
+    36px 52px 0 0 #2a2a3a, 40px 52px 0 0 #2a2a3a,
+    /* Row 14 — shoes */
+    16px 56px 0 0 #111, 20px 56px 0 0 #111,
+    36px 56px 0 0 #111, 40px 56px 0 0 #111;
+}
+
+.sprite-james-blink {
+  box-shadow:
+    24px 16px 0 0 #8B5E3C,
+    32px 16px 0 0 #8B5E3C;
+  opacity: 0;
+  animation: blink 5s steps(1) infinite;
+  animation-delay: -2s;
+}
+
 /* Dialog portrait colors for Ron & Amanda */
 .dialog-portrait[data-char="ron"] {
   background: rgba(26, 58, 110, 0.18);
@@ -2451,7 +2516,8 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   100% { transform: translate(var(--dx2, 40px), var(--dy2, -100px)); opacity: 0; }
 }
 
-/* ── Mobile map scaling ──────────────────────────────────────── */
+/* ── Fullscreen / all-screen layout ─────────────────────────── */
+/* Always hide scrollbars; scale is handled by JS */
 @media (max-width: 960px), (max-height: 540px) {
   .notif-area { right: 8px; max-width: 240px; }
   .minimap    { display: none; }
@@ -2949,3 +3015,729 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   pointer-events: none;
   z-index: 25;
 }
+
+/* ================================================================
+   JAMES ENHANCEMENT — Fullscreen 16:9 + Premium Cinematic Style
+   ================================================================ */
+
+/* ── 1. FULLSCREEN 16:9 — office-world fills the grid row ────── */
+.office-world {
+  position: relative;
+  overflow: hidden;
+}
+
+/* The map stays 940×540 in layout; JS scales it via transform */
+.office-map {
+  flex-shrink: 0;
+  /* Deeper wall bg with subtle inner glow */
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.7),
+    0 0 0 3px rgba(0,0,0,0.4),
+    0 0 80px rgba(0,212,255,0.12),
+    inset 0 0 60px rgba(0,0,0,0.5),
+    inset 0 0 120px rgba(0,0,0,0.3);
+}
+
+[data-theme="night"] .office-map {
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.7),
+    0 0 0 3px rgba(0,0,0,0.4),
+    0 0 80px rgba(168,85,247,0.12),
+    inset 0 0 60px rgba(0,0,0,0.5),
+    inset 0 0 120px rgba(0,0,0,0.3);
+}
+
+/* ── 2. GLOBAL SCANLINE OVERLAY ───────────────────────────────── */
+/* Sits above everything, very low opacity */
+.office-map::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.055) 2px,
+    rgba(0,0,0,0.055) 4px
+  );
+  pointer-events: none;
+  z-index: 50;
+  animation: scanlineShift 8s linear infinite;
+}
+
+@keyframes scanlineShift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 40px; }
+}
+
+/* Keep vignette above scanlines */
+.office-map::after {
+  z-index: 51;
+}
+
+/* ── 3. HUD — Premium polish ──────────────────────────────────── */
+.hud-top {
+  border-bottom: 1px solid var(--hud-border);
+  box-shadow:
+    0 1px 0 rgba(0,0,0,0.8),
+    0 2px 30px rgba(0,0,0,0.7),
+    0 0 60px rgba(0,212,255,0.04);
+  background: rgba(4, 7, 16, 0.98);
+}
+
+[data-theme="night"] .hud-top {
+  box-shadow:
+    0 1px 0 rgba(0,0,0,0.8),
+    0 2px 30px rgba(0,0,0,0.7),
+    0 0 60px rgba(168,85,247,0.05);
+}
+
+.hud-bottom {
+  border-top: 1px solid var(--hud-border);
+  background: rgba(4, 7, 16, 0.98);
+  box-shadow: 0 -1px 0 rgba(0,0,0,0.6), 0 -4px 20px rgba(0,0,0,0.5);
+}
+
+/* Logo dot — stronger pulse with ring */
+.hud-logo-dot {
+  width: 10px;
+  height: 10px;
+  box-shadow:
+    0 0 0 0 var(--accent),
+    0 0 10px var(--accent),
+    0 0 20px var(--accent-glow);
+  animation: logoPulseRing 3s ease-in-out infinite;
+}
+
+@keyframes logoPulseRing {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 var(--accent), 0 0 10px var(--accent), 0 0 20px var(--accent-glow);
+  }
+  40% {
+    transform: scale(0.85);
+    box-shadow: 0 0 0 4px transparent, 0 0 6px var(--accent), 0 0 10px var(--accent-glow);
+  }
+  60% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 0 var(--accent), 0 0 14px var(--accent), 0 0 28px var(--accent-glow);
+  }
+}
+
+/* HUD pill — richer glow */
+.hud-pill {
+  border: 1px solid rgba(0,212,255,0.15);
+  box-shadow: 0 0 12px rgba(0,212,255,0.06), inset 0 0 8px rgba(0,0,0,0.3);
+}
+
+/* ── 4. ENHANCED ROOM FLOORS & GLOWS ─────────────────────────── */
+.room-main {
+  background: linear-gradient(
+    135deg,
+    rgba(8, 18, 38, 0.98) 0%,
+    rgba(11, 22, 44, 0.97) 50%,
+    rgba(8, 18, 38, 0.98) 100%
+  );
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.4), inset 0 0 30px rgba(0,212,255,0.015);
+}
+
+/* Ambient desk lamp pools — subtle radial glows under each desk */
+.desk-slot[data-member="max"]::before,
+.desk-slot[data-member="mark"]::before,
+.desk-slot[data-member="john"]::before,
+.desk-slot[data-member="ron"]::before,
+.desk-slot[data-member="amanda"]::before {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 50px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(0,212,255,0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s;
+}
+
+[data-theme="night"] .desk-slot[data-member="max"]::before,
+[data-theme="night"] .desk-slot[data-member="mark"]::before,
+[data-theme="night"] .desk-slot[data-member="john"]::before,
+[data-theme="night"] .desk-slot[data-member="ron"]::before,
+[data-theme="night"] .desk-slot[data-member="amanda"]::before {
+  background: radial-gradient(ellipse at 50% 100%, rgba(168,85,247,0.05) 0%, transparent 70%);
+}
+
+/* Stronger hover state — bolder glow border */
+.desk-slot:hover .desk {
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,0.4),
+    0 0 24px rgba(0,212,255,0.2),
+    0 0 48px rgba(0,212,255,0.08),
+    0 4px 20px rgba(0,0,0,0.4);
+  border-top-color: var(--accent);
+}
+
+[data-theme="night"] .desk-slot:hover .desk {
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,0.4),
+    0 0 24px rgba(168,85,247,0.2),
+    0 0 48px rgba(168,85,247,0.08),
+    0 4px 20px rgba(0,0,0,0.4);
+  border-top-color: var(--accent);
+}
+
+/* Room hover — stronger glow borders */
+.room-meeting:hover {
+  border-color: rgba(0,212,255,0.55) !important;
+  box-shadow:
+    inset 0 0 60px rgba(0,212,255,0.08),
+    0 0 0 2px rgba(0,212,255,0.35),
+    0 0 40px rgba(0,212,255,0.1) !important;
+}
+
+[data-theme="night"] .room-meeting:hover {
+  border-color: rgba(168,85,247,0.55) !important;
+  box-shadow:
+    inset 0 0 60px rgba(168,85,247,0.08),
+    0 0 0 2px rgba(168,85,247,0.35),
+    0 0 40px rgba(168,85,247,0.1) !important;
+}
+
+.room-break:hover {
+  border-color: rgba(0,212,255,0.45) !important;
+  box-shadow:
+    inset 0 0 40px rgba(0,212,255,0.07),
+    0 0 0 2px rgba(0,212,255,0.3),
+    0 0 30px rgba(0,212,255,0.08) !important;
+}
+
+.room-data-lab:hover {
+  border-color: rgba(0,212,255,0.55) !important;
+  box-shadow:
+    inset 0 0 60px rgba(0,212,255,0.07),
+    0 0 0 2px rgba(0,212,255,0.35),
+    0 0 40px rgba(0,212,255,0.1) !important;
+}
+
+/* ── 5. ENHANCED DOHA SKYLINE WINDOW ─────────────────────────── */
+/* Bigger, more atmospheric window */
+.wall-window {
+  top: 12px;
+  left: 160px;
+}
+
+.window-frame {
+  width: 132px;
+  height: 76px;
+  border: 2px solid rgba(0,212,255,0.4);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.5),
+    0 0 30px rgba(0,212,255,0.15),
+    0 0 60px rgba(0,212,255,0.06),
+    inset 0 0 40px rgba(135,206,235,0.06);
+}
+
+[data-theme="night"] .window-frame {
+  border-color: rgba(168,85,247,0.25);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.6),
+    0 0 30px rgba(168,85,247,0.12),
+    0 0 60px rgba(168,85,247,0.04),
+    inset 0 0 40px rgba(10,10,40,0.4);
+}
+
+/* More buildings in the skyline */
+.wb1 { left: 4px;  width: 16px; height: 36px; }
+.wb2 { left: 24px; width: 12px; height: 26px; }
+.wb3 { right: 0;   width: 26px; height: 42px; }
+.wb5 { right: 0;   width: 14px; height: 28px; }
+
+/* Extra window buildings via new elements */
+.wb-torch {
+  right: 28px;
+  width: 7px;
+  height: 52px;
+}
+
+.wb-torch::before {
+  width: 12px;
+  height: 12px;
+}
+
+/* Night building windows — more of them */
+[data-theme="night"] .wb1::after {
+  background: rgba(255,220,100,0.75);
+  box-shadow:
+    8px 0 0 rgba(255,220,100,0.5),
+    0 8px 0 rgba(100,180,255,0.65),
+    8px 8px 0 rgba(255,220,100,0.45),
+    0 16px 0 rgba(255,220,100,0.3),
+    8px 16px 0 rgba(100,180,255,0.4);
+}
+
+[data-theme="night"] .wb3::after {
+  background: rgba(255,220,100,0.7);
+  box-shadow:
+    8px 0 0 rgba(100,180,255,0.55),
+    0 8px 0 rgba(255,220,100,0.5),
+    8px 8px 0 rgba(100,180,255,0.45),
+    0 16px 0 rgba(255,220,100,0.35),
+    8px 16px 0 rgba(100,180,255,0.4),
+    0 24px 0 rgba(255,220,100,0.25);
+}
+
+/* City glow on horizon at night */
+[data-theme="night"] .window-sky::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background: linear-gradient(
+    0deg,
+    rgba(255,100,30,0.12) 0%,
+    rgba(200,80,20,0.06) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ── 6. PREMIUM NOTIFICATION TOASTS ─────────────────────────── */
+.notif-toast {
+  padding: 11px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,212,255,0.22);
+  background: linear-gradient(
+    135deg,
+    rgba(4, 8, 22, 0.97) 0%,
+    rgba(8, 14, 32, 0.95) 100%
+  );
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.6),
+    0 2px 8px rgba(0,0,0,0.4),
+    0 0 20px rgba(0,212,255,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  transform: translateX(20px) translateY(-4px);
+  transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1), transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.notif-toast.notif-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+[data-theme="night"] .notif-toast {
+  border-color: rgba(168,85,247,0.22);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.6),
+    0 2px 8px rgba(0,0,0,0.4),
+    0 0 20px rgba(168,85,247,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.notif-icon {
+  font-size: 16px;
+}
+
+.notif-text {
+  font-weight: 500;
+  font-size: 12px;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.01em;
+}
+
+/* ── 7. PREMIUM GLASS DIALOG ─────────────────────────────────── */
+.dialog-overlay {
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px) saturate(0.8);
+  -webkit-backdrop-filter: blur(6px) saturate(0.8);
+}
+
+.dialog-box {
+  background: linear-gradient(
+    160deg,
+    rgba(6,10,22,0.97) 0%,
+    rgba(10,16,34,0.96) 60%,
+    rgba(6,10,22,0.97) 100%
+  );
+  border: 1px solid rgba(0,212,255,0.28);
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.03) inset,
+    0 0 80px rgba(0,212,255,0.08),
+    0 40px 120px rgba(0,0,0,0.9);
+  animation: dialogIn 0.28s cubic-bezier(0.34,1.56,0.64,1);
+  /* Inner top highlight */
+  overflow: hidden;
+}
+
+.dialog-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,212,255,0.4) 30%,
+    rgba(0,212,255,0.4) 70%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+[data-theme="night"] .dialog-box {
+  border-color: rgba(168,85,247,0.28);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.03) inset,
+    0 0 80px rgba(168,85,247,0.08),
+    0 40px 120px rgba(0,0,0,0.9);
+}
+
+[data-theme="night"] .dialog-box::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168,85,247,0.4) 30%,
+    rgba(168,85,247,0.4) 70%,
+    transparent
+  );
+}
+
+.dialog-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: linear-gradient(90deg, #fff 60%, rgba(0,212,255,0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="night"] .dialog-name {
+  background: linear-gradient(90deg, #fff 60%, rgba(168,85,247,0.7));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.dialog-role {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.dialog-body {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.76);
+  padding: 16px 22px 12px;
+}
+
+/* Portrait enhancement */
+.dialog-portrait {
+  width: 76px;
+  height: 76px;
+  border-radius: 14px;
+  font-size: 34px;
+  animation: portraitGlow 3s ease-in-out infinite, portraitFloat 4s ease-in-out infinite;
+}
+
+@keyframes portraitFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
+}
+
+/* ── 8. ENHANCED AMBIENT LIGHTING ────────────────────────────── */
+/* Hallway — stronger ceiling light pools */
+.hall-light {
+  width: 160px;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at 50% 0,
+    rgba(0,212,255,0.10) 0%,
+    rgba(0,212,255,0.04) 40%,
+    transparent 85%
+  );
+}
+
+[data-theme="night"] .hall-light {
+  background: radial-gradient(
+    ellipse at 50% 0,
+    rgba(168,85,247,0.09) 0%,
+    rgba(168,85,247,0.03) 40%,
+    transparent 80%
+  );
+}
+
+/* Hallway sign glow intensified */
+.virdome-sign {
+  text-shadow:
+    0 0 4px var(--accent),
+    0 0 10px var(--accent),
+    0 0 22px rgba(0,212,255,0.7),
+    0 0 40px rgba(0,212,255,0.35);
+  font-size: 8px;
+}
+
+[data-theme="night"] .virdome-sign {
+  text-shadow:
+    0 0 4px #a855f7,
+    0 0 10px #a855f7,
+    0 0 22px rgba(168,85,247,0.7),
+    0 0 40px rgba(168,85,247,0.35);
+}
+
+/* Room meeting — ambient purple ceiling glow */
+.room-meeting {
+  background: linear-gradient(
+    160deg,
+    rgba(14,10,34,0.98) 0%,
+    rgba(18,12,40,0.97) 60%,
+    rgba(14,10,34,0.98) 100%
+  );
+}
+
+.room-meeting::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 60px;
+  background: radial-gradient(ellipse at 50% 0, rgba(124,58,237,0.07) 0%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Break room — warm amber glow */
+.room-break {
+  background: linear-gradient(
+    160deg,
+    rgba(16,12,8,0.98) 0%,
+    rgba(20,16,10,0.97) 100%
+  );
+}
+
+.room-break::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  width: 60px;
+  height: 40px;
+  background: radial-gradient(ellipse at center, rgba(245,158,11,0.07) 0%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── 9. MONITOR SCREEN GLOW ENHANCEMENT ─────────────────────── */
+.monitor-screen {
+  background: rgba(0,212,255,0.1);
+  box-shadow:
+    0 0 12px rgba(0,212,255,0.5),
+    0 0 24px rgba(0,212,255,0.2),
+    inset 0 0 14px rgba(0,212,255,0.18);
+}
+
+[data-theme="night"] .monitor-screen {
+  background: rgba(168,85,247,0.1);
+  box-shadow:
+    0 0 12px rgba(168,85,247,0.5),
+    0 0 24px rgba(168,85,247,0.2),
+    inset 0 0 14px rgba(168,85,247,0.18);
+}
+
+/* ── 10. PROJECTOR SCREEN ENHANCEMENT ────────────────────────── */
+.projector-screen {
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.5),
+    0 0 30px rgba(0,212,255,0.14),
+    0 0 60px rgba(0,212,255,0.06),
+    inset 0 0 40px rgba(0,212,255,0.05);
+  border-color: rgba(0,212,255,0.4);
+}
+
+/* ── 11. NAMETAG ENHANCEMENT ─────────────────────────────────── */
+.char-nametag {
+  font-size: 5.5px;
+  text-shadow:
+    0 0 10px var(--accent),
+    0 0 20px rgba(0,212,255,0.4),
+    1px 1px 0 rgba(0,0,0,0.95);
+  background: rgba(0,0,0,0.5);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,212,255,0.12);
+}
+
+/* ── 12. AI BADGE MAX ENHANCEMENT ───────────────────────────── */
+.ai-badge {
+  font-size: 5.5px;
+  box-shadow: 0 0 14px rgba(0,212,255,0.35), inset 0 0 6px rgba(0,212,255,0.1);
+  border-color: rgba(0,212,255,0.6);
+}
+
+/* ── 13. STATUS DOTS — Richer glow ───────────────────────────── */
+.status-online {
+  box-shadow: 0 0 0 2px rgba(34,197,94,0.2), 0 0 8px #22c55e, 0 0 18px rgba(34,197,94,0.4);
+}
+
+.status-busy {
+  box-shadow: 0 0 0 2px rgba(245,158,11,0.2), 0 0 8px #f59e0b, 0 0 18px rgba(245,158,11,0.4);
+}
+
+/* ── 14. MINIMAP ENHANCEMENT ─────────────────────────────────── */
+.minimap {
+  border: 1px solid rgba(0,212,255,0.3);
+  box-shadow:
+    0 6px 30px rgba(0,0,0,0.7),
+    0 0 20px rgba(0,212,255,0.06),
+    inset 0 0 20px rgba(0,0,0,0.4);
+}
+
+.mm-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: mmDotPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes mmDotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(0.75); opacity: 0.65; }
+}
+
+/* ── 15. ROOM LABELS — More visible ──────────────────────────── */
+.room-label {
+  font-size: 6.5px;
+  color: rgba(0,212,255,0.5);
+  text-shadow: 0 0 14px var(--accent), 0 0 28px rgba(0,212,255,0.3);
+}
+
+/* ── 16. TOAST (bottom center) ENHANCEMENT ───────────────────── */
+#pixelToast {
+  border-radius: 12px;
+  padding: 11px 24px;
+  font-weight: 600;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 10, 22, 0.96) 0%,
+    rgba(10, 16, 32, 0.94) 100%
+  );
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.7),
+    0 0 30px rgba(0,212,255,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,212,255,0.35);
+  transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1), transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+/* ── 17. DESK ACTION BUTTON UPGRADE ─────────────────────────── */
+.dlg-action {
+  border-radius: 10px;
+  font-size: 12.5px;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+}
+
+.dlg-action:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 22px rgba(0,212,255,0.18);
+}
+
+/* ── 18. WATER COOLER GLOW ───────────────────────────────────── */
+.wc-tank {
+  box-shadow:
+    inset 2px 2px 6px rgba(255,255,255,0.18),
+    0 0 12px rgba(0,212,255,0.14);
+}
+
+/* ── 19. FOUNDER CORNER ENHANCEMENT ─────────────────────────── */
+.founder-corner {
+  background: rgba(0,0,0,0.2);
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,215,0,0.1);
+}
+
+.fc-badge {
+  box-shadow: 0 0 16px rgba(255,215,0,0.25), inset 0 0 8px rgba(255,215,0,0.05);
+}
+
+/* ── 20. CONFERENCE TABLE ENHANCEMENT ───────────────────────── */
+.conf-table {
+  border: 1px solid rgba(0,212,255,0.22);
+  box-shadow:
+    0 6px 40px rgba(0,0,0,0.7),
+    0 0 30px rgba(0,212,255,0.06),
+    inset 0 0 30px rgba(0,212,255,0.04);
+}
+
+/* Scan flicker on projector for life */
+.projector-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,212,255,0.04) 0%,
+    transparent 30%,
+    rgba(0,212,255,0.02) 60%,
+    transparent 100%
+  );
+  animation: projFlicker 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes projFlicker {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+/* ── END JAMES ENHANCEMENTS ──────────────────────────────────── */
+
+/* ── Extra Doha skyline buildings ───────────────────────────── */
+.wb-mid {
+  position: absolute;
+  bottom: 0;
+  left: 44px;
+  width: 10px;
+  height: 18px;
+  background: rgba(15,25,45,0.75);
+  transition: background 0.6s;
+}
+[data-theme="night"] .wb-mid { background: rgba(5,8,18,0.92); }
+
+.wb4b {
+  position: absolute;
+  bottom: 0;
+  right: 14px;
+  width: 8px;
+  height: 20px;
+  background: rgba(15,25,45,0.75);
+  transition: background 0.6s;
+}
+[data-theme="night"] .wb4b { background: rgba(5,8,18,0.92); }
+
+/* Third cloud (extra drift) */
+.wc3 {
+  width: 14px;
+  top: 6px;
+  left: 60px;
+  height: 5px;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.45);
+  position: absolute;
+  animation: cloudDrift 30s linear infinite;
+  animation-delay: -6s;
+  transition: background 0.6s;
+}
+[data-theme="night"] .wc3 { background: rgba(120,120,160,0.18); }

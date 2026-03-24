@@ -476,7 +476,7 @@ document.querySelectorAll('.char-sprite-wrap').forEach((wrap, i) => {
   }
 })();
 
-/* ── Mobile map scaling ─────────────────────────────────────── */
+/* ── Fullscreen 16:9 Scaling ─────────────────────────────────── */
 function scalemap() {
   const map   = document.getElementById('officeMap');
   const world = document.getElementById('officeWorld');
@@ -485,14 +485,14 @@ function scalemap() {
   const ww = world.clientWidth;
   const wh = world.clientHeight;
 
-  if (ww < 960 || wh < 540) {
-    const s = Math.min((ww / 960), (wh / 540)) * 0.97;
-    map.style.transform       = `scale(${s})`;
-    map.style.transformOrigin = 'center center';
-  } else {
-    map.style.transform       = '';
-    map.style.transformOrigin = '';
-  }
+  // Always scale to fill available space, maintaining 940×540 (16:9) ratio
+  // Math.min ensures neither axis overflows — the map fills as much as possible
+  const scaleX = ww / 940;
+  const scaleY = wh / 540;
+  const s = Math.min(scaleX, scaleY);
+
+  map.style.transform       = `scale(${s})`;
+  map.style.transformOrigin = 'center center';
 }
 
 scalemap();
