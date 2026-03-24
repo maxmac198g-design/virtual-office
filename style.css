@@ -1,76 +1,84 @@
 /* ================================================================
-   PIXEL HQ — Virtual Office  (Enhanced Edition)
+   VIRDOME HQ — RETRO PIXEL CYBERPUNK EDITION
+   Neon cyan + magenta + amber on deep purple-black void
    ================================================================ */
 
-/* ── Tokens ──────────────────────────────────────────────────── */
+/* ── Tokens — Cyberpunk Palette ──────────────────────────────── */
 :root {
-  /* Background */
-  --bg:           #0d1117;
-  --wall-bg:      #070b14;
-  --wall-border:  rgba(0, 212, 255, 0.18);
+  /* Core darkness */
+  --bg:           #0a0010;
+  --wall-bg:      #050008;
+  --wall-border:  rgba(0, 255, 229, 0.15);
 
-  /* Room floors */
-  --floor-main:   rgba(11, 22, 44, 0.97);
-  --floor-meet:   rgba(14, 10, 34, 0.97);
-  --floor-break:  rgba(16, 14, 10, 0.97);
-  --floor-hall:   rgba(8, 14, 26, 0.97);
+  /* Room floors with grid tint */
+  --floor-main:   #0d0015;
+  --floor-meet:   #0c0018;
+  --floor-break:  #0d0010;
+  --floor-hall:   #0a000f;
+  --floor-data:   #050008;
 
-  /* Accents */
-  --accent:       #00d4ff;
-  --accent-glow:  rgba(0, 212, 255, 0.15);
-  --purple:       #7c3aed;
-  --purple-glow:  rgba(124, 58, 237, 0.15);
+  /* Neon accents — primary */
+  --neon-cyan:    #00ffe5;
+  --neon-cyan-glow: rgba(0, 255, 229, 0.3);
+  --neon-magenta: #ff00aa;
+  --neon-mag-glow: rgba(255, 0, 170, 0.25);
+  --neon-amber:   #ffcc00;
+  --neon-amb-glow: rgba(255, 204, 0, 0.2);
 
-  /* Glass surfaces */
-  --glass:        rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  /* Accent (default cyan) */
+  --accent:       #00ffe5;
+  --accent-glow:  rgba(0, 255, 229, 0.2);
+
+  /* Grid & borders */
+  --grid-line:    rgba(0, 255, 200, 0.06);
+  --glass:        rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(0, 255, 229, 0.1);
 
   /* Furniture */
-  --desk-face:    #0b1628;
-  --desk-top:     rgba(0, 212, 255, 0.55);
-  --chair-bg:     #080f1e;
-  --monitor-case: #050d18;
-  --screen-fg:    #00d4ff;
+  --desk-face:    #080012;
+  --desk-top:     rgba(0, 255, 229, 0.4);
+  --chair-bg:     #060010;
+  --monitor-case: #040008;
+  --screen-fg:    #00ffe5;
 
-  /* Text */
-  --room-label:   rgba(0, 212, 255, 0.42);
+  /* Text & labels */
+  --room-label:   rgba(0, 255, 229, 0.35);
 
   /* HUD */
-  --hud-bg:       rgba(6, 9, 18, 0.96);
-  --hud-border:   rgba(0, 212, 255, 0.12);
+  --hud-bg:       rgba(5, 0, 15, 0.97);
+  --hud-border:   rgba(0, 255, 229, 0.12);
   --hud-fg:       rgba(255, 255, 255, 0.88);
-  --hud-accent:   #00d4ff;
+  --hud-accent:   #00ffe5;
 
   /* Dialog */
-  --dialog-bg:    rgba(8, 12, 24, 0.95);
+  --dialog-bg:    rgba(5, 0, 20, 0.95);
   --dialog-fg:    #ffffff;
-
-  /* Tile pattern */
-  --tile-line:    rgba(0, 212, 255, 0.045);
 
   /* Fonts */
   --font-ui:      'Inter', system-ui, -apple-system, sans-serif;
   --font-pixel:   'Press Start 2P', monospace;
 }
 
-/* Night theme — deep purple vibe */
+/* Night theme — violet/purple neon instead of cyan */
 [data-theme="night"] {
-  --bg:           #07050f;
-  --wall-bg:      #04030a;
-  --wall-border:  rgba(168, 85, 247, 0.18);
-  --floor-main:   rgba(10, 6, 26, 0.97);
-  --floor-meet:   rgba(12, 6, 28, 0.97);
-  --floor-break:  rgba(10, 6, 8, 0.97);
-  --floor-hall:   rgba(6, 4, 16, 0.97);
-  --accent:       #a855f7;
-  --accent-glow:  rgba(168, 85, 247, 0.15);
-  --room-label:   rgba(168, 85, 247, 0.42);
-  --hud-border:   rgba(168, 85, 247, 0.12);
-  --hud-accent:   #a855f7;
-  --screen-fg:    #c084fc;
-  --wall-border:  rgba(168, 85, 247, 0.15);
-  --tile-line:    rgba(168, 85, 247, 0.04);
-  --desk-top:     rgba(168, 85, 247, 0.5);
+  --bg:           #030008;
+  --wall-bg:      #020005;
+  --wall-border:  rgba(191, 95, 255, 0.15);
+  --floor-main:   #0a0010;
+  --floor-meet:   #0a0015;
+  --floor-break:  #0a000f;
+  --floor-hall:   #060008;
+  --floor-data:   #040006;
+  --accent:       #bf5fff;
+  --accent-glow:  rgba(191, 95, 255, 0.2);
+  --room-label:   rgba(191, 95, 255, 0.35);
+  --hud-border:   rgba(191, 95, 255, 0.12);
+  --hud-accent:   #bf5fff;
+  --screen-fg:    #bf5fff;
+  --grid-line:    rgba(191, 95, 255, 0.04);
+  --wall-border:  rgba(191, 95, 255, 0.15);
+  --desk-top:     rgba(191, 95, 255, 0.35);
+  --glass-border: rgba(191, 95, 255, 0.1);
 }
 
 /* ── Reset ───────────────────────────────────────────────────── */
@@ -277,7 +285,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transition: background 0.5s ease;
 }
 
-/* Floor tile grid lines */
+/* Floor tile grid lines — cyberpunk neon grid */
 .room::before {
   content: '';
   position: absolute;
@@ -285,9 +293,9 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   pointer-events: none;
   z-index: 0;
   background-image:
-    linear-gradient(var(--tile-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--tile-line) 1px, transparent 1px);
-  background-size: 24px 24px;
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 20px 20px;
   transition: background-image 0.5s ease;
 }
 
@@ -1063,66 +1071,63 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   MAX — Robot: steel head, antenna with red LED, glowing cyan eyes,
-         blue-grey body with chest panel circuit lines
-   Colors: antenna #c8d0e0  head #9aadc0  border #2a3850
-           eye #00d4ff  body #4a5a80  circuit #2a7a9a
-           leg #2a3050  foot #101520  LED-red #ff3040
+   MAX — Sleek Robot: visor/eye-slit (cyan bar), antenna with LED,
+         dark metallic body with glowing circuit lines
+   Colors: head #1a2a3a  visor #00ffe5  body #0d1e2e  
+           circuits #00ffe5  LED-red #ff0040  leg #0a1420  foot #050a10
    ════════════════════════════════════════════════════════════════ */
 .sprite-max {
   box-shadow:
-    /* Row 0 — antenna stem */
-    28px  0px 0 0 #c8d0e0, 32px  0px 0 0 #c8d0e0,
-    /* Row 1 — antenna base */
-    24px  4px 0 0 #c8d0e0, 28px  4px 0 0 #c8d0e0, 32px  4px 0 0 #c8d0e0, 36px  4px 0 0 #c8d0e0,
-    /* Row 2 — head top */
-    16px  8px 0 0 #9aadc0, 20px  8px 0 0 #9aadc0, 24px  8px 0 0 #9aadc0, 28px  8px 0 0 #9aadc0,
-    32px  8px 0 0 #9aadc0, 36px  8px 0 0 #9aadc0, 40px  8px 0 0 #9aadc0, 44px  8px 0 0 #9aadc0,
-    /* Row 3 — head */
-    16px 12px 0 0 #2a3850, 44px 12px 0 0 #2a3850,
-    20px 12px 0 0 #9aadc0, 24px 12px 0 0 #9aadc0, 28px 12px 0 0 #9aadc0,
-    32px 12px 0 0 #9aadc0, 36px 12px 0 0 #9aadc0, 40px 12px 0 0 #9aadc0,
-    /* Row 4 — eyes row */
-    16px 16px 0 0 #2a3850, 44px 16px 0 0 #2a3850,
-    20px 16px 0 0 #9aadc0, 28px 16px 0 0 #9aadc0, 32px 16px 0 0 #9aadc0, 40px 16px 0 0 #9aadc0,
-    24px 16px 0 0 #00d4ff, 36px 16px 0 0 #00d4ff,
+    /* Row 0 — antenna top tip (blinking red LED) */
+    28px  0px 0 0 #ff0040, 32px  0px 0 0 #ff0040,
+    /* Row 1 — antenna stem */
+    28px  4px 0 0 #1a2a3a, 32px  4px 0 0 #1a2a3a,
+    /* Row 2 — antenna base + head start */
+    24px  8px 0 0 #1a2a3a, 28px  8px 0 0 #1a2a3a, 32px  8px 0 0 #1a2a3a, 36px  8px 0 0 #1a2a3a,
+    /* Row 3 — head wide */
+    16px 12px 0 0 #1a2a3a, 20px 12px 0 0 #1a2a3a, 24px 12px 0 0 #1a2a3a, 28px 12px 0 0 #1a2a3a,
+    32px 12px 0 0 #1a2a3a, 36px 12px 0 0 #1a2a3a, 40px 12px 0 0 #1a2a3a, 44px 12px 0 0 #1a2a3a,
+    /* Row 4 — visor eye-slit (cyan bar across face) */
+    16px 16px 0 0 #0d1e2e, 44px 16px 0 0 #0d1e2e,
+    20px 16px 0 0 #00ffe5, 24px 16px 0 0 #00ffe5, 28px 16px 0 0 #00ffe5,
+    32px 16px 0 0 #00ffe5, 36px 16px 0 0 #00ffe5, 40px 16px 0 0 #00ffe5,
     /* Row 5 — head lower */
-    16px 20px 0 0 #2a3850, 44px 20px 0 0 #2a3850,
-    20px 20px 0 0 #9aadc0, 24px 20px 0 0 #9aadc0, 28px 20px 0 0 #9aadc0,
-    32px 20px 0 0 #9aadc0, 36px 20px 0 0 #9aadc0, 40px 20px 0 0 #9aadc0,
-    /* Row 6 — mouth/chin (dark strip with 2 lighter pixels for teeth) */
-    16px 24px 0 0 #2a3850, 20px 24px 0 0 #2a3850, 24px 24px 0 0 #3a5870,
-    28px 24px 0 0 #3a5870, 32px 24px 0 0 #3a5870, 36px 24px 0 0 #3a5870,
-    40px 24px 0 0 #2a3850, 44px 24px 0 0 #2a3850,
-    /* Row 7 — neck/upper body */
-    20px 28px 0 0 #4a5a80, 24px 28px 0 0 #4a5a80, 28px 28px 0 0 #4a5a80,
-    32px 28px 0 0 #4a5a80, 36px 28px 0 0 #4a5a80, 40px 28px 0 0 #4a5a80,
-    /* Row 8 — body wide + arms */
-    12px 32px 0 0 #4a5a80, 16px 32px 0 0 #4a5a80,
-    20px 32px 0 0 #4a5a80, 24px 32px 0 0 #4a5a80, 28px 32px 0 0 #2a7a9a,
-    32px 32px 0 0 #4a5a80, 36px 32px 0 0 #4a5a80, 40px 32px 0 0 #4a5a80,
-    44px 32px 0 0 #4a5a80, 48px 32px 0 0 #4a5a80,
-    /* Row 9 — body + arms (circuit line on chest) */
-    12px 36px 0 0 #4a5a80,
-    16px 36px 0 0 #4a5a80, 20px 36px 0 0 #4a5a80, 24px 36px 0 0 #2a7a9a,
-    28px 36px 0 0 #4a5a80, 32px 36px 0 0 #4a5a80, 36px 36px 0 0 #2a7a9a,
-    40px 36px 0 0 #4a5a80, 44px 36px 0 0 #4a5a80,
-    48px 36px 0 0 #4a5a80,
-    /* Row 10 — body (chest LED pixel) */
-    16px 40px 0 0 #4a5a80, 20px 40px 0 0 #4a5a80, 24px 40px 0 0 #4a5a80, 28px 40px 0 0 #2a7a9a,
-    32px 40px 0 0 #4a5a80, 36px 40px 0 0 #4a5a80, 40px 40px 0 0 #4a5a80, 44px 40px 0 0 #4a5a80,
+    16px 20px 0 0 #1a2a3a, 44px 20px 0 0 #1a2a3a,
+    20px 20px 0 0 #1a2a3a, 24px 20px 0 0 #1a2a3a, 28px 20px 0 0 #0d1e2e,
+    32px 20px 0 0 #0d1e2e, 36px 20px 0 0 #1a2a3a, 40px 20px 0 0 #1a2a3a,
+    /* Row 6 — mouth plate (dark metal) */
+    16px 24px 0 0 #0d1e2e, 20px 24px 0 0 #0d1e2e, 24px 24px 0 0 #0d1e2e,
+    28px 24px 0 0 #0a1420, 32px 24px 0 0 #0a1420, 36px 24px 0 0 #0d1e2e,
+    40px 24px 0 0 #0d1e2e, 44px 24px 0 0 #0d1e2e,
+    /* Row 7 — neck + upper body */
+    20px 28px 0 0 #0d1e2e, 24px 28px 0 0 #0d1e2e, 28px 28px 0 0 #0d1e2e,
+    32px 28px 0 0 #0d1e2e, 36px 28px 0 0 #0d1e2e, 40px 28px 0 0 #0d1e2e,
+    /* Row 8 — body wide + arms (circuit line) */
+    12px 32px 0 0 #0d1e2e, 16px 32px 0 0 #0d1e2e,
+    20px 32px 0 0 #0d1e2e, 24px 32px 0 0 #0d1e2e, 28px 32px 0 0 #00ffe5,
+    32px 32px 0 0 #0d1e2e, 36px 32px 0 0 #0d1e2e, 40px 32px 0 0 #0d1e2e,
+    44px 32px 0 0 #0d1e2e, 48px 32px 0 0 #0d1e2e,
+    /* Row 9 — body (vertical circuit line) */
+    12px 36px 0 0 #0d1e2e,
+    16px 36px 0 0 #0d1e2e, 20px 36px 0 0 #0d1e2e, 24px 36px 0 0 #00ffe5,
+    28px 36px 0 0 #0d1e2e, 32px 36px 0 0 #0d1e2e, 36px 36px 0 0 #00ffe5,
+    40px 36px 0 0 #0d1e2e, 44px 36px 0 0 #0d1e2e,
+    48px 36px 0 0 #0d1e2e,
+    /* Row 10 — body middle (chest panel) */
+    16px 40px 0 0 #0d1e2e, 20px 40px 0 0 #0d1e2e, 24px 40px 0 0 #0d1e2e, 28px 40px 0 0 #00ffe5,
+    32px 40px 0 0 #0d1e2e, 36px 40px 0 0 #0d1e2e, 40px 40px 0 0 #0d1e2e, 44px 40px 0 0 #0d1e2e,
     /* Row 11 — lower body */
-    16px 44px 0 0 #4a5a80, 20px 44px 0 0 #4a5a80, 24px 44px 0 0 #4a5a80, 28px 44px 0 0 #4a5a80,
-    32px 44px 0 0 #4a5a80, 36px 44px 0 0 #4a5a80, 40px 44px 0 0 #4a5a80, 44px 44px 0 0 #4a5a80,
+    16px 44px 0 0 #0d1e2e, 20px 44px 0 0 #0d1e2e, 24px 44px 0 0 #0d1e2e, 28px 44px 0 0 #0d1e2e,
+    32px 44px 0 0 #0d1e2e, 36px 44px 0 0 #0d1e2e, 40px 44px 0 0 #0d1e2e, 44px 44px 0 0 #0d1e2e,
     /* Row 12 — legs */
-    16px 48px 0 0 #2a3050, 20px 48px 0 0 #2a3050, 24px 48px 0 0 #2a3050,
-    36px 48px 0 0 #2a3050, 40px 48px 0 0 #2a3050, 44px 48px 0 0 #2a3050,
+    16px 48px 0 0 #0a1420, 20px 48px 0 0 #0a1420, 24px 48px 0 0 #0a1420,
+    36px 48px 0 0 #0a1420, 40px 48px 0 0 #0a1420, 44px 48px 0 0 #0a1420,
     /* Row 13 — legs narrow */
-    16px 52px 0 0 #2a3050, 20px 52px 0 0 #2a3050,
-    40px 52px 0 0 #2a3050, 44px 52px 0 0 #2a3050,
+    16px 52px 0 0 #0a1420, 20px 52px 0 0 #0a1420,
+    40px 52px 0 0 #0a1420, 44px 52px 0 0 #0a1420,
     /* Row 14 — feet */
-    16px 56px 0 0 #101520, 20px 56px 0 0 #101520,
-    40px 56px 0 0 #101520, 44px 56px 0 0 #101520;
+    16px 56px 0 0 #050a10, 20px 56px 0 0 #050a10,
+    40px 56px 0 0 #050a10, 44px 56px 0 0 #050a10;
 }
 
 /* Max antenna LED blink (red light) — overlays top antenna pixel */
@@ -1156,66 +1161,63 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   MARK — Dark brown hair (side-parted), blue collared shirt,
-          detailed face with eyebrows, white eyes with dark pupils
-   Colors: hair #3d1f08  skin #f5c5a3  eye-white #f0f0f0
-           pupil #1a0a04  eyebrow #2a1004  shirt #2563eb  collar #1d4ed8
-           pants #1e293b  shoe #0f172a
+   MARK — Creative: dark hair with glowing magenta tips, artistic,
+          paint-splatter vibes on jacket
+   Colors: hair #1a0a2e  hair-tips #ff00aa  skin #f5c5a3  
+           smock #2d0a4e  paint-splatter #ff00aa (magenta)
+           pupils #1a0a04  pants #2a1a0a  shoes #0f0a14
    ════════════════════════════════════════════════════════════════ */
 .sprite-mark {
   box-shadow:
-    /* Row 1 — hair top (side parted: cols 5-9, more left) */
-    20px  4px 0 0 #3d1f08, 24px  4px 0 0 #3d1f08, 28px  4px 0 0 #3d1f08,
-    32px  4px 0 0 #3d1f08, 36px  4px 0 0 #3d1f08,
-    /* Row 2 — hair wide */
-    16px  8px 0 0 #3d1f08, 20px  8px 0 0 #3d1f08, 24px  8px 0 0 #3d1f08,
-    28px  8px 0 0 #3d1f08, 32px  8px 0 0 #3d1f08, 36px  8px 0 0 #3d1f08, 40px  8px 0 0 #3d1f08,
+    /* Row 1 — hair top (dark purple base) */
+    20px  4px 0 0 #1a0a2e, 24px  4px 0 0 #1a0a2e, 28px  4px 0 0 #1a0a2e,
+    32px  4px 0 0 #1a0a2e, 36px  4px 0 0 #1a0a2e,
+    /* Row 2 — hair wide with tips */
+    16px  8px 0 0 #1a0a2e, 20px  8px 0 0 #ff00aa, 24px  8px 0 0 #1a0a2e,
+    28px  8px 0 0 #1a0a2e, 32px  8px 0 0 #1a0a2e, 36px  8px 0 0 #ff00aa, 40px  8px 0 0 #1a0a2e,
     /* Row 3 — hair sides, face */
-    16px 12px 0 0 #3d1f08, 40px 12px 0 0 #3d1f08,
+    16px 12px 0 0 #1a0a2e, 40px 12px 0 0 #1a0a2e,
     20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
     32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
-    /* Row 3b — eyebrows */
-    20px 12px 0 0 #2a1004, 24px 12px 0 0 #2a1004,
-    32px 12px 0 0 #2a1004, 36px 12px 0 0 #2a1004,
-    /* Row 4 — eyes row (white + pupil) */
-    16px 16px 0 0 #3d1f08, 40px 16px 0 0 #3d1f08,
+    /* Row 4 — eyes (dreamy expression) */
+    16px 16px 0 0 #1a0a2e, 40px 16px 0 0 #1a0a2e,
     20px 16px 0 0 #f0f0f0, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f0f0f0,
     24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
     /* Row 5 — face lower */
-    16px 20px 0 0 #3d1f08, 40px 20px 0 0 #3d1f08,
+    16px 20px 0 0 #1a0a2e, 40px 20px 0 0 #1a0a2e,
     20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
     32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
-    /* Row 6 — smile + chin */
-    20px 24px 0 0 #3d1f08, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #e8a882,
-    32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #3d1f08,
-    /* Row 7 — collar + shirt */
-    12px 28px 0 0 #2563eb,
-    20px 28px 0 0 #1d4ed8, 24px 28px 0 0 #2563eb, 28px 28px 0 0 #1d4ed8,
-    32px 28px 0 0 #2563eb, 36px 28px 0 0 #1d4ed8,
-    44px 28px 0 0 #2563eb,
-    /* Row 8 — shirt + arms */
-    12px 32px 0 0 #2563eb,
-    16px 32px 0 0 #2563eb, 20px 32px 0 0 #2563eb, 24px 32px 0 0 #2563eb, 28px 32px 0 0 #2563eb,
-    32px 32px 0 0 #2563eb, 36px 32px 0 0 #2563eb, 40px 32px 0 0 #2563eb,
-    44px 32px 0 0 #2563eb,
-    /* Row 9 — shirt */
-    16px 36px 0 0 #2563eb, 20px 36px 0 0 #2563eb, 24px 36px 0 0 #2563eb, 28px 36px 0 0 #2563eb,
-    32px 36px 0 0 #2563eb, 36px 36px 0 0 #2563eb, 40px 36px 0 0 #2563eb,
-    /* Row 10 — shirt bottom (button pixels) */
-    16px 40px 0 0 #2563eb, 20px 40px 0 0 #2563eb, 24px 40px 0 0 #2563eb, 28px 40px 0 0 #1e3a8a,
-    32px 40px 0 0 #2563eb, 36px 40px 0 0 #2563eb, 40px 40px 0 0 #2563eb,
+    /* Row 6 — creative smile */
+    20px 24px 0 0 #1a0a2e, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #e8a882,
+    32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #1a0a2e,
+    /* Row 7 — smock collar (dark purple artistic jacket) */
+    12px 28px 0 0 #2d0a4e,
+    20px 28px 0 0 #2d0a4e, 24px 28px 0 0 #2d0a4e, 28px 28px 0 0 #2d0a4e,
+    32px 28px 0 0 #2d0a4e, 36px 28px 0 0 #2d0a4e,
+    44px 28px 0 0 #2d0a4e,
+    /* Row 8 — smock + paint splatters */
+    12px 32px 0 0 #2d0a4e,
+    16px 32px 0 0 #2d0a4e, 20px 32px 0 0 #ff00aa, 24px 32px 0 0 #2d0a4e, 28px 32px 0 0 #2d0a4e,
+    32px 32px 0 0 #2d0a4e, 36px 32px 0 0 #ff00aa, 40px 32px 0 0 #2d0a4e,
+    44px 32px 0 0 #2d0a4e,
+    /* Row 9 — smock with artistic marks */
+    16px 36px 0 0 #2d0a4e, 20px 36px 0 0 #2d0a4e, 24px 36px 0 0 #ff00aa, 28px 36px 0 0 #2d0a4e,
+    32px 36px 0 0 #ff00aa, 36px 36px 0 0 #2d0a4e, 40px 36px 0 0 #2d0a4e,
+    /* Row 10 — smock lower (more paint) */
+    16px 40px 0 0 #2d0a4e, 20px 40px 0 0 #2d0a4e, 24px 40px 0 0 #2d0a4e, 28px 40px 0 0 #ff00aa,
+    32px 40px 0 0 #2d0a4e, 36px 40px 0 0 #2d0a4e, 40px 40px 0 0 #2d0a4e,
     /* Row 11 — pants */
-    16px 44px 0 0 #1e293b, 20px 44px 0 0 #1e293b, 24px 44px 0 0 #1e293b,
-    32px 44px 0 0 #1e293b, 36px 44px 0 0 #1e293b, 40px 44px 0 0 #1e293b,
+    16px 44px 0 0 #2a1a0a, 20px 44px 0 0 #2a1a0a, 24px 44px 0 0 #2a1a0a,
+    32px 44px 0 0 #2a1a0a, 36px 44px 0 0 #2a1a0a, 40px 44px 0 0 #2a1a0a,
     /* Row 12 — pants */
-    16px 48px 0 0 #1e293b, 20px 48px 0 0 #1e293b, 24px 48px 0 0 #1e293b,
-    32px 48px 0 0 #1e293b, 36px 48px 0 0 #1e293b, 40px 48px 0 0 #1e293b,
+    16px 48px 0 0 #2a1a0a, 20px 48px 0 0 #2a1a0a, 24px 48px 0 0 #2a1a0a,
+    32px 48px 0 0 #2a1a0a, 36px 48px 0 0 #2a1a0a, 40px 48px 0 0 #2a1a0a,
     /* Row 13 — pants narrowed */
-    16px 52px 0 0 #1e293b, 20px 52px 0 0 #1e293b,
-    36px 52px 0 0 #1e293b, 40px 52px 0 0 #1e293b,
+    16px 52px 0 0 #2a1a0a, 20px 52px 0 0 #2a1a0a,
+    36px 52px 0 0 #2a1a0a, 40px 52px 0 0 #2a1a0a,
     /* Row 14 — shoes */
-    16px 56px 0 0 #0f172a, 20px 56px 0 0 #0f172a,
-    36px 56px 0 0 #0f172a, 40px 56px 0 0 #0f172a;
+    16px 56px 0 0 #0f0a14, 20px 56px 0 0 #0f0a14,
+    36px 56px 0 0 #0f0a14, 40px 56px 0 0 #0f0a14;
 }
 
 /* Mark blink — cover eyes with skin */
@@ -1231,51 +1233,50 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   JOHN — Blonde hair (lighter shade), green casual shirt,
-          slight smile, headphones hint around neck
-   Colors: hair #e8c84a  skin #f5c5a3  eye #1a0a04
-           shirt #16a34a  headphones #202a3a  pants #1e293b
+   JOHN — Analyst: light hair, cyan AR glasses, smart data-analyst
+          green casual shirt
+   Colors: hair #b8a050  skin #f5c5a3  eyes #f0f0f0  pupils #1a0a04
+           glasses-lens #00ffe5  shirt #0a7a48  pants #1e293b  shoes #0f172a
    ════════════════════════════════════════════════════════════════ */
 .sprite-john {
   box-shadow:
     /* Row 1 — hair top */
-    20px  4px 0 0 #e8c84a, 24px  4px 0 0 #e8c84a, 28px  4px 0 0 #e8c84a,
-    32px  4px 0 0 #e8c84a, 36px  4px 0 0 #e8c84a,
+    20px  4px 0 0 #b8a050, 24px  4px 0 0 #b8a050, 28px  4px 0 0 #b8a050,
+    32px  4px 0 0 #b8a050, 36px  4px 0 0 #b8a050,
     /* Row 2 — hair wide */
-    16px  8px 0 0 #e8c84a, 20px  8px 0 0 #e8c84a, 24px  8px 0 0 #e8c84a,
-    28px  8px 0 0 #e8c84a, 32px  8px 0 0 #e8c84a, 36px  8px 0 0 #e8c84a, 40px  8px 0 0 #e8c84a,
+    16px  8px 0 0 #b8a050, 20px  8px 0 0 #b8a050, 24px  8px 0 0 #b8a050,
+    28px  8px 0 0 #b8a050, 32px  8px 0 0 #b8a050, 36px  8px 0 0 #b8a050, 40px  8px 0 0 #b8a050,
     /* Row 3 — hair sides, face */
-    16px 12px 0 0 #e8c84a, 40px 12px 0 0 #e8c84a,
+    16px 12px 0 0 #b8a050, 40px 12px 0 0 #b8a050,
     20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
     32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
-    /* Row 4 — eyes */
-    16px 16px 0 0 #e8c84a, 40px 16px 0 0 #e8c84a,
-    20px 16px 0 0 #f5c5a3, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f5c5a3,
+    /* Row 4 — AR glasses with cyan glow lenses */
+    16px 16px 0 0 #b8a050, 40px 16px 0 0 #b8a050,
+    20px 16px 0 0 #00ffe5, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #00ffe5,
     24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
-    /* Row 5 — face lower */
-    16px 20px 0 0 #e8c84a, 40px 20px 0 0 #e8c84a,
-    20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
-    32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
-    /* Row 6 — smile, chin */
-    20px 24px 0 0 #e8c84a, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #c88860,
-    32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #e8c84a,
-    /* Row 7 — headphones band top + shirt start */
-    12px 28px 0 0 #16a34a,
-    16px 28px 0 0 #202a3a, 20px 28px 0 0 #16a34a, 24px 28px 0 0 #16a34a,
-    28px 28px 0 0 #16a34a, 32px 28px 0 0 #16a34a, 36px 28px 0 0 #16a34a,
-    40px 28px 0 0 #202a3a,
-    44px 28px 0 0 #16a34a,
-    /* Row 8 — shirt wide + arms */
-    12px 32px 0 0 #16a34a,
-    16px 32px 0 0 #16a34a, 20px 32px 0 0 #16a34a, 24px 32px 0 0 #16a34a, 28px 32px 0 0 #16a34a,
-    32px 32px 0 0 #16a34a, 36px 32px 0 0 #16a34a, 40px 32px 0 0 #16a34a,
-    44px 32px 0 0 #16a34a,
+    /* Row 5 — face lower + glasses bridge */
+    16px 20px 0 0 #b8a050, 40px 20px 0 0 #b8a050,
+    20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #00ffe5, 28px 20px 0 0 #f5c5a3,
+    32px 20px 0 0 #00ffe5, 36px 20px 0 0 #f5c5a3,
+    /* Row 6 — data-focused smile */
+    20px 24px 0 0 #b8a050, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #c88860,
+    32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #b8a050,
+    /* Row 7 — shirt collar (dark green) */
+    12px 28px 0 0 #0a7a48,
+    20px 28px 0 0 #0a7a48, 24px 28px 0 0 #0a7a48, 28px 28px 0 0 #0a7a48,
+    32px 28px 0 0 #0a7a48, 36px 28px 0 0 #0a7a48,
+    44px 28px 0 0 #0a7a48,
+    /* Row 8 — shirt + arms */
+    12px 32px 0 0 #0a7a48,
+    16px 32px 0 0 #0a7a48, 20px 32px 0 0 #0a7a48, 24px 32px 0 0 #0a7a48, 28px 32px 0 0 #0a7a48,
+    32px 32px 0 0 #0a7a48, 36px 32px 0 0 #0a7a48, 40px 32px 0 0 #0a7a48,
+    44px 32px 0 0 #0a7a48,
     /* Row 9 — shirt */
-    16px 36px 0 0 #16a34a, 20px 36px 0 0 #16a34a, 24px 36px 0 0 #16a34a, 28px 36px 0 0 #16a34a,
-    32px 36px 0 0 #16a34a, 36px 36px 0 0 #16a34a, 40px 36px 0 0 #16a34a,
+    16px 36px 0 0 #0a7a48, 20px 36px 0 0 #0a7a48, 24px 36px 0 0 #0a7a48, 28px 36px 0 0 #0a7a48,
+    32px 36px 0 0 #0a7a48, 36px 36px 0 0 #0a7a48, 40px 36px 0 0 #0a7a48,
     /* Row 10 — shirt bottom */
-    16px 40px 0 0 #16a34a, 20px 40px 0 0 #16a34a, 24px 40px 0 0 #16a34a, 28px 40px 0 0 #16a34a,
-    32px 40px 0 0 #16a34a, 36px 40px 0 0 #16a34a, 40px 40px 0 0 #16a34a,
+    16px 40px 0 0 #0a7a48, 20px 40px 0 0 #0a7a48, 24px 40px 0 0 #0a7a48, 28px 40px 0 0 #0a7a48,
+    32px 40px 0 0 #0a7a48, 36px 40px 0 0 #0a7a48, 40px 40px 0 0 #0a7a48,
     /* Row 11 — pants */
     16px 44px 0 0 #1e293b, 20px 44px 0 0 #1e293b, 24px 44px 0 0 #1e293b,
     32px 44px 0 0 #1e293b, 36px 44px 0 0 #1e293b, 40px 44px 0 0 #1e293b,
@@ -1308,63 +1309,63 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   RON — Dark navy uniform, badge on chest, short dark hair,
-         serious expression, shield emblem
-   Colors: hair #1a1a2e  skin #f5c5a3  uniform #1a3a6e
-           badge #ffd700  eye #1a0a04  belt #0a1428
+   RON — Security Guard: dark uniform, glowing amber badge,
+         stern professional look
+   Colors: hair #0a0a14  skin #f5c5a3  uniform #0a1a3a
+           badge #ffcc00  badge-glow #ffcc00  eye #1a0a04  pants #1a1a2e
    ════════════════════════════════════════════════════════════════ */
 .sprite-ron {
   box-shadow:
-    /* Row 1 — hair top */
-    20px  4px 0 0 #1a1a2e, 24px  4px 0 0 #1a1a2e, 28px  4px 0 0 #1a1a2e,
-    32px  4px 0 0 #1a1a2e, 36px  4px 0 0 #1a1a2e,
+    /* Row 1 — hair top (very dark) */
+    20px  4px 0 0 #0a0a14, 24px  4px 0 0 #0a0a14, 28px  4px 0 0 #0a0a14,
+    32px  4px 0 0 #0a0a14, 36px  4px 0 0 #0a0a14,
     /* Row 2 — hair wide */
-    16px  8px 0 0 #1a1a2e, 20px  8px 0 0 #1a1a2e, 24px  8px 0 0 #1a1a2e,
-    28px  8px 0 0 #1a1a2e, 32px  8px 0 0 #1a1a2e, 36px  8px 0 0 #1a1a2e, 40px  8px 0 0 #1a1a2e,
+    16px  8px 0 0 #0a0a14, 20px  8px 0 0 #0a0a14, 24px  8px 0 0 #0a0a14,
+    28px  8px 0 0 #0a0a14, 32px  8px 0 0 #0a0a14, 36px  8px 0 0 #0a0a14, 40px  8px 0 0 #0a0a14,
     /* Row 3 — hair sides, face */
-    16px 12px 0 0 #1a1a2e, 40px 12px 0 0 #1a1a2e,
+    16px 12px 0 0 #0a0a14, 40px 12px 0 0 #0a0a14,
     20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
     32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
-    /* Row 4 — eyes row */
-    16px 16px 0 0 #1a1a2e, 40px 16px 0 0 #1a1a2e,
+    /* Row 4 — stern eyes */
+    16px 16px 0 0 #0a0a14, 40px 16px 0 0 #0a0a14,
     20px 16px 0 0 #f5c5a3, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f5c5a3,
     24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
-    /* Row 5 — face lower */
-    16px 20px 0 0 #1a1a2e, 40px 20px 0 0 #1a1a2e,
+    /* Row 5 — face lower (serious) */
+    16px 20px 0 0 #0a0a14, 40px 20px 0 0 #0a0a14,
     20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
     32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
-    /* Row 6 — stern mouth, chin */
-    20px 24px 0 0 #1a1a2e, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #c88860,
-    32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #1a1a2e,
-    /* Row 7 — uniform collar + badge row */
-    12px 28px 0 0 #1a3a6e,
-    16px 28px 0 0 #1a3a6e, 20px 28px 0 0 #1a3a6e, 24px 28px 0 0 #ffd700,
-    28px 28px 0 0 #1a3a6e, 32px 28px 0 0 #1a3a6e, 36px 28px 0 0 #1a3a6e,
-    40px 28px 0 0 #1a3a6e,
-    44px 28px 0 0 #1a3a6e,
-    /* Row 8 — uniform wide + arms */
-    12px 32px 0 0 #1a3a6e,
-    16px 32px 0 0 #1a3a6e, 20px 32px 0 0 #1a3a6e, 24px 32px 0 0 #1a3a6e, 28px 32px 0 0 #1a3a6e,
-    32px 32px 0 0 #1a3a6e, 36px 32px 0 0 #1a3a6e, 40px 32px 0 0 #1a3a6e,
-    44px 32px 0 0 #1a3a6e,
-    /* Row 9 — uniform */
-    16px 36px 0 0 #1a3a6e, 20px 36px 0 0 #1a3a6e, 24px 36px 0 0 #1a3a6e, 28px 36px 0 0 #1a3a6e,
-    32px 36px 0 0 #1a3a6e, 36px 36px 0 0 #1a3a6e, 40px 36px 0 0 #1a3a6e,
-    /* Row 10 — belt */
-    16px 40px 0 0 #0a1428, 20px 40px 0 0 #0a1428, 24px 40px 0 0 #0a1428, 28px 40px 0 0 #0a1428,
-    32px 40px 0 0 #0a1428, 36px 40px 0 0 #0a1428, 40px 40px 0 0 #0a1428,
+    /* Row 6 — grim mouth, chin */
+    20px 24px 0 0 #0a0a14, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #c88860,
+    32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #0a0a14,
+    /* Row 7 — uniform collar + amber badge */
+    12px 28px 0 0 #0a1a3a,
+    16px 28px 0 0 #0a1a3a, 20px 28px 0 0 #0a1a3a, 24px 28px 0 0 #ffcc00,
+    28px 28px 0 0 #0a1a3a, 32px 28px 0 0 #ffcc00, 36px 28px 0 0 #0a1a3a,
+    40px 28px 0 0 #0a1a3a,
+    44px 28px 0 0 #0a1a3a,
+    /* Row 8 — uniform + arms (glowing badge) */
+    12px 32px 0 0 #0a1a3a,
+    16px 32px 0 0 #0a1a3a, 20px 32px 0 0 #0a1a3a, 24px 32px 0 0 #ffcc00, 28px 32px 0 0 #0a1a3a,
+    32px 32px 0 0 #ffcc00, 36px 32px 0 0 #0a1a3a, 40px 32px 0 0 #0a1a3a,
+    44px 32px 0 0 #0a1a3a,
+    /* Row 9 — uniform lower */
+    16px 36px 0 0 #0a1a3a, 20px 36px 0 0 #0a1a3a, 24px 36px 0 0 #0a1a3a, 28px 36px 0 0 #0a1a3a,
+    32px 36px 0 0 #0a1a3a, 36px 36px 0 0 #0a1a3a, 40px 36px 0 0 #0a1a3a,
+    /* Row 10 — belt/lower armor */
+    16px 40px 0 0 #050a14, 20px 40px 0 0 #050a14, 24px 40px 0 0 #050a14, 28px 40px 0 0 #050a14,
+    32px 40px 0 0 #050a14, 36px 40px 0 0 #050a14, 40px 40px 0 0 #050a14,
     /* Row 11 — pants */
-    16px 44px 0 0 #1e293b, 20px 44px 0 0 #1e293b, 24px 44px 0 0 #1e293b,
-    32px 44px 0 0 #1e293b, 36px 44px 0 0 #1e293b, 40px 44px 0 0 #1e293b,
+    16px 44px 0 0 #1a1a2e, 20px 44px 0 0 #1a1a2e, 24px 44px 0 0 #1a1a2e,
+    32px 44px 0 0 #1a1a2e, 36px 44px 0 0 #1a1a2e, 40px 44px 0 0 #1a1a2e,
     /* Row 12 — pants */
-    16px 48px 0 0 #1e293b, 20px 48px 0 0 #1e293b, 24px 48px 0 0 #1e293b,
-    32px 48px 0 0 #1e293b, 36px 48px 0 0 #1e293b, 40px 48px 0 0 #1e293b,
+    16px 48px 0 0 #1a1a2e, 20px 48px 0 0 #1a1a2e, 24px 48px 0 0 #1a1a2e,
+    32px 48px 0 0 #1a1a2e, 36px 48px 0 0 #1a1a2e, 40px 48px 0 0 #1a1a2e,
     /* Row 13 — pants narrowed */
-    16px 52px 0 0 #1e293b, 20px 52px 0 0 #1e293b,
-    36px 52px 0 0 #1e293b, 40px 52px 0 0 #1e293b,
-    /* Row 14 — shoes */
-    16px 56px 0 0 #0f172a, 20px 56px 0 0 #0f172a,
-    36px 56px 0 0 #0f172a, 40px 56px 0 0 #0f172a;
+    16px 52px 0 0 #1a1a2e, 20px 52px 0 0 #1a1a2e,
+    36px 52px 0 0 #1a1a2e, 40px 52px 0 0 #1a1a2e,
+    /* Row 14 — combat boots */
+    16px 56px 0 0 #050a10, 20px 56px 0 0 #050a10,
+    36px 56px 0 0 #050a10, 40px 56px 0 0 #050a10;
 }
 
 .sprite-ron-blink {
@@ -1377,11 +1378,11 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   AMANDA — Auburn hair (bun), pink blouse, warm professional look,
-            friendly smile, pearl earring hint
+   AMANDA — Secretary: auburn hair (bun), professional magenta blazer,
+            holographic earpiece with cyan glow
    Colors: hair #8B3A1A  bun #a04422  skin #f5c5a3
-           blouse #ec4899  collar #be185d  eye #1a0a04
-           pants #4a3060  shoe #2d1a40
+           blazer #1a0a2e  earpiece #00ffe5  eye #1a0a04
+           pants #4a3060  shoes #2d1a40
    ════════════════════════════════════════════════════════════════ */
 .sprite-amanda {
   box-shadow:
@@ -1394,39 +1395,39 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
     16px  8px 0 0 #8B3A1A, 20px  8px 0 0 #8B3A1A, 24px  8px 0 0 #8B3A1A,
     28px  8px 0 0 #8B3A1A, 32px  8px 0 0 #8B3A1A, 36px  8px 0 0 #8B3A1A, 40px  8px 0 0 #8B3A1A,
     /* Row 3 — hair sides, face */
-    16px 12px 0 0 #8B3A1A, 40px 12px 0 0 #8B3A1A,
+    16px 12px 0 0 #8B3A1A, 40px 12px 0 0 #00ffe5,
     20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
     32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
-    /* Row 4 — eyes */
-    16px 16px 0 0 #8B3A1A, 40px 16px 0 0 #8B3A1A,
+    /* Row 4 — eyes + cyan earpiece holo-glow */
+    16px 16px 0 0 #8B3A1A, 40px 16px 0 0 #00ffe5,
     20px 16px 0 0 #f5c5a3, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f5c5a3,
     24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
-    /* Row 5 — face lower */
-    16px 20px 0 0 #8B3A1A, 40px 20px 0 0 #8B3A1A,
+    /* Row 5 — face lower + earpiece */
+    16px 20px 0 0 #8B3A1A, 40px 20px 0 0 #00ffe5,
     20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
     32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
-    /* Row 6 — smile + earring */
+    /* Row 6 — warm smile (secretary charm) */
     16px 24px 0 0 #f8d0b8, 40px 24px 0 0 #f8d0b8,
     20px 24px 0 0 #e8956a, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #e8a882,
     32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #e8956a,
-    /* Row 7 — blouse collar */
-    12px 28px 0 0 #ec4899,
-    16px 28px 0 0 #ec4899, 20px 28px 0 0 #be185d, 24px 28px 0 0 #ec4899,
-    28px 28px 0 0 #be185d, 32px 28px 0 0 #ec4899, 36px 28px 0 0 #be185d,
-    40px 28px 0 0 #ec4899,
-    44px 28px 0 0 #ec4899,
-    /* Row 8 — blouse wide + arms */
-    12px 32px 0 0 #ec4899,
-    16px 32px 0 0 #ec4899, 20px 32px 0 0 #ec4899, 24px 32px 0 0 #ec4899, 28px 32px 0 0 #ec4899,
-    32px 32px 0 0 #ec4899, 36px 32px 0 0 #ec4899, 40px 32px 0 0 #ec4899,
-    44px 32px 0 0 #ec4899,
-    /* Row 9 — blouse */
-    16px 36px 0 0 #ec4899, 20px 36px 0 0 #ec4899, 24px 36px 0 0 #ec4899, 28px 36px 0 0 #ec4899,
-    32px 36px 0 0 #ec4899, 36px 36px 0 0 #ec4899, 40px 36px 0 0 #ec4899,
-    /* Row 10 — blouse bottom */
-    16px 40px 0 0 #ec4899, 20px 40px 0 0 #ec4899, 24px 40px 0 0 #ec4899, 28px 40px 0 0 #db2777,
-    32px 40px 0 0 #ec4899, 36px 40px 0 0 #ec4899, 40px 40px 0 0 #ec4899,
-    /* Row 11 — pants */
+    /* Row 7 — blazer collar (dark elegant) */
+    12px 28px 0 0 #1a0a2e,
+    16px 28px 0 0 #1a0a2e, 20px 28px 0 0 #1a0a2e, 24px 28px 0 0 #1a0a2e,
+    28px 28px 0 0 #1a0a2e, 32px 28px 0 0 #1a0a2e, 36px 28px 0 0 #1a0a2e,
+    40px 28px 0 0 #1a0a2e,
+    44px 28px 0 0 #1a0a2e,
+    /* Row 8 — blazer + arms */
+    12px 32px 0 0 #1a0a2e,
+    16px 32px 0 0 #1a0a2e, 20px 32px 0 0 #1a0a2e, 24px 32px 0 0 #1a0a2e, 28px 32px 0 0 #1a0a2e,
+    32px 32px 0 0 #1a0a2e, 36px 32px 0 0 #1a0a2e, 40px 32px 0 0 #1a0a2e,
+    44px 32px 0 0 #1a0a2e,
+    /* Row 9 — blazer (professional) */
+    16px 36px 0 0 #1a0a2e, 20px 36px 0 0 #1a0a2e, 24px 36px 0 0 #1a0a2e, 28px 36px 0 0 #1a0a2e,
+    32px 36px 0 0 #1a0a2e, 36px 36px 0 0 #1a0a2e, 40px 36px 0 0 #1a0a2e,
+    /* Row 10 — blazer lower */
+    16px 40px 0 0 #1a0a2e, 20px 40px 0 0 #1a0a2e, 24px 40px 0 0 #1a0a2e, 28px 40px 0 0 #1a0a2e,
+    32px 40px 0 0 #1a0a2e, 36px 40px 0 0 #1a0a2e, 40px 40px 0 0 #1a0a2e,
+    /* Row 11 — pants (elegant) */
     16px 44px 0 0 #4a3060, 20px 44px 0 0 #4a3060, 24px 44px 0 0 #4a3060,
     32px 44px 0 0 #4a3060, 36px 44px 0 0 #4a3060, 40px 44px 0 0 #4a3060,
     /* Row 12 — pants */
@@ -1435,7 +1436,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
     /* Row 13 — pants narrowed */
     16px 52px 0 0 #4a3060, 20px 52px 0 0 #4a3060,
     36px 52px 0 0 #4a3060, 40px 52px 0 0 #4a3060,
-    /* Row 14 — shoes */
+    /* Row 14 — professional heels */
     16px 56px 0 0 #2d1a40, 20px 56px 0 0 #2d1a40,
     36px 56px 0 0 #2d1a40, 40px 56px 0 0 #2d1a40;
 }
@@ -1450,59 +1451,60 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   JAMES — Dark skin, black hair, grey hoodie, developer look
-   Colors: hair #1a1a1a  skin #8B5E3C  eye #1a0a04
-           hoodie #4a4a4a  pants #2a2a3a  shoe #111
+   JAMES — Developer: dark hoodie with cyan code glyph </> on chest,
+           dark skin, focused developer stance
+   Colors: skin #5a3010  hoodie #1a1a2e  code-glyph #00ffe5
+           pants #1a1a2e  shoes #0a0a14
    ════════════════════════════════════════════════════════════════ */
 .sprite-james {
   box-shadow:
-    /* Row 1 — hair top */
-    20px  4px 0 0 #1a1a1a, 24px  4px 0 0 #1a1a1a, 28px  4px 0 0 #1a1a1a,
-    32px  4px 0 0 #1a1a1a, 36px  4px 0 0 #1a1a1a,
+    /* Row 1 — hair top (black) */
+    20px  4px 0 0 #0a0a0a, 24px  4px 0 0 #0a0a0a, 28px  4px 0 0 #0a0a0a,
+    32px  4px 0 0 #0a0a0a, 36px  4px 0 0 #0a0a0a,
     /* Row 2 — hair wide */
-    16px  8px 0 0 #1a1a1a, 20px  8px 0 0 #1a1a1a, 24px  8px 0 0 #1a1a1a,
-    28px  8px 0 0 #1a1a1a, 32px  8px 0 0 #1a1a1a, 36px  8px 0 0 #1a1a1a, 40px  8px 0 0 #1a1a1a,
+    16px  8px 0 0 #0a0a0a, 20px  8px 0 0 #0a0a0a, 24px  8px 0 0 #0a0a0a,
+    28px  8px 0 0 #0a0a0a, 32px  8px 0 0 #0a0a0a, 36px  8px 0 0 #0a0a0a, 40px  8px 0 0 #0a0a0a,
     /* Row 3 — hair sides, face */
-    16px 12px 0 0 #1a1a1a, 40px 12px 0 0 #1a1a1a,
-    20px 12px 0 0 #8B5E3C, 24px 12px 0 0 #8B5E3C, 28px 12px 0 0 #8B5E3C,
-    32px 12px 0 0 #8B5E3C, 36px 12px 0 0 #8B5E3C,
-    /* Row 4 — eyes */
-    16px 16px 0 0 #1a1a1a, 40px 16px 0 0 #1a1a1a,
-    20px 16px 0 0 #8B5E3C, 28px 16px 0 0 #8B5E3C, 36px 16px 0 0 #8B5E3C,
+    16px 12px 0 0 #0a0a0a, 40px 12px 0 0 #0a0a0a,
+    20px 12px 0 0 #5a3010, 24px 12px 0 0 #5a3010, 28px 12px 0 0 #5a3010,
+    32px 12px 0 0 #5a3010, 36px 12px 0 0 #5a3010,
+    /* Row 4 — eyes (focused) */
+    16px 16px 0 0 #0a0a0a, 40px 16px 0 0 #0a0a0a,
+    20px 16px 0 0 #5a3010, 28px 16px 0 0 #5a3010, 36px 16px 0 0 #5a3010,
     24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
     /* Row 5 — face lower */
-    16px 20px 0 0 #1a1a1a, 40px 20px 0 0 #1a1a1a,
-    20px 20px 0 0 #8B5E3C, 24px 20px 0 0 #8B5E3C, 28px 20px 0 0 #8B5E3C,
-    32px 20px 0 0 #8B5E3C, 36px 20px 0 0 #8B5E3C,
-    /* Row 6 — smile */
-    20px 24px 0 0 #6B3F1A, 24px 24px 0 0 #8B5E3C, 28px 24px 0 0 #7a4a20,
-    32px 24px 0 0 #8B5E3C, 36px 24px 0 0 #6B3F1A,
+    16px 20px 0 0 #0a0a0a, 40px 20px 0 0 #0a0a0a,
+    20px 20px 0 0 #5a3010, 24px 20px 0 0 #5a3010, 28px 20px 0 0 #5a3010,
+    32px 20px 0 0 #5a3010, 36px 20px 0 0 #5a3010,
+    /* Row 6 — focused mouth */
+    20px 24px 0 0 #3a2008, 24px 24px 0 0 #5a3010, 28px 24px 0 0 #4a2810,
+    32px 24px 0 0 #5a3010, 36px 24px 0 0 #3a2008,
     /* Row 7 — hoodie collar */
-    12px 28px 0 0 #4a4a4a, 16px 28px 0 0 #4a4a4a, 20px 28px 0 0 #5a5a5a, 24px 28px 0 0 #4a4a4a,
-    28px 28px 0 0 #5a5a5a, 32px 28px 0 0 #4a4a4a, 36px 28px 0 0 #5a5a5a,
-    40px 28px 0 0 #4a4a4a, 44px 28px 0 0 #4a4a4a,
-    /* Row 8 — hoodie body */
-    12px 32px 0 0 #4a4a4a, 16px 32px 0 0 #4a4a4a, 20px 32px 0 0 #4a4a4a, 24px 32px 0 0 #4a4a4a,
-    28px 32px 0 0 #4a4a4a, 32px 32px 0 0 #4a4a4a, 36px 32px 0 0 #4a4a4a,
-    40px 32px 0 0 #4a4a4a, 44px 32px 0 0 #4a4a4a,
-    /* Row 9 — hoodie */
-    16px 36px 0 0 #4a4a4a, 20px 36px 0 0 #4a4a4a, 24px 36px 0 0 #4a4a4a, 28px 36px 0 0 #555,
-    32px 36px 0 0 #4a4a4a, 36px 36px 0 0 #4a4a4a, 40px 36px 0 0 #4a4a4a,
+    12px 28px 0 0 #1a1a2e, 16px 28px 0 0 #1a1a2e, 20px 28px 0 0 #2a2a3e, 24px 28px 0 0 #1a1a2e,
+    28px 28px 0 0 #2a2a3e, 32px 28px 0 0 #1a1a2e, 36px 28px 0 0 #2a2a3e,
+    40px 28px 0 0 #1a1a2e, 44px 28px 0 0 #1a1a2e,
+    /* Row 8 — hoodie body (with code glyph start) */
+    12px 32px 0 0 #1a1a2e, 16px 32px 0 0 #1a1a2e, 20px 32px 0 0 #1a1a2e, 24px 32px 0 0 #00ffe5,
+    28px 32px 0 0 #1a1a2e, 32px 32px 0 0 #1a1a2e, 36px 32px 0 0 #00ffe5,
+    40px 32px 0 0 #1a1a2e, 44px 32px 0 0 #1a1a2e,
+    /* Row 9 — hoodie (code glyph > on chest) */
+    16px 36px 0 0 #1a1a2e, 20px 36px 0 0 #1a1a2e, 24px 36px 0 0 #1a1a2e, 28px 36px 0 0 #00ffe5,
+    32px 36px 0 0 #1a1a2e, 36px 36px 0 0 #1a1a2e, 40px 36px 0 0 #1a1a2e,
     /* Row 10 — hoodie lower */
-    16px 40px 0 0 #4a4a4a, 20px 40px 0 0 #4a4a4a, 24px 40px 0 0 #4a4a4a, 28px 40px 0 0 #4a4a4a,
-    32px 40px 0 0 #4a4a4a, 36px 40px 0 0 #4a4a4a, 40px 40px 0 0 #4a4a4a,
+    16px 40px 0 0 #1a1a2e, 20px 40px 0 0 #1a1a2e, 24px 40px 0 0 #1a1a2e, 28px 40px 0 0 #1a1a2e,
+    32px 40px 0 0 #1a1a2e, 36px 40px 0 0 #1a1a2e, 40px 40px 0 0 #1a1a2e,
     /* Row 11 — pants */
-    16px 44px 0 0 #2a2a3a, 20px 44px 0 0 #2a2a3a, 24px 44px 0 0 #2a2a3a,
-    32px 44px 0 0 #2a2a3a, 36px 44px 0 0 #2a2a3a, 40px 44px 0 0 #2a2a3a,
+    16px 44px 0 0 #1a1a2e, 20px 44px 0 0 #1a1a2e, 24px 44px 0 0 #1a1a2e,
+    32px 44px 0 0 #1a1a2e, 36px 44px 0 0 #1a1a2e, 40px 44px 0 0 #1a1a2e,
     /* Row 12 — pants */
-    16px 48px 0 0 #2a2a3a, 20px 48px 0 0 #2a2a3a, 24px 48px 0 0 #2a2a3a,
-    32px 48px 0 0 #2a2a3a, 36px 48px 0 0 #2a2a3a, 40px 48px 0 0 #2a2a3a,
+    16px 48px 0 0 #1a1a2e, 20px 48px 0 0 #1a1a2e, 24px 48px 0 0 #1a1a2e,
+    32px 48px 0 0 #1a1a2e, 36px 48px 0 0 #1a1a2e, 40px 48px 0 0 #1a1a2e,
     /* Row 13 — pants narrowed */
-    16px 52px 0 0 #2a2a3a, 20px 52px 0 0 #2a2a3a,
-    36px 52px 0 0 #2a2a3a, 40px 52px 0 0 #2a2a3a,
+    16px 52px 0 0 #1a1a2e, 20px 52px 0 0 #1a1a2e,
+    36px 52px 0 0 #1a1a2e, 40px 52px 0 0 #1a1a2e,
     /* Row 14 — shoes */
-    16px 56px 0 0 #111, 20px 56px 0 0 #111,
-    36px 56px 0 0 #111, 40px 56px 0 0 #111;
+    16px 56px 0 0 #0a0a14, 20px 56px 0 0 #0a0a14,
+    36px 56px 0 0 #0a0a14, 40px 56px 0 0 #0a0a14;
 }
 
 .sprite-james-blink {
@@ -2475,7 +2477,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   background-clip: text;
 }
 
-/* ── ViRDOME Neon Sign in Hallway ───────────────────────────── */
+/* ── ViRDOME Neon Sign in Hallway — Cyberpunk Flicker ────────– */
 .room-hallway {
   position: relative;
   overflow: hidden;
@@ -2488,29 +2490,35 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transform: translate(-50%, -50%);
   font-family: var(--font-pixel);
   font-size: 7px;
-  letter-spacing: 0.22em;
-  color: #00d4ff;
+  letter-spacing: 0.3em;
+  color: #ff00aa;
   text-shadow:
-    0 0 6px #00d4ff,
-    0 0 14px #00d4ff,
-    0 0 28px rgba(0,212,255,0.6);
+    0 0 4px #ff00aa,
+    0 0 12px #ff00aa,
+    0 0 30px rgba(255, 0, 170, 0.5),
+    0 0 60px rgba(255, 0, 170, 0.2);
   white-space: nowrap;
-  animation: signFlicker 6s steps(1) infinite;
+  animation: neonFlicker 7s steps(1) infinite;
   pointer-events: none;
   z-index: 10;
+  filter: brightness(1.1);
 }
 
 [data-theme="night"] .virdome-sign {
-  color: #a855f7;
-  text-shadow: 0 0 6px #a855f7, 0 0 14px #a855f7, 0 0 28px rgba(168,85,247,0.6);
+  color: #bf5fff;
+  text-shadow:
+    0 0 4px #bf5fff,
+    0 0 12px #bf5fff,
+    0 0 30px rgba(191, 95, 255, 0.5),
+    0 0 60px rgba(191, 95, 255, 0.2);
 }
 
-@keyframes signFlicker {
-  0%,90%,100% { opacity: 1; }
-  92%          { opacity: 0.3; }
-  94%          { opacity: 1; }
-  96%          { opacity: 0.5; }
-  98%          { opacity: 1; }
+@keyframes neonFlicker {
+  0%,88%,100% { opacity: 1; }
+  90%          { opacity: 0.2; }
+  92%          { opacity: 1; }
+  94%          { opacity: 0.4; }
+  96%          { opacity: 1; }
 }
 
 /* ── Founder's Corner ───────────────────────────────────────── */
