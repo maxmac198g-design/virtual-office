@@ -268,9 +268,27 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeDialog();
 });
 
+/* ── Desk Model Mapping ──────────────────────────────────────── */
+const DESK_MODELS = {
+  max: 'claude-sonnet',
+  mark: 'claude-sonnet',
+  john: 'gemini-pro',
+  ron: 'claude-sonnet',
+  amanda: 'claude-sonnet',
+  james: 'gpt-4o',
+};
+
 /* ── Character desk clicks ──────────────────────────────────── */
 document.querySelectorAll('.desk-slot').forEach(slot => {
   const key = slot.dataset.member;
+  
+  // Add model badge to each desk
+  if (DESK_MODELS[key]) {
+    const badge = document.createElement('div');
+    badge.className = 'desk-model-badge';
+    badge.textContent = DESK_MODELS[key];
+    slot.appendChild(badge);
+  }
 
   slot.addEventListener('click', () => {
     const d = CHARACTERS[key];

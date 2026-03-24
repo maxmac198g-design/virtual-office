@@ -473,158 +473,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.1));
 }
 
-/* ════════════════════════════════════════════════════════════════
-   WALL WINDOW
-   ════════════════════════════════════════════════════════════════ */
-.wall-window {
-  position: absolute;
-  top: 14px;
-  left: 170px;
-  z-index: 3;
-  pointer-events: none;
-}
 
-.window-frame {
-  width: 108px;
-  height: 62px;
-  background: linear-gradient(180deg, #1a3a5a 0%, #2d6a9f 45%, #5aacd4 100%);
-  border: 2px solid rgba(0, 212, 255, 0.35);
-  border-radius: 2px;
-  position: relative;
-  overflow: hidden;
-  box-shadow:
-    0 0 20px rgba(0, 212, 255, 0.12),
-    inset 0 0 30px rgba(135, 206, 235, 0.08);
-  transition: background 0.6s ease, box-shadow 0.6s ease;
-}
-
-[data-theme="night"] .window-frame {
-  background: linear-gradient(180deg, #02051a 0%, #070d22 55%, #0a1228 100%);
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.1), inset 0 0 20px rgba(10, 10, 40, 0.3);
-}
-
-.window-sky {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.window-sun {
-  position: absolute;
-  top: 7px;
-  right: 16px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #ffd700;
-  box-shadow: 0 0 10px #ffd700, 0 0 20px rgba(255, 215, 0, 0.5);
-  transition: background 0.6s, box-shadow 0.6s, width 0.6s, height 0.6s, top 0.6s;
-}
-
-[data-theme="night"] .window-sun {
-  background: #dde8f8;
-  box-shadow: 0 0 10px rgba(221, 232, 248, 0.6);
-  width: 10px;
-  height: 10px;
-  top: 8px;
-  right: 18px;
-}
-
-/* Stars (night only) */
-.window-sky::before {
-  content: '· · ·  ·  · ·';
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  font-size: 5px;
-  color: rgba(255, 255, 255, 0);
-  letter-spacing: 4px;
-  transition: color 0.6s;
-  pointer-events: none;
-}
-[data-theme="night"] .window-sky::before {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.window-cloud {
-  position: absolute;
-  height: 7px;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.65);
-  animation: cloudDrift 22s linear infinite;
-  transition: background 0.6s;
-}
-[data-theme="night"] .window-cloud { background: rgba(120, 120, 160, 0.25); }
-
-.wc1 { width: 26px; top: 10px; left: -26px; animation-delay: 0s; }
-.wc2 { width: 18px; top: 20px; left: 20px; animation-delay: -11s; }
-
-@keyframes cloudDrift {
-  from { transform: translateX(0); }
-  to   { transform: translateX(130px); }
-}
-
-.window-building {
-  position: absolute;
-  bottom: 0;
-  background: rgba(15, 25, 45, 0.75);
-  transition: background 0.6s;
-}
-[data-theme="night"] .window-building { background: rgba(5, 8, 18, 0.92); }
-
-.wb1 { left: 4px;  width: 18px; height: 30px; }
-.wb2 { left: 26px; width: 14px; height: 22px; }
-.wb3 { right: 6px; width: 24px; height: 36px; }
-
-/* Building windows (lit up at night) */
-.window-building::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 3px;
-  width: 4px;
-  height: 3px;
-  background: rgba(255, 220, 100, 0);
-  box-shadow: 8px 0 0 0 rgba(255, 220, 100, 0), 0 8px 0 0 rgba(255, 220, 100, 0), 8px 8px 0 0 rgba(255, 220, 100, 0);
-  transition: background 0.6s, box-shadow 0.6s;
-}
-[data-theme="night"] .window-building::after {
-  background: rgba(255, 220, 100, 0.7);
-  box-shadow: 8px 0 0 0 rgba(255, 220, 100, 0.5), 0 8px 0 0 rgba(100, 180, 255, 0.6), 8px 8px 0 0 rgba(255, 220, 100, 0.4);
-}
-
-/* Window dividers (panes) */
-.window-div {
-  position: absolute;
-  background: rgba(0, 212, 255, 0.35);
-  pointer-events: none;
-  transition: background 0.5s;
-}
-[data-theme="night"] .window-div { background: rgba(168, 85, 247, 0.35); }
-
-.window-div-h {
-  top: 50%; left: 0; right: 0;
-  height: 2px;
-  transform: translateY(-50%);
-}
-.window-div-v {
-  left: 50%; top: 0; bottom: 0;
-  width: 2px;
-  transform: translateX(-50%);
-}
-
-.window-sill {
-  height: 5px;
-  background: rgba(0, 212, 255, 0.25);
-  border: 1px solid rgba(0, 212, 255, 0.4);
-  border-top: none;
-  border-radius: 0 0 2px 2px;
-  transition: background 0.5s, border-color 0.5s;
-}
-[data-theme="night"] .window-sill {
-  background: rgba(168, 85, 247, 0.2);
-  border-color: rgba(168, 85, 247, 0.35);
-}
 
 /* ════════════════════════════════════════════════════════════════
    WALL CLOCK
@@ -786,19 +635,19 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   cursor: pointer;
   overflow: visible;
   z-index: 2;
-  transform: scale(0.40);
+  transform: scale(0.48);
   transform-origin: top left;
 }
 
-/* Positions within room-main — scaled 40% (60×58px visual size) */
+/* Positions within room-main — scaled 48% */
 /* Row 1: max, mark, john */
-.desk-slot[data-member="max"]    { left: 15px;  top: 40px; }
-.desk-slot[data-member="mark"]   { left: 130px; top: 40px; }
-.desk-slot[data-member="john"]   { left: 245px; top: 40px; }
+.desk-slot[data-member="max"]    { left: 10px;  top: 38px; }
+.desk-slot[data-member="mark"]   { left: 125px; top: 38px; }
+.desk-slot[data-member="john"]   { left: 240px; top: 38px; }
 /* Row 2: ron, amanda, james */
-.desk-slot[data-member="ron"]    { left: 15px;  top: 175px; }
-.desk-slot[data-member="amanda"] { left: 130px; top: 175px; }
-.desk-slot[data-member="james"]  { left: 245px; top: 175px; }
+.desk-slot[data-member="ron"]    { left: 10px;  top: 178px; }
+.desk-slot[data-member="amanda"] { left: 125px; top: 178px; }
+.desk-slot[data-member="james"]  { left: 240px; top: 178px; }
 
 .desk-slot:focus { outline: none; }
 .desk-slot:focus .desk {
@@ -1092,6 +941,32 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   pointer-events: none;
   z-index: 2;
   transition: text-shadow 0.5s;
+}
+
+/* ── Desk Model Badge ─────────────────────────────────────────– */
+.desk-model-badge {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Courier New', monospace;
+  font-size: 6px;
+  color: var(--accent);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 3px;
+  padding: 1px 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 6px var(--accent);
+}
+
+[data-theme="night"] .desk-model-badge {
+  color: var(--accent);
+  background: rgba(168, 85, 247, 0.08);
+  border-color: rgba(168, 85, 247, 0.25);
 }
 
 /* ── AI Badge (MAX only) ─────────────────────────────────────── */
