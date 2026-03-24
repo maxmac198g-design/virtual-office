@@ -779,9 +779,11 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* Positions within room-main */
-.desk-slot[data-member="max"]  { left: 40px;  top: 52px; }
-.desk-slot[data-member="mark"] { left: 205px; top: 52px; }
-.desk-slot[data-member="john"] { left: 370px; top: 52px; }
+.desk-slot[data-member="max"]    { left: 40px;  top: 52px; }
+.desk-slot[data-member="mark"]   { left: 205px; top: 52px; }
+.desk-slot[data-member="john"]   { left: 370px; top: 52px; }
+.desk-slot[data-member="ron"]    { left: 40px;  top: 155px; }
+.desk-slot[data-member="amanda"] { left: 205px; top: 155px; }
 
 .desk-slot:focus { outline: none; }
 .desk-slot:focus .desk {
@@ -1413,6 +1415,172 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   0%, 85%  { opacity: 0; }
   87%, 92% { opacity: 1; }
   94%, 100%{ opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RON — Dark navy uniform, badge on chest, short dark hair,
+         serious expression, shield emblem
+   Colors: hair #1a1a2e  skin #f5c5a3  uniform #1a3a6e
+           badge #ffd700  eye #1a0a04  belt #0a1428
+   ════════════════════════════════════════════════════════════════ */
+.sprite-ron {
+  box-shadow:
+    /* Row 1 — hair top */
+    20px  4px 0 0 #1a1a2e, 24px  4px 0 0 #1a1a2e, 28px  4px 0 0 #1a1a2e,
+    32px  4px 0 0 #1a1a2e, 36px  4px 0 0 #1a1a2e,
+    /* Row 2 — hair wide */
+    16px  8px 0 0 #1a1a2e, 20px  8px 0 0 #1a1a2e, 24px  8px 0 0 #1a1a2e,
+    28px  8px 0 0 #1a1a2e, 32px  8px 0 0 #1a1a2e, 36px  8px 0 0 #1a1a2e, 40px  8px 0 0 #1a1a2e,
+    /* Row 3 — hair sides, face */
+    16px 12px 0 0 #1a1a2e, 40px 12px 0 0 #1a1a2e,
+    20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
+    32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
+    /* Row 4 — eyes row */
+    16px 16px 0 0 #1a1a2e, 40px 16px 0 0 #1a1a2e,
+    20px 16px 0 0 #f5c5a3, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f5c5a3,
+    24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
+    /* Row 5 — face lower */
+    16px 20px 0 0 #1a1a2e, 40px 20px 0 0 #1a1a2e,
+    20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
+    32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
+    /* Row 6 — stern mouth, chin */
+    20px 24px 0 0 #1a1a2e, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #c88860,
+    32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #1a1a2e,
+    /* Row 7 — uniform collar + badge row */
+    12px 28px 0 0 #1a3a6e,
+    16px 28px 0 0 #1a3a6e, 20px 28px 0 0 #1a3a6e, 24px 28px 0 0 #ffd700,
+    28px 28px 0 0 #1a3a6e, 32px 28px 0 0 #1a3a6e, 36px 28px 0 0 #1a3a6e,
+    40px 28px 0 0 #1a3a6e,
+    44px 28px 0 0 #1a3a6e,
+    /* Row 8 — uniform wide + arms */
+    12px 32px 0 0 #1a3a6e,
+    16px 32px 0 0 #1a3a6e, 20px 32px 0 0 #1a3a6e, 24px 32px 0 0 #1a3a6e, 28px 32px 0 0 #1a3a6e,
+    32px 32px 0 0 #1a3a6e, 36px 32px 0 0 #1a3a6e, 40px 32px 0 0 #1a3a6e,
+    44px 32px 0 0 #1a3a6e,
+    /* Row 9 — uniform */
+    16px 36px 0 0 #1a3a6e, 20px 36px 0 0 #1a3a6e, 24px 36px 0 0 #1a3a6e, 28px 36px 0 0 #1a3a6e,
+    32px 36px 0 0 #1a3a6e, 36px 36px 0 0 #1a3a6e, 40px 36px 0 0 #1a3a6e,
+    /* Row 10 — belt */
+    16px 40px 0 0 #0a1428, 20px 40px 0 0 #0a1428, 24px 40px 0 0 #0a1428, 28px 40px 0 0 #0a1428,
+    32px 40px 0 0 #0a1428, 36px 40px 0 0 #0a1428, 40px 40px 0 0 #0a1428,
+    /* Row 11 — pants */
+    16px 44px 0 0 #1e293b, 20px 44px 0 0 #1e293b, 24px 44px 0 0 #1e293b,
+    32px 44px 0 0 #1e293b, 36px 44px 0 0 #1e293b, 40px 44px 0 0 #1e293b,
+    /* Row 12 — pants */
+    16px 48px 0 0 #1e293b, 20px 48px 0 0 #1e293b, 24px 48px 0 0 #1e293b,
+    32px 48px 0 0 #1e293b, 36px 48px 0 0 #1e293b, 40px 48px 0 0 #1e293b,
+    /* Row 13 — pants narrowed */
+    16px 52px 0 0 #1e293b, 20px 52px 0 0 #1e293b,
+    36px 52px 0 0 #1e293b, 40px 52px 0 0 #1e293b,
+    /* Row 14 — shoes */
+    16px 56px 0 0 #0f172a, 20px 56px 0 0 #0f172a,
+    36px 56px 0 0 #0f172a, 40px 56px 0 0 #0f172a;
+}
+
+.sprite-ron-blink {
+  box-shadow:
+    24px 16px 0 0 #f5c5a3,
+    32px 16px 0 0 #f5c5a3;
+  opacity: 0;
+  animation: blink 6s steps(1) infinite;
+  animation-delay: -2.5s;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   AMANDA — Auburn hair (bun), pink blouse, warm professional look,
+            friendly smile, pearl earring hint
+   Colors: hair #8B3A1A  bun #a04422  skin #f5c5a3
+           blouse #ec4899  collar #be185d  eye #1a0a04
+           pants #4a3060  shoe #2d1a40
+   ════════════════════════════════════════════════════════════════ */
+.sprite-amanda {
+  box-shadow:
+    /* Row 0 — hair bun top */
+    24px  0px 0 0 #a04422, 28px  0px 0 0 #a04422, 32px  0px 0 0 #a04422,
+    /* Row 1 — hair bun wide */
+    20px  4px 0 0 #8B3A1A, 24px  4px 0 0 #a04422, 28px  4px 0 0 #a04422,
+    32px  4px 0 0 #a04422, 36px  4px 0 0 #8B3A1A,
+    /* Row 2 — hair wide */
+    16px  8px 0 0 #8B3A1A, 20px  8px 0 0 #8B3A1A, 24px  8px 0 0 #8B3A1A,
+    28px  8px 0 0 #8B3A1A, 32px  8px 0 0 #8B3A1A, 36px  8px 0 0 #8B3A1A, 40px  8px 0 0 #8B3A1A,
+    /* Row 3 — hair sides, face */
+    16px 12px 0 0 #8B3A1A, 40px 12px 0 0 #8B3A1A,
+    20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
+    32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
+    /* Row 4 — eyes */
+    16px 16px 0 0 #8B3A1A, 40px 16px 0 0 #8B3A1A,
+    20px 16px 0 0 #f5c5a3, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f5c5a3,
+    24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
+    /* Row 5 — face lower */
+    16px 20px 0 0 #8B3A1A, 40px 20px 0 0 #8B3A1A,
+    20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
+    32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
+    /* Row 6 — smile + earring */
+    16px 24px 0 0 #f8d0b8, 40px 24px 0 0 #f8d0b8,
+    20px 24px 0 0 #e8956a, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #e8a882,
+    32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #e8956a,
+    /* Row 7 — blouse collar */
+    12px 28px 0 0 #ec4899,
+    16px 28px 0 0 #ec4899, 20px 28px 0 0 #be185d, 24px 28px 0 0 #ec4899,
+    28px 28px 0 0 #be185d, 32px 28px 0 0 #ec4899, 36px 28px 0 0 #be185d,
+    40px 28px 0 0 #ec4899,
+    44px 28px 0 0 #ec4899,
+    /* Row 8 — blouse wide + arms */
+    12px 32px 0 0 #ec4899,
+    16px 32px 0 0 #ec4899, 20px 32px 0 0 #ec4899, 24px 32px 0 0 #ec4899, 28px 32px 0 0 #ec4899,
+    32px 32px 0 0 #ec4899, 36px 32px 0 0 #ec4899, 40px 32px 0 0 #ec4899,
+    44px 32px 0 0 #ec4899,
+    /* Row 9 — blouse */
+    16px 36px 0 0 #ec4899, 20px 36px 0 0 #ec4899, 24px 36px 0 0 #ec4899, 28px 36px 0 0 #ec4899,
+    32px 36px 0 0 #ec4899, 36px 36px 0 0 #ec4899, 40px 36px 0 0 #ec4899,
+    /* Row 10 — blouse bottom */
+    16px 40px 0 0 #ec4899, 20px 40px 0 0 #ec4899, 24px 40px 0 0 #ec4899, 28px 40px 0 0 #db2777,
+    32px 40px 0 0 #ec4899, 36px 40px 0 0 #ec4899, 40px 40px 0 0 #ec4899,
+    /* Row 11 — pants */
+    16px 44px 0 0 #4a3060, 20px 44px 0 0 #4a3060, 24px 44px 0 0 #4a3060,
+    32px 44px 0 0 #4a3060, 36px 44px 0 0 #4a3060, 40px 44px 0 0 #4a3060,
+    /* Row 12 — pants */
+    16px 48px 0 0 #4a3060, 20px 48px 0 0 #4a3060, 24px 48px 0 0 #4a3060,
+    32px 48px 0 0 #4a3060, 36px 48px 0 0 #4a3060, 40px 48px 0 0 #4a3060,
+    /* Row 13 — pants narrowed */
+    16px 52px 0 0 #4a3060, 20px 52px 0 0 #4a3060,
+    36px 52px 0 0 #4a3060, 40px 52px 0 0 #4a3060,
+    /* Row 14 — shoes */
+    16px 56px 0 0 #2d1a40, 20px 56px 0 0 #2d1a40,
+    36px 56px 0 0 #2d1a40, 40px 56px 0 0 #2d1a40;
+}
+
+.sprite-amanda-blink {
+  box-shadow:
+    24px 16px 0 0 #f5c5a3,
+    32px 16px 0 0 #f5c5a3;
+  opacity: 0;
+  animation: blink 4.2s steps(1) infinite;
+  animation-delay: -1.2s;
+}
+
+/* Dialog portrait colors for Ron & Amanda */
+.dialog-portrait[data-char="ron"] {
+  background: rgba(26, 58, 110, 0.18);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.2);
+}
+.dialog-portrait[data-char="amanda"] {
+  background: rgba(236, 72, 153, 0.12);
+  border-color: rgba(236, 72, 153, 0.5);
+  box-shadow: 0 0 24px rgba(236, 72, 153, 0.2);
+}
+
+/* Ron & Amanda minimap dots */
+.mm-ron {
+  background: #3b82f6;
+  box-shadow: 0 0 5px #3b82f6;
+  left: 10px; top: 28px;
+}
+.mm-amanda {
+  background: #ec4899;
+  box-shadow: 0 0 5px #ec4899;
+  left: 26px; top: 28px;
 }
 
 /* ── Coffee Machine Sprite ─────────────────────────────────────── */

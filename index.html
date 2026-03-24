@@ -20,7 +20,7 @@
     <div class="hud-section hud-center">
       <div class="hud-pill">
         <span class="online-dot"></span>
-        <span id="onlineCount">3</span>/3&nbsp;ONLINE
+        <span id="onlineCount">5</span>/5&nbsp;ONLINE
       </div>
       <span class="hud-sep">|</span>
       <span class="hud-clock" id="liveClock">00:00:00</span>
@@ -116,6 +116,42 @@
         <div class="decor-plant" style="--px:520px;--py:8px">🌿</div>
         <div class="decor-plant" style="--px:8px;--py:256px">🌵</div>
         <div class="decor-plant" style="--px:520px;--py:256px">🌵</div>
+
+        <!-- ▶ RON DESK -->
+        <div class="desk-slot" data-member="ron" id="deskRon" tabindex="0" role="button" aria-label="Ron - Security Agent">
+          <div class="char-shadow"></div>
+          <div class="desk-chair"></div>
+          <div class="char-sprite-wrap" id="spriteWrapRon">
+            <div class="char-status-dot status-online"></div>
+            <div class="sprite sprite-ron"></div>
+            <div class="sprite sprite-ron-blink"></div>
+          </div>
+          <div class="desk">
+            <div class="monitor"><div class="monitor-screen"><span class="screen-text">SEC</span></div></div>
+            <div class="desk-keyboard"></div>
+            <div class="desk-phone"></div>
+            <div class="desk-papers"></div>
+          </div>
+          <div class="char-nametag">RON</div>
+        </div>
+
+        <!-- ▶ AMANDA DESK -->
+        <div class="desk-slot" data-member="amanda" id="deskAmanda" tabindex="0" role="button" aria-label="Amanda - Secretary">
+          <div class="char-shadow"></div>
+          <div class="desk-chair"></div>
+          <div class="char-sprite-wrap" id="spriteWrapAmanda">
+            <div class="char-status-dot status-online"></div>
+            <div class="sprite sprite-amanda"></div>
+            <div class="sprite sprite-amanda-blink"></div>
+          </div>
+          <div class="desk">
+            <div class="monitor"><div class="monitor-screen"><span class="screen-text">CAL</span></div></div>
+            <div class="desk-keyboard"></div>
+            <div class="desk-cup desk-cup-coffee"></div>
+            <div class="desk-plant-sm">🌸</div>
+          </div>
+          <div class="char-nametag">AMANDA</div>
+        </div>
 
         <!-- Water cooler -->
         <div class="water-cooler">
@@ -334,6 +370,8 @@
             <div class="mm-dot mm-max" id="mmMax" title="MAX"></div>
             <div class="mm-dot mm-mark" id="mmMark" title="MARK"></div>
             <div class="mm-dot mm-john" id="mmJohn" title="JOHN"></div>
+            <div class="mm-dot mm-ron" id="mmRon" title="RON"></div>
+            <div class="mm-dot mm-amanda" id="mmAmanda" title="AMANDA"></div>
           </div>
           <div class="mm-meeting"></div>
           <div class="mm-break"></div>

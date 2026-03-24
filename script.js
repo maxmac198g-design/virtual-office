@@ -49,6 +49,36 @@ const CHARACTERS = {
       { label: '👤 VIEW PROFILE', primary: false },
     ],
   },
+  ron: {
+    name: 'RON',
+    role: 'SECURITY AGENT 👮‍♂️',
+    status: 'PATROLLING',
+    statusType: 'online',
+    emoji: '👮‍♂️',
+    charKey: 'ron',
+    bio: 'ViRDOME\'s security enforcer. I run silent system health checks every 6 hours — monitoring disk, memory, CPU, processes, and gateway health. You won\'t hear from me unless something\'s wrong.\n\n🔐 Last patrol: All clear.\n🚨 Alert threshold: RAM <200MB · CPU load >8 · Disk >80%',
+    tags: ['SECURITY', '24/7', 'MONITORING', 'ALERTS', 'INFRA'],
+    actions: [
+      { label: '🛡️ SECURITY STATUS', primary: true },
+      { label: '💬 SEND MESSAGE', primary: false },
+      { label: '👤 VIEW PROFILE', primary: false },
+    ],
+  },
+  amanda: {
+    name: 'AMANDA',
+    role: 'PERSONAL SECRETARY 👩‍💼',
+    status: 'ONLINE',
+    statusType: 'online',
+    emoji: '👩‍💼',
+    charKey: 'amanda',
+    bio: 'Mohamed\'s personal secretary. I send a warm morning briefing every day at 7:00 AM Qatar time — with prayer times for Doha, daily goals, gym reminders, and a motivational note to start the day right.\n\n📋 Next briefing: Tomorrow 7:00 AM AST\n🕌 Tracks: Fajr · Dhuhr · Asr · Maghrib · Isha',
+    tags: ['SECRETARY', 'BRIEFINGS', 'PRAYERS', 'SCHEDULE', 'DAILY'],
+    actions: [
+      { label: '📅 VIEW SCHEDULE', primary: true },
+      { label: '💬 SEND MESSAGE', primary: false },
+      { label: '👤 VIEW PROFILE', primary: false },
+    ],
+  },
 };
 
 const ROOMS = {
@@ -312,6 +342,11 @@ const OFFICE_EVENTS = [
   { icon: '🌟', text: 'ViRDOME: Qatar\'s #1 immersive studio' },
   { icon: '📡', text: 'Data Lab: awaiting Gemini billing to continue...' },
   { icon: '🎪', text: '890 events companies in the pipeline' },
+  { icon: '👮‍♂️', text: 'Ron completed system patrol — all clear' },
+  { icon: '🛡️', text: 'Ron: disk, memory & CPU nominal' },
+  { icon: '👩‍💼', text: 'Amanda preparing tomorrow\'s morning briefing' },
+  { icon: '🕌', text: 'Amanda: prayer schedule updated for Doha' },
+  { icon: '📋', text: 'Amanda sent daily briefing to Mohamed' },
 ];
 
 let notifEventIdx = Math.floor(Math.random() * OFFICE_EVENTS.length);
