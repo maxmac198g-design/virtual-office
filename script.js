@@ -1,51 +1,70 @@
 /* ================================================================
-   PIXEL HQ — script.js
+   ViRDOME HQ — script.js  (Enhanced Edition v2)
    ================================================================ */
 
 /* ── Character & Room Data ──────────────────────────────────── */
 const CHARACTERS = {
   max: {
     name: 'MAX',
-    role: 'AI ASSISTANT',
+    role: 'AI CHIEF OF STAFF',
     status: 'ONLINE',
     statusType: 'online',
     emoji: '🤖',
-    bio: 'Always available, never on vacation. I handle the repetitive stuff so the humans can focus on the big ideas.',
-    tags: ['AUTOMATION', '24/7', 'AI'],
-    actions: ['💬 MESSAGE', '📅 SCHEDULE', '👤 PROFILE'],
+    charKey: 'max',
+    bio: 'ViRDOME\'s AI brain. I run the daily assistant, manage the strategy sheet, coordinate John\'s analysis, and keep Mohamed\'s business intelligence sharp. Always on. Never tired.',
+    tags: ['AUTOMATION', '24/7', 'AI', 'STRATEGY', 'APIs'],
+    actions: [
+      { label: '💬 SEND MESSAGE', primary: true },
+      { label: '📊 VIEW DASHBOARD', primary: true },
+      { label: '👤 VIEW PROFILE', primary: false },
+    ],
   },
   mark: {
     name: 'MARK',
-    role: 'TEAM MEMBER',
+    role: 'CREATIVE AI AGENT',
     status: 'ONLINE',
     statusType: 'online',
-    emoji: '👨‍💼',
-    bio: 'Problem-solver with a knack for turning complex challenges into elegant solutions. Fueled by coffee and curiosity.',
-    tags: ['STRATEGY', 'DESIGN', 'COFFEE'],
-    actions: ['💬 MESSAGE', '📅 SCHEDULE', '👤 PROFILE'],
+    emoji: '🎨',
+    charKey: 'mark',
+    bio: 'ViRDOME\'s creative arm. I help with image generation, visual concepts, and content creation. Ask me to produce anything visual — I\'ll make it happen with style.',
+    tags: ['CREATIVE', 'DESIGN', 'IMAGES', 'BRANDING', 'CONTENT'],
+    actions: [
+      { label: '🎨 GENERATE IMAGE', primary: true },
+      { label: '💬 SEND MESSAGE', primary: true },
+      { label: '👤 VIEW PROFILE', primary: false },
+    ],
   },
   john: {
     name: 'JOHN',
-    role: 'TEAM MEMBER',
-    status: 'IN MEETING',
+    role: 'SENIOR ANALYST',
+    status: 'ANALYZING',
     statusType: 'busy',
-    emoji: '👨‍💻',
-    bio: 'Builder at heart. If it can be shipped, John will ship it. Clean code and even cleaner docs.',
-    tags: ['ENGINEERING', 'DEVOPS', 'DOCS'],
-    actions: ['💬 MESSAGE', '📅 SCHEDULE', '👤 PROFILE'],
+    emoji: '🔍',
+    charKey: 'john',
+    bio: 'ViRDOME\'s business intelligence engine. I\'ve analyzed Qatar\'s government procurement portal, identified 890 event & hospitality targets, mapped 63 global competitors, and built the full ViRDOME Strategy database.\n\n⚠️  Currently awaiting Gemini billing to complete analysis of 4,096 remaining companies.',
+    tags: ['ANALYST', 'QATAR', 'DATA', 'RESEARCH', 'INTEL'],
+    actions: [
+      { label: '📊 OPEN STRATEGY SHEET', primary: true },
+      { label: '💬 SEND MESSAGE', primary: false },
+      { label: '👤 VIEW PROFILE', primary: false },
+    ],
   },
 };
 
 const ROOMS = {
   meeting: {
-    emoji: '🚀',
-    name: 'MEETING ROOM',
-    role: 'CONFERENCE ROOM A',
-    status: 'OCCUPIED',
+    emoji: '⚔️',
+    name: 'WAR ROOM',
+    role: 'VIRDOME STRATEGY HQ',
+    status: 'ACTIVE',
     statusType: 'busy',
-    bio: 'LAUNCH PAD MEETING IN PROGRESS.\nMAX AND MARK ARE INSIDE.\nJOIN TO COLLABORATE.',
-    tags: ['MAX', 'MARK', 'ACTIVE'],
-    actions: ['🚀 JOIN ROOM', '📋 VIEW AGENDA'],
+    charKey: 'meeting',
+    bio: 'STRATEGY SESSION IN PROGRESS.\nMAX & MARK ARE INSIDE.\n\nCurrent focus: ViRDOME 90-day market entry plan.\nTarget sectors: Events · Hospitality · Govt Cultural.\nPipeline: 890 companies · 214 HIGH FIT targets.',
+    tags: ['MAX', 'MARK', 'STRATEGY', 'VIRDOME', 'Q2-2026'],
+    actions: [
+      { label: '⚔️ JOIN SESSION', primary: true },
+      { label: '📋 VIEW AGENDA',  primary: false },
+    ],
   },
   break: {
     emoji: '☕',
@@ -53,9 +72,28 @@ const ROOMS = {
     role: 'REST & RECHARGE',
     status: 'OPEN',
     statusType: 'online',
-    bio: 'COFFEE IS READY. STEP AWAY FROM THE SCREEN.\nYOU DESERVE A BREAK.',
-    tags: ['COFFEE', 'SNACKS', 'RELAX'],
-    actions: ['☕ GET COFFEE', '🍪 TAKE A BREAK'],
+    charKey: 'break',
+    bio: 'COFFEE IS READY. STEP AWAY FROM THE SCREEN.\nEVEN IMMERSIVE STUDIOS NEED BREAKS.\n\n"The best ideas come when you stop trying to force them."',
+    tags: ['COFFEE', 'RECHARGE', 'CREATIVE', 'BREAK'],
+    actions: [
+      { label: '☕ GET COFFEE',    primary: true  },
+      { label: '🍪 TAKE A BREAK',  primary: false },
+    ],
+  },
+  datalab: {
+    emoji: '📡',
+    name: 'DATA LAB',
+    role: 'JOHN\'S ANALYSIS ENGINE',
+    status: 'PROCESSING',
+    statusType: 'busy',
+    charKey: 'datalab',
+    bio: 'John\'s intelligence engine runs here.\n\n📊 4,119 Qatar companies loaded\n✅ 23 deep-analyzed (Gemini AI)\n🎯 890 Events & Hospitality targets\n🔥 214 HIGH FIT companies scored\n⚔️ 63 global competitors mapped\n🏛️ 118 govt entities catalogued\n\n⚠️  BLOCKED: Gemini API free quota exhausted.\nEnable billing (~$10) to unlock full run.\nEstimated cost for all 4,119: ~$8–15.',
+    tags: ['JOHN', 'QATAR', '4119', 'INTEL', 'GEMINI'],
+    actions: [
+      { label: '📊 OPEN VIRDOME STRATEGY', primary: true },
+      { label: '🔑 ENABLE GEMINI BILLING', primary: true },
+      { label: '📈 VIEW ANALYSIS',          primary: false },
+    ],
   },
 };
 
@@ -63,6 +101,8 @@ const ROOMS = {
 const html          = document.documentElement;
 const dayNightBtn   = document.getElementById('dayNightBtn');
 const liveClockEl   = document.getElementById('liveClock');
+const wallClockEl   = document.getElementById('wallClock');
+const mwDisplayEl   = document.getElementById('mwDisplay');
 const onlineCountEl = document.getElementById('onlineCount');
 const dialogOverlay = document.getElementById('dialogOverlay');
 const dialogBox     = document.getElementById('dialogBox');
@@ -75,14 +115,19 @@ const dlgTags       = document.getElementById('dialogTags');
 const dlgActions    = document.getElementById('dialogActions');
 const dialogClose   = document.getElementById('dialogClose');
 const statusText    = document.getElementById('statusText');
+const notifArea     = document.getElementById('notifArea');
+const mmJohn        = document.getElementById('mmJohn');
 
-/* ── Live Clock ─────────────────────────────────────────────── */
+/* ── Live Clocks ─────────────────────────────────────────────── */
 function tick() {
   const now = new Date();
   const h = String(now.getHours()).padStart(2, '0');
   const m = String(now.getMinutes()).padStart(2, '0');
   const s = String(now.getSeconds()).padStart(2, '0');
+
   liveClockEl.textContent = `${h}:${m}:${s}`;
+  if (wallClockEl) wallClockEl.textContent = `${h}:${m}`;
+  if (mwDisplayEl) mwDisplayEl.textContent = `${h}:${m}`;
 }
 tick();
 setInterval(tick, 1000);
@@ -97,34 +142,50 @@ function applyTheme(day) {
   const label = dayNightBtn.querySelector('.btn-label');
   if (icon)  icon.textContent  = day ? '☀' : '☾';
   if (label) label.textContent = day ? 'DAY' : 'NIGHT';
-  localStorage.setItem('pixel-hq-theme', day ? 'day' : 'night');
+  localStorage.setItem('virdome-hq-theme', day ? 'day' : 'night');
 }
 
 dayNightBtn.addEventListener('click', () => applyTheme(!isDay));
 
-// Restore saved preference
-const saved = localStorage.getItem('pixel-hq-theme');
+const saved = localStorage.getItem('virdome-hq-theme');
 if (saved === 'night') applyTheme(false);
 
 /* ── Dialog helpers ─────────────────────────────────────────── */
-function openDialog({ emoji, name, role, status, statusType, bio, tags, actions }) {
+function openDialog({ emoji, name, role, status, statusType, charKey, bio, tags, actions }) {
   dlgPortrait.textContent = emoji;
-  dlgName.textContent     = name;
-  dlgRole.textContent     = role;
-  dlgStatus.textContent   = '● ' + status;
-  dlgStatus.className     = `dialog-status ${statusType}`;
-  dlgText.textContent     = bio;
+  dlgPortrait.dataset.char = charKey || '';
+
+  dlgName.textContent = name;
+  dlgRole.textContent = role;
+
+  dlgStatus.innerHTML =
+    `<span class="status-anim-dot ${statusType}"></span>${status}`;
+
+  dlgText.textContent = bio;
 
   dlgTags.innerHTML = tags
     .map(t => `<span class="dlg-tag">${t}</span>`)
     .join('');
 
   dlgActions.innerHTML = actions
-    .map(a => `<button class="dlg-action">${a}</button>`)
+    .map(a => {
+      const label   = typeof a === 'string' ? a : a.label;
+      const primary = typeof a === 'object' && a.primary;
+      return `<button class="dlg-action${primary ? ' primary' : ''}">${label}</button>`;
+    })
     .join('');
 
   dlgActions.querySelectorAll('.dlg-action').forEach(btn => {
-    btn.addEventListener('click', () => showToast(`${btn.textContent} — COMING SOON!`));
+    btn.addEventListener('click', () => {
+      const txt = btn.textContent.trim();
+      if (txt.includes('STRATEGY SHEET') || txt.includes('VIRDOME STRATEGY')) {
+        window.open('https://docs.google.com/spreadsheets/d/1nGTKWAeoxjQQmcDYLriQ3e-VLgAvGJBym2pkZSwdK8Q/edit', '_blank');
+      } else if (txt.includes('GEMINI BILLING')) {
+        window.open('https://aistudio.google.com/', '_blank');
+      } else {
+        showToast(`${txt} — COMING SOON!`);
+      }
+    });
   });
 
   dialogOverlay.removeAttribute('hidden');
@@ -175,15 +236,16 @@ document.querySelectorAll('.desk-slot').forEach(slot => {
 /* ── Room clicks ─────────────────────────────────────────────── */
 const roomMeeting = document.getElementById('roomMeeting');
 const roomBreak   = document.getElementById('roomBreak');
+const roomDataLab = document.getElementById('roomDataLab');
 
 roomMeeting.addEventListener('click', () => {
   openDialog(ROOMS.meeting);
-  setStatus('ENTERING: MEETING ROOM');
+  setStatus('ENTERING: WAR ROOM');
 });
 roomMeeting.addEventListener('keydown', e => {
   if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); roomMeeting.click(); }
 });
-roomMeeting.addEventListener('mouseenter', () => setStatus('▶ MEETING ROOM  —  2 MEMBERS INSIDE'));
+roomMeeting.addEventListener('mouseenter', () => setStatus('▶ WAR ROOM  —  VIRDOME STRATEGY SESSION ACTIVE'));
 roomMeeting.addEventListener('mouseleave', () => setStatus('▶ CLICK A CHARACTER OR ROOM TO INTERACT'));
 
 roomBreak.addEventListener('click', () => {
@@ -195,6 +257,16 @@ roomBreak.addEventListener('keydown', e => {
 });
 roomBreak.addEventListener('mouseenter', () => setStatus('▶ BREAK ROOM  —  COFFEE IS READY'));
 roomBreak.addEventListener('mouseleave', () => setStatus('▶ CLICK A CHARACTER OR ROOM TO INTERACT'));
+
+roomDataLab.addEventListener('click', () => {
+  openDialog(ROOMS.datalab);
+  setStatus('ENTERING: DATA LAB — JOHN\'S INTELLIGENCE ENGINE');
+});
+roomDataLab.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); roomDataLab.click(); }
+});
+roomDataLab.addEventListener('mouseenter', () => setStatus('▶ DATA LAB  —  JOHN IS ANALYZING 4,119 COMPANIES'));
+roomDataLab.addEventListener('mouseleave', () => setStatus('▶ CLICK A CHARACTER OR ROOM TO INTERACT'));
 
 /* ── Status bar helper ──────────────────────────────────────── */
 function setStatus(msg) {
@@ -212,7 +284,7 @@ function showToast(message) {
     document.body.appendChild(toastEl);
   }
   toastEl.textContent = message;
-  void toastEl.offsetWidth; // force reflow
+  void toastEl.offsetWidth;
   toastEl.style.opacity   = '1';
   toastEl.style.transform = 'translateX(-50%) translateY(0)';
 
@@ -222,6 +294,152 @@ function showToast(message) {
     toastEl.style.transform = 'translateX(-50%) translateY(10px)';
   }, 2600);
 }
+
+/* ── ViRDOME Office Notification System ─────────────────────── */
+const OFFICE_EVENTS = [
+  { icon: '🔍', text: 'John scanning Qatar company portal...' },
+  { icon: '🤖', text: 'MAX processed morning brief for Mohamed' },
+  { icon: '☕', text: 'Coffee is freshly brewed!' },
+  { icon: '📊', text: 'John updated the ViRDOME Strategy sheet' },
+  { icon: '🎨', text: 'Mark generating visual content...' },
+  { icon: '💬', text: 'New WhatsApp message from Mohamed' },
+  { icon: '🎯', text: '214 HIGH FIT companies identified' },
+  { icon: '⚔️', text: 'War Room: strategy session active' },
+  { icon: '🏛️', text: '118 Qatar govt entities mapped' },
+  { icon: '🍪', text: 'Snacks in the break room!' },
+  { icon: '📈', text: 'Competitor analysis updated: 63 companies' },
+  { icon: '🔔', text: 'Torch Tower Guinness Record: Virdome\'s proof of scale' },
+  { icon: '🌟', text: 'ViRDOME: Qatar\'s #1 immersive studio' },
+  { icon: '📡', text: 'Data Lab: awaiting Gemini billing to continue...' },
+  { icon: '🎪', text: '890 events companies in the pipeline' },
+];
+
+let notifEventIdx = Math.floor(Math.random() * OFFICE_EVENTS.length);
+
+function showNotification(event) {
+  const now    = new Date();
+  const h      = String(now.getHours()).padStart(2, '0');
+  const m      = String(now.getMinutes()).padStart(2, '0');
+  const timeStr = `${h}:${m}`;
+
+  const toast = document.createElement('div');
+  toast.className = 'notif-toast';
+  toast.innerHTML =
+    `<span class="notif-icon">${event.icon}</span>` +
+    `<span class="notif-text">${event.text}</span>` +
+    `<span class="notif-time">${timeStr}</span>`;
+
+  notifArea.prepend(toast);
+
+  const allToasts = notifArea.querySelectorAll('.notif-toast');
+  if (allToasts.length > 4) {
+    const last = allToasts[allToasts.length - 1];
+    last.classList.remove('notif-visible');
+    setTimeout(() => last.remove(), 350);
+  }
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => toast.classList.add('notif-visible'));
+  });
+
+  setTimeout(() => {
+    toast.classList.remove('notif-visible');
+    setTimeout(() => toast.remove(), 350);
+  }, 5500);
+}
+
+function triggerNextNotif() {
+  const event = OFFICE_EVENTS[notifEventIdx % OFFICE_EVENTS.length];
+  notifEventIdx++;
+  showNotification(event);
+}
+
+setTimeout(triggerNextNotif, 4000);
+setInterval(triggerNextNotif, 28000);
+
+/* ── Minimap updates ─────────────────────────────────────────── */
+function updateMinimap() {
+  if (!mmJohn) return;
+  if (johnBusy) {
+    mmJohn.style.left = '80px';
+    mmJohn.style.top  = '14px';
+  } else {
+    mmJohn.style.left = '44px';
+    mmJohn.style.top  = '16px';
+  }
+}
+
+/* ── John's status toggles periodically ─────────────────────── */
+let johnBusy   = true;
+const johnSlot = document.getElementById('deskJohn');
+
+setInterval(() => {
+  if (!johnSlot) return;
+  johnBusy = !johnBusy;
+
+  const dot = johnSlot.querySelector('.char-status-dot');
+  if (dot) {
+    dot.className = `char-status-dot status-${johnBusy ? 'busy' : 'online'}`;
+  }
+
+  CHARACTERS.john.status     = johnBusy ? 'ANALYZING' : 'ONLINE';
+  CHARACTERS.john.statusType = johnBusy ? 'busy'      : 'online';
+
+  updateMinimap();
+
+  const event = johnBusy
+    ? { icon: '📡', text: 'John resumed company analysis...' }
+    : { icon: '✅', text: 'John completed a research batch' };
+  showNotification(event);
+}, 35000);
+
+updateMinimap();
+
+/* ── Stagger character bob animations ────────────────────────── */
+document.querySelectorAll('.char-sprite-wrap').forEach((wrap, i) => {
+  wrap.style.animationDelay = `${i * 0.55}s`;
+});
+
+/* ── Ambient Particle System ─────────────────────────────────── */
+(function initParticles() {
+  const container = document.getElementById('particleContainer');
+  if (!container) return;
+
+  const PARTICLE_COUNT = 22;
+  const MAP_W = 940;
+  const MAP_H = 540;
+
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+
+    const startX = Math.random() * MAP_W;
+    const startY = 60 + Math.random() * (MAP_H - 60);
+
+    const dx  = (Math.random() - 0.5) * 60;
+    const dy  = -(20 + Math.random() * 60);
+    const dx2 = (Math.random() - 0.5) * 80;
+    const dy2 = -(60 + Math.random() * 80);
+
+    const dur   = 8 + Math.random() * 6;
+    const delay = -(Math.random() * dur);
+
+    p.style.left    = `${startX}px`;
+    p.style.top     = `${startY}px`;
+    p.style.setProperty('--dx',    `${dx}px`);
+    p.style.setProperty('--dy',    `${dy}px`);
+    p.style.setProperty('--dx2',   `${dx2}px`);
+    p.style.setProperty('--dy2',   `${dy2}px`);
+    p.style.setProperty('--dur',   `${dur}s`);
+    p.style.setProperty('--delay', `${delay}s`);
+
+    const size = 1 + Math.random() * 2;
+    p.style.width  = `${size}px`;
+    p.style.height = `${size}px`;
+
+    container.appendChild(p);
+  }
+})();
 
 /* ── Mobile map scaling ─────────────────────────────────────── */
 function scalemap() {
@@ -244,23 +462,3 @@ function scalemap() {
 
 scalemap();
 window.addEventListener('resize', scalemap);
-
-/* ── John's status toggles periodically ─────────────────────── */
-let johnBusy  = true;
-const johnSlot = document.getElementById('deskJohn');
-
-setInterval(() => {
-  if (!johnSlot) return;
-  johnBusy = !johnBusy;
-  const dot = johnSlot.querySelector('.char-status-dot');
-  if (dot) {
-    dot.className = `char-status-dot status-${johnBusy ? 'busy' : 'online'}`;
-  }
-  CHARACTERS.john.status     = johnBusy ? 'IN MEETING' : 'ONLINE';
-  CHARACTERS.john.statusType = johnBusy ? 'busy'       : 'online';
-}, 30000);
-
-/* ── Stagger character bob animations so they're not in sync ── */
-document.querySelectorAll('.char-sprite-wrap').forEach((wrap, i) => {
-  wrap.style.animationDelay = `${i * 0.55}s`;
-});

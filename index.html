@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pixel HQ — Virtual Office</title>
+  <title>ViRDOME HQ — Virtual Office</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
   <header class="hud hud-top">
     <div class="hud-section hud-left">
       <span class="hud-logo-dot"></span>
-      <span class="hud-title">PIXEL HQ</span>
+      <span class="hud-title">ViRDOME&nbsp;HQ</span>
     </div>
     <div class="hud-section hud-center">
       <div class="hud-pill">
@@ -33,13 +33,19 @@
     </div>
   </header>
 
+  <!-- ═══ NOTIFICATION AREA ═══ -->
+  <div class="notif-area" id="notifArea" aria-live="polite" aria-label="Office notifications"></div>
+
   <!-- ═══ OFFICE WORLD ═══ -->
   <main class="office-world" id="officeWorld">
     <div class="office-map" id="officeMap">
 
+      <!-- AMBIENT PARTICLE LAYER -->
+      <div class="particle-container" id="particleContainer"></div>
+
       <!-- HALLWAY -->
       <div class="room room-hallway">
-        <span class="room-label">HALLWAY</span>
+        <div class="virdome-sign">⬡&nbsp;&nbsp;ViRDOME&nbsp;HQ&nbsp;&nbsp;⬡</div>
         <div class="hall-light hl-1"></div>
         <div class="hall-light hl-2"></div>
         <div class="hall-light hl-3"></div>
@@ -48,27 +54,102 @@
       <!-- ══ MAIN OFFICE ══ -->
       <div class="room room-main" id="roomMain">
         <span class="room-label">MAIN&nbsp;OFFICE</span>
-        <div class="decor-plant" style="--px:8px;--py:8px">🌿</div>
+
+        <!-- Founder's corner (top left) -->
+        <div class="founder-corner">
+          <div class="fc-badge">FOUNDER</div>
+          <div class="fc-name">MOHAMED</div>
+          <div class="fc-title">Creative Director</div>
+          <div class="fc-glow"></div>
+        </div>
+
+        <!-- North wall window -->
+        <div class="wall-window">
+          <div class="window-frame">
+            <div class="window-sky">
+              <div class="window-sun" id="windowSun"></div>
+              <div class="window-cloud wc1"></div>
+              <div class="window-cloud wc2"></div>
+              <!-- Doha skyline -->
+              <div class="window-building wb1"></div>
+              <div class="window-building wb2"></div>
+              <div class="window-building wb3"></div>
+              <div class="window-building wb-torch"></div>
+              <div class="window-building wb5"></div>
+            </div>
+            <div class="window-div window-div-h"></div>
+            <div class="window-div window-div-v"></div>
+          </div>
+          <div class="window-sill"></div>
+        </div>
+
+        <!-- Wall clock -->
+        <div class="wall-clock">
+          <div class="clock-face">
+            <div class="clock-display" id="wallClock">00:00</div>
+          </div>
+        </div>
+
+        <!-- Bookshelf (east wall) -->
+        <div class="bookshelf">
+          <div class="shelf-row">
+            <div class="book b-red tall"></div>
+            <div class="book b-blue"></div>
+            <div class="book b-cyan tall"></div>
+            <div class="book b-green"></div>
+            <div class="book b-yellow tall"></div>
+            <div class="book b-red"></div>
+          </div>
+          <div class="shelf-plank"></div>
+          <div class="shelf-row">
+            <div class="book b-purple"></div>
+            <div class="book b-blue tall"></div>
+            <div class="book b-orange"></div>
+            <div class="book b-cyan"></div>
+            <div class="book b-green tall"></div>
+          </div>
+          <div class="shelf-plank"></div>
+        </div>
+
+        <!-- Decorative plants -->
+        <div class="decor-plant" style="--px:8px;--py:80px">🌿</div>
         <div class="decor-plant" style="--px:520px;--py:8px">🌿</div>
         <div class="decor-plant" style="--px:8px;--py:256px">🌵</div>
         <div class="decor-plant" style="--px:520px;--py:256px">🌵</div>
 
+        <!-- Water cooler -->
+        <div class="water-cooler">
+          <div class="wc-tank"></div>
+          <div class="wc-body">
+            <div class="wc-tap wt-hot"></div>
+            <div class="wc-tap wt-cold"></div>
+          </div>
+          <div class="wc-base"></div>
+        </div>
+
         <!-- ▶ MAX DESK -->
-        <div class="desk-slot" data-member="max" id="deskMax" tabindex="0" role="button" aria-label="Max - AI Assistant">
+        <div class="desk-slot" data-member="max" id="deskMax" tabindex="0" role="button" aria-label="Max - AI Chief of Staff">
+          <div class="char-shadow"></div>
           <div class="desk-chair"></div>
           <div class="char-sprite-wrap" id="spriteWrapMax">
+            <div class="ai-badge">AI</div>
             <div class="char-status-dot status-online"></div>
             <div class="sprite sprite-max"></div>
             <div class="sprite sprite-max-blink"></div>
+            <div class="sprite sprite-max-eyes-glow"></div>
           </div>
           <div class="desk">
             <div class="monitor"><div class="monitor-screen"><span class="screen-text">AI</span></div></div>
+            <div class="desk-keyboard"></div>
+            <div class="desk-cup"></div>
+            <div class="desk-papers"></div>
           </div>
           <div class="char-nametag">MAX</div>
         </div>
 
         <!-- ▶ MARK DESK -->
-        <div class="desk-slot" data-member="mark" id="deskMark" tabindex="0" role="button" aria-label="Mark - Team Member">
+        <div class="desk-slot" data-member="mark" id="deskMark" tabindex="0" role="button" aria-label="Mark - Creative AI Agent">
+          <div class="char-shadow"></div>
           <div class="desk-chair"></div>
           <div class="char-sprite-wrap" id="spriteWrapMark">
             <div class="char-status-dot status-online"></div>
@@ -76,13 +157,17 @@
             <div class="sprite sprite-mark-blink"></div>
           </div>
           <div class="desk">
-            <div class="monitor"><div class="monitor-screen"><span class="screen-text">··</span></div></div>
+            <div class="monitor"><div class="monitor-screen"><span class="screen-text">ART</span></div></div>
+            <div class="desk-keyboard"></div>
+            <div class="desk-cup desk-cup-coffee"></div>
+            <div class="desk-plant-sm">🌱</div>
           </div>
           <div class="char-nametag">MARK</div>
         </div>
 
         <!-- ▶ JOHN DESK -->
-        <div class="desk-slot" data-member="john" id="deskJohn" tabindex="0" role="button" aria-label="John - Team Member">
+        <div class="desk-slot" data-member="john" id="deskJohn" tabindex="0" role="button" aria-label="John - Senior Analyst">
+          <div class="char-shadow"></div>
           <div class="desk-chair"></div>
           <div class="char-sprite-wrap" id="spriteWrapJohn">
             <div class="char-status-dot status-busy"></div>
@@ -90,17 +175,20 @@
             <div class="sprite sprite-john-blink"></div>
           </div>
           <div class="desk">
-            <div class="monitor"><div class="monitor-screen"><span class="screen-text">··</span></div></div>
+            <div class="monitor"><div class="monitor-screen"><span class="screen-text">DATA</span></div></div>
+            <div class="desk-keyboard"></div>
+            <div class="desk-phone"></div>
+            <div class="desk-papers"></div>
           </div>
           <div class="char-nametag">JOHN</div>
         </div>
 
       </div><!-- /room-main -->
 
-      <!-- ══ MEETING ROOM ══ -->
+      <!-- ══ MEETING / WAR ROOM ══ -->
       <div class="room room-meeting" id="roomMeeting"
-           tabindex="0" role="button" aria-label="Meeting Room – click to join">
-        <span class="room-label">MEETING&nbsp;ROOM</span>
+           tabindex="0" role="button" aria-label="War Room – click to join">
+        <span class="room-label">WAR&nbsp;ROOM</span>
         <div class="door-gap door-meet-top"></div>
 
         <div class="room-badge">
@@ -108,11 +196,36 @@
           2&nbsp;IN&nbsp;ROOM
         </div>
 
+        <!-- Projector screen (north wall) -->
+        <div class="projector-screen">
+          <div class="proj-content">
+            <div class="proj-line pl1"></div>
+            <div class="proj-line pl2"></div>
+            <div class="proj-line pl3"></div>
+            <div class="proj-label">▶ VIRDOME STRATEGY 2026</div>
+          </div>
+          <div class="proj-glow"></div>
+        </div>
+
+        <!-- Whiteboard (east side) -->
+        <div class="whiteboard">
+          <div class="wb-line wbl1"></div>
+          <div class="wb-line wbl2"></div>
+          <div class="wb-line wbl3"></div>
+          <div class="wb-dot wbd1"></div>
+          <div class="wb-dot wbd2"></div>
+          <div class="wb-dot wbd3"></div>
+          <div class="wb-marker"></div>
+        </div>
+
         <div class="conf-area">
           <div class="conf-chair cc-tl"></div>
           <div class="conf-chair cc-tr"></div>
           <div class="conf-table">
             <div class="conf-table-shine"></div>
+            <div class="ti-laptop ti-laptop-l"></div>
+            <div class="ti-laptop ti-laptop-r"></div>
+            <div class="ti-cup"></div>
           </div>
           <div class="conf-chair cc-bl"></div>
           <div class="conf-chair cc-br"></div>
@@ -120,7 +233,7 @@
           <div class="conf-chair cc-r"></div>
         </div>
 
-        <div class="room-hint">▶ JOIN MEETING</div>
+        <div class="room-hint">▶ JOIN WAR ROOM</div>
       </div>
 
       <!-- ══ BREAK ROOM ══ -->
@@ -136,8 +249,97 @@
           </div>
         </div>
 
-        <div class="break-counter"></div>
+        <!-- Microwave -->
+        <div class="microwave">
+          <div class="mw-door">
+            <div class="mw-viewport" id="mwDisplay">--:--</div>
+          </div>
+          <div class="mw-panel">
+            <div class="mw-btn mb1"></div>
+            <div class="mw-btn mb2"></div>
+            <div class="mw-btn mb3"></div>
+          </div>
+        </div>
+
+        <div class="break-counter">
+          <div class="counter-snack">🍪</div>
+        </div>
+
         <div class="room-hint">☕ GET COFFEE</div>
+      </div>
+
+      <!-- ══ BOTTOM CORRIDOR ══ -->
+      <div class="room room-corridor">
+        <div class="corridor-light cl-1"></div>
+        <div class="corridor-light cl-2"></div>
+      </div>
+
+      <!-- ══ DATA LAB ══ -->
+      <div class="room room-data-lab" id="roomDataLab"
+           tabindex="0" role="button" aria-label="Data Lab – John's Analysis Engine">
+        <span class="room-label">DATA&nbsp;LAB</span>
+        <div class="door-gap door-data-left"></div>
+
+        <div class="room-badge room-badge-lab">
+          <span class="occ-dot status-busy"></span>
+          PROCESSING
+        </div>
+
+        <!-- Server rack left -->
+        <div class="server-rack sr-left">
+          <div class="server-unit"><div class="su-led led-green"></div></div>
+          <div class="server-unit"><div class="su-led led-blue"></div></div>
+          <div class="server-unit"><div class="su-led led-amber"></div></div>
+          <div class="server-unit"><div class="su-led led-green"></div></div>
+        </div>
+
+        <!-- Central data screen -->
+        <div class="data-screen">
+          <div class="ds-title">JOHN · ANALYST ENGINE</div>
+          <div class="data-bars">
+            <div class="data-bar db-1"></div>
+            <div class="data-bar db-2"></div>
+            <div class="data-bar db-3"></div>
+            <div class="data-bar db-4"></div>
+            <div class="data-bar db-5"></div>
+            <div class="data-bar db-6"></div>
+          </div>
+          <div class="ds-stats">
+            <span class="ds-stat"><span class="ds-num">4,119</span><span class="ds-lbl">TOTAL</span></span>
+            <span class="ds-divider">|</span>
+            <span class="ds-stat"><span class="ds-num">23</span><span class="ds-lbl">DONE</span></span>
+            <span class="ds-divider">|</span>
+            <span class="ds-stat"><span class="ds-num">214</span><span class="ds-lbl">TARGETS</span></span>
+          </div>
+          <div class="ds-ticker" id="dsTicker">SCANNING QATAR COMPANIES ··· AWAITING GEMINI BILLING ··· 890 EVENTS COMPANIES IDENTIFIED ···</div>
+        </div>
+
+        <!-- Server rack right -->
+        <div class="server-rack sr-right">
+          <div class="server-unit"><div class="su-led led-blue"></div></div>
+          <div class="server-unit"><div class="su-led led-green"></div></div>
+          <div class="server-unit"><div class="su-led led-amber"></div></div>
+          <div class="server-unit"><div class="su-led led-red"></div></div>
+        </div>
+
+        <div class="room-hint">🔍 VIEW ANALYSIS</div>
+      </div>
+
+      <!-- ══ MINIMAP ══ -->
+      <div class="minimap" id="minimap">
+        <div class="mm-header">MAP</div>
+        <div class="mm-world">
+          <div class="mm-hall"></div>
+          <div class="mm-main">
+            <div class="mm-dot mm-max" id="mmMax" title="MAX"></div>
+            <div class="mm-dot mm-mark" id="mmMark" title="MARK"></div>
+            <div class="mm-dot mm-john" id="mmJohn" title="JOHN"></div>
+          </div>
+          <div class="mm-meeting"></div>
+          <div class="mm-break"></div>
+          <div class="mm-corridor"></div>
+          <div class="mm-datalab"></div>
+        </div>
       </div>
 
     </div><!-- /office-map -->
