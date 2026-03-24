@@ -7,6 +7,7 @@ const CHARACTERS = {
   max: {
     name: 'MAX',
     role: 'AI CHIEF OF STAFF',
+    model: 'anthropic/claude-sonnet-4-6',
     status: 'ONLINE',
     statusType: 'online',
     emoji: '🤖',
@@ -22,6 +23,7 @@ const CHARACTERS = {
   mark: {
     name: 'MARK',
     role: 'CREATIVE AI AGENT',
+    model: 'anthropic/claude-sonnet-4-6',
     status: 'ONLINE',
     statusType: 'online',
     emoji: '🎨',
@@ -37,6 +39,7 @@ const CHARACTERS = {
   john: {
     name: 'JOHN',
     role: 'SENIOR ANALYST',
+    model: 'google/gemini-pro',
     status: 'ANALYZING',
     statusType: 'busy',
     emoji: '🔍',
@@ -52,6 +55,7 @@ const CHARACTERS = {
   ron: {
     name: 'RON',
     role: 'SECURITY AGENT 👮‍♂️',
+    model: 'anthropic/claude-sonnet-4-6',
     status: 'PATROLLING',
     statusType: 'online',
     emoji: '👮‍♂️',
@@ -67,6 +71,7 @@ const CHARACTERS = {
   amanda: {
     name: 'AMANDA',
     role: 'PERSONAL SECRETARY 👩‍💼',
+    model: 'anthropic/claude-sonnet-4-6',
     status: 'ONLINE',
     statusType: 'online',
     emoji: '👩‍💼',
@@ -76,6 +81,22 @@ const CHARACTERS = {
     actions: [
       { label: '📅 VIEW SCHEDULE', primary: true },
       { label: '💬 SEND MESSAGE', primary: false },
+      { label: '👤 VIEW PROFILE', primary: false },
+    ],
+  },
+  james: {
+    name: 'JAMES',
+    role: 'SENIOR DEVELOPER 👨‍💻',
+    model: 'openai/gpt-4o',
+    status: 'CODING',
+    statusType: 'busy',
+    emoji: '👨‍💻',
+    charKey: 'james',
+    bio: 'ViRDOME\'s engineering backbone. I build and maintain the virtual office, automate deployments, and make sure every pixel is perfect. Currently running on GPT-4o — fast, sharp, and always shipping.\n\n🚀 Current task: Virtual Office v2 — fullscreen 16:9 + cinematic style\n⚡ Stack: HTML · CSS · JS · GitHub Pages',
+    tags: ['DEV', 'FRONTEND', 'GPT-4O', 'GITHUB', 'AUTOMATION'],
+    actions: [
+      { label: '💻 VIEW CODE', primary: true },
+      { label: '🚀 DEPLOY', primary: true },
       { label: '👤 VIEW PROFILE', primary: false },
     ],
   },
@@ -139,6 +160,7 @@ const dialogBox     = document.getElementById('dialogBox');
 const dlgPortrait   = document.getElementById('dialogPortrait');
 const dlgName       = document.getElementById('dialogName');
 const dlgRole       = document.getElementById('dialogRole');
+const dlgModel      = document.getElementById('dialogModel');
 const dlgStatus     = document.getElementById('dialogStatus');
 const dlgText       = document.getElementById('dialogText');
 const dlgTags       = document.getElementById('dialogTags');
@@ -181,12 +203,23 @@ const saved = localStorage.getItem('virdome-hq-theme');
 if (saved === 'night') applyTheme(false);
 
 /* ── Dialog helpers ─────────────────────────────────────────── */
-function openDialog({ emoji, name, role, status, statusType, charKey, bio, tags, actions }) {
+function openDialog({ emoji, name, role, model, status, statusType, charKey, bio, tags, actions }) {
   dlgPortrait.textContent = emoji;
   dlgPortrait.dataset.char = charKey || '';
 
   dlgName.textContent = name;
   dlgRole.textContent = role;
+
+  // Model badge rendering
+  let modelBadge = document.getElementById('dialogModelBadge');
+  if (!modelBadge) {
+    modelBadge = document.createElement('div');
+    modelBadge.id = 'dialogModelBadge';
+    modelBadge.className = 'dialog-model-badge';
+    dlgRole.parentNode.insertBefore(modelBadge, dlgRole.nextSibling);
+  }
+  modelBadge.textContent = model ? `🧠 ${model}` : '';
+  modelBadge.style.display = model ? '' : 'none';
 
   dlgStatus.innerHTML =
     `<span class="status-anim-dot ${statusType}"></span>${status}`;
@@ -347,6 +380,9 @@ const OFFICE_EVENTS = [
   { icon: '👩‍💼', text: 'Amanda preparing tomorrow\'s morning briefing' },
   { icon: '🕌', text: 'Amanda: prayer schedule updated for Doha' },
   { icon: '📋', text: 'Amanda sent daily briefing to Mohamed' },
+  { icon: '👨‍💻', text: 'James deployed virtual office v2 update' },
+  { icon: '🚀', text: 'James: GitHub Pages deployment complete' },
+  { icon: '⚡', text: 'James refactoring frontend for 16:9 fullscreen' },
 ];
 
 let notifEventIdx = Math.floor(Math.random() * OFFICE_EVENTS.length);
@@ -478,21 +514,23 @@ document.querySelectorAll('.char-sprite-wrap').forEach((wrap, i) => {
 
 /* ── Fullscreen 16:9 Scaling ─────────────────────────────────── */
 function scalemap() {
-  const map   = document.getElementById('officeMap');
+  const map = document.getElementById('officeMap');
   const world = document.getElementById('officeWorld');
   if (!map || !world) return;
 
   const ww = world.clientWidth;
   const wh = world.clientHeight;
-
-  // Always scale to fill available space, maintaining 940×540 (16:9) ratio
-  // Math.min ensures neither axis overflows — the map fills as much as possible
   const scaleX = ww / 940;
   const scaleY = wh / 540;
   const s = Math.min(scaleX, scaleY);
 
-  map.style.transform       = `scale(${s})`;
+  map.style.transform = `scale(${s})`;
   map.style.transformOrigin = 'center center';
+  map.style.position = 'absolute';
+  map.style.left = '50%';
+  map.style.top = '50%';
+  map.style.marginLeft = '-470px';
+  map.style.marginTop = '-270px';
 }
 
 scalemap();
