@@ -786,15 +786,19 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   cursor: pointer;
   overflow: visible;
   z-index: 2;
+  transform: scale(0.5);
+  transform-origin: top left;
 }
 
-/* Positions within room-main */
-.desk-slot[data-member="max"]    { left: 40px;  top: 52px; }
-.desk-slot[data-member="mark"]   { left: 205px; top: 52px; }
-.desk-slot[data-member="john"]   { left: 370px; top: 52px; }
-.desk-slot[data-member="ron"]    { left: 40px;  top: 155px; }
-.desk-slot[data-member="amanda"] { left: 205px; top: 155px; }
-.desk-slot[data-member="james"]  { left: 370px; top: 155px; }
+/* Positions within room-main — scaled 50% (75×72px visual size) */
+/* Row 1: max, mark, john */
+.desk-slot[data-member="max"]    { left: 20px;  top: 48px; }
+.desk-slot[data-member="mark"]   { left: 120px; top: 48px; }
+.desk-slot[data-member="john"]   { left: 220px; top: 48px; }
+/* Row 2: ron, amanda, james */
+.desk-slot[data-member="ron"]    { left: 20px;  top: 160px; }
+.desk-slot[data-member="amanda"] { left: 120px; top: 160px; }
+.desk-slot[data-member="james"]  { left: 220px; top: 160px; }
 
 .desk-slot:focus { outline: none; }
 .desk-slot:focus .desk {
@@ -1078,7 +1082,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-pixel);
-  font-size: 5px;
+  font-size: 7px;
   color: rgba(255, 255, 255, 0.7);
   white-space: nowrap;
   letter-spacing: 0.14em;
