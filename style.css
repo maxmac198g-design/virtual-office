@@ -786,19 +786,19 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   cursor: pointer;
   overflow: visible;
   z-index: 2;
-  transform: scale(0.5);
+  transform: scale(0.40);
   transform-origin: top left;
 }
 
-/* Positions within room-main — scaled 50% (75×72px visual size) */
+/* Positions within room-main — scaled 40% (60×58px visual size) */
 /* Row 1: max, mark, john */
-.desk-slot[data-member="max"]    { left: 20px;  top: 48px; }
-.desk-slot[data-member="mark"]   { left: 120px; top: 48px; }
-.desk-slot[data-member="john"]   { left: 220px; top: 48px; }
+.desk-slot[data-member="max"]    { left: 15px;  top: 40px; }
+.desk-slot[data-member="mark"]   { left: 130px; top: 40px; }
+.desk-slot[data-member="john"]   { left: 245px; top: 40px; }
 /* Row 2: ron, amanda, james */
-.desk-slot[data-member="ron"]    { left: 20px;  top: 160px; }
-.desk-slot[data-member="amanda"] { left: 120px; top: 160px; }
-.desk-slot[data-member="james"]  { left: 220px; top: 160px; }
+.desk-slot[data-member="ron"]    { left: 15px;  top: 175px; }
+.desk-slot[data-member="amanda"] { left: 130px; top: 175px; }
+.desk-slot[data-member="james"]  { left: 245px; top: 175px; }
 
 .desk-slot:focus { outline: none; }
 .desk-slot:focus .desk {
@@ -2642,7 +2642,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 .founder-corner {
   position: absolute;
   top: 16px;
-  left: 16px;
+  left: 370px;
   z-index: 6;
   pointer-events: none;
   text-align: center;
