@@ -59,6 +59,61 @@
   --font-pixel:   'Press Start 2P', monospace;
 }
 
+/* Spaceship theme — deep space, blue-white stars, electric blue neon */
+[data-theme="spaceship"] {
+  --bg:           #00001a;
+  --wall-bg:      #000010;
+  --wall-border:  rgba(100, 180, 255, 0.2);
+  --floor-main:   #00001f;
+  --floor-meet:   #00001a;
+  --floor-break:  #00001a;
+  --floor-hall:   #000015;
+  --floor-data:   #00000f;
+  --accent:       #4fc3f7;
+  --accent-glow:  rgba(79, 195, 247, 0.25);
+  --room-label:   rgba(79, 195, 247, 0.4);
+  --hud-border:   rgba(79, 195, 247, 0.15);
+  --hud-accent:   #4fc3f7;
+  --screen-fg:    #4fc3f7;
+  --grid-line:    rgba(79, 195, 247, 0.05);
+  --wall-border:  rgba(79, 195, 247, 0.15);
+  --desk-top:     rgba(79, 195, 247, 0.4);
+  --glass-border: rgba(79, 195, 247, 0.12);
+  --neon-cyan:    #4fc3f7;
+  --neon-cyan-glow: rgba(79, 195, 247, 0.3);
+  --neon-magenta: #ce93d8;
+  --neon-mag-glow: rgba(206, 147, 216, 0.2);
+  --neon-amber:   #80deea;
+}
+
+/* Spaceship starfield background */
+[data-theme="spaceship"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 8%,  rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 22%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 55%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 12%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 33% 90%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(2px 2px at 5%  30%, rgba(79,195,247,0.6)  0%, transparent 100%),
+    radial-gradient(2px 2px at 70% 75%, rgba(206,147,216,0.5) 0%, transparent 100%),
+    radial-gradient(2px 2px at 45% 50%, rgba(79,195,247,0.4)  0%, transparent 100%);
+}
+
+[data-theme="spaceship"] .office-world {
+  position: relative;
+  z-index: 1;
+}
+
 /* Night theme — violet/purple neon instead of cyan */
 [data-theme="night"] {
   --bg:           #030008;
@@ -1514,6 +1569,73 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   opacity: 0;
   animation: blink 5s steps(1) infinite;
   animation-delay: -2s;
+}
+
+/* ── JIM — Coach & Nutrition Advisor ────────────────────────── */
+.sprite-jim {
+  box-shadow:
+    /* Row 1 — short buzzcut */
+    20px  4px 0 0 #1a0800, 24px  4px 0 0 #1a0800, 28px  4px 0 0 #1a0800,
+    32px  4px 0 0 #1a0800, 36px  4px 0 0 #1a0800,
+    /* Row 2 — hair */
+    16px  8px 0 0 #1a0800, 20px  8px 0 0 #1a0800, 24px  8px 0 0 #1a0800,
+    28px  8px 0 0 #1a0800, 32px  8px 0 0 #1a0800, 36px  8px 0 0 #1a0800, 40px  8px 0 0 #1a0800,
+    /* Row 3 — face (warm tan skin) */
+    16px 12px 0 0 #1a0800, 40px 12px 0 0 #1a0800,
+    20px 12px 0 0 #c47a45, 24px 12px 0 0 #c47a45, 28px 12px 0 0 #c47a45,
+    32px 12px 0 0 #c47a45, 36px 12px 0 0 #c47a45,
+    /* Row 4 — eyes (determined) */
+    16px 16px 0 0 #1a0800, 40px 16px 0 0 #1a0800,
+    20px 16px 0 0 #c47a45, 28px 16px 0 0 #c47a45, 36px 16px 0 0 #c47a45,
+    24px 16px 0 0 #1a0800, 32px 16px 0 0 #1a0800,
+    /* Row 5 — face lower */
+    16px 20px 0 0 #1a0800, 40px 20px 0 0 #1a0800,
+    20px 20px 0 0 #c47a45, 24px 20px 0 0 #c47a45, 28px 20px 0 0 #c47a45,
+    32px 20px 0 0 #c47a45, 36px 20px 0 0 #c47a45,
+    /* Row 6 — strong jaw / slight smirk */
+    20px 24px 0 0 #a05e30, 24px 24px 0 0 #c47a45, 28px 24px 0 0 #7a3a10,
+    32px 24px 0 0 #c47a45, 36px 24px 0 0 #a05e30,
+    /* Row 7 — wide neck / tank top shoulder neon green */
+    12px 28px 0 0 #00e676, 16px 28px 0 0 #00e676, 20px 28px 0 0 #c47a45,
+    24px 28px 0 0 #c47a45, 28px 28px 0 0 #c47a45,
+    32px 28px 0 0 #c47a45, 36px 28px 0 0 #00e676, 40px 28px 0 0 #00e676, 44px 28px 0 0 #00e676,
+    /* Row 8 — tank top body (wide, buff) */
+    8px  32px 0 0 #00e676, 12px 32px 0 0 #009944, 16px 32px 0 0 #009944,
+    20px 32px 0 0 #009944, 24px 32px 0 0 #00c853, 28px 32px 0 0 #009944,
+    32px 32px 0 0 #009944, 36px 32px 0 0 #009944, 40px 32px 0 0 #009944,
+    44px 32px 0 0 #00e676, 48px 32px 0 0 #00e676,
+    /* Row 9 — tank body lower / bicep bump */
+    8px  36px 0 0 #c47a45, 12px 36px 0 0 #009944, 16px 36px 0 0 #009944,
+    20px 36px 0 0 #009944, 24px 36px 0 0 #009944, 28px 36px 0 0 #00c853,
+    32px 36px 0 0 #009944, 36px 36px 0 0 #009944, 40px 36px 0 0 #009944,
+    44px 36px 0 0 #c47a45, 48px 36px 0 0 #c47a45,
+    /* Row 10 — arms exposed skin */
+    8px  40px 0 0 #c47a45, 12px 40px 0 0 #009944, 16px 40px 0 0 #009944,
+    20px 40px 0 0 #009944, 24px 40px 0 0 #009944, 28px 40px 0 0 #009944,
+    32px 40px 0 0 #009944, 36px 40px 0 0 #009944, 40px 40px 0 0 #009944,
+    44px 40px 0 0 #c47a45, 48px 40px 0 0 #c47a45,
+    /* Row 11 — shorts (dark) */
+    12px 44px 0 0 #1a1a2e, 16px 44px 0 0 #1a1a2e, 20px 44px 0 0 #1a1a2e,
+    24px 44px 0 0 #1a1a2e, 28px 44px 0 0 #1a1a2e, 32px 44px 0 0 #1a1a2e,
+    36px 44px 0 0 #1a1a2e, 40px 44px 0 0 #1a1a2e, 44px 44px 0 0 #1a1a2e,
+    /* Row 12 — shorts */
+    12px 48px 0 0 #1a1a2e, 16px 48px 0 0 #1a1a2e, 20px 48px 0 0 #1a1a2e,
+    32px 48px 0 0 #1a1a2e, 36px 48px 0 0 #1a1a2e, 40px 48px 0 0 #1a1a2e,
+    /* Row 13 — legs */
+    16px 52px 0 0 #c47a45, 20px 52px 0 0 #c47a45,
+    36px 52px 0 0 #c47a45, 40px 52px 0 0 #c47a45,
+    /* Row 14 — sneakers (neon green) */
+    16px 56px 0 0 #00e676, 20px 56px 0 0 #00e676,
+    36px 56px 0 0 #00e676, 40px 56px 0 0 #00e676;
+}
+
+.sprite-jim-blink {
+  box-shadow:
+    24px 16px 0 0 #c47a45,
+    32px 16px 0 0 #c47a45;
+  opacity: 0;
+  animation: blink 4s steps(1) infinite;
+  animation-delay: -1s;
 }
 
 /* Dialog portrait colors for Ron, Amanda & James */

@@ -84,6 +84,22 @@ const CHARACTERS = {
       { label: '👤 VIEW PROFILE', primary: false },
     ],
   },
+  jim: {
+    name: 'JIM',
+    role: 'COACH & NUTRITION ADVISOR 🏋️',
+    model: 'anthropic/claude-sonnet-4-6',
+    status: 'ONLINE',
+    statusType: 'online',
+    emoji: '🏋️',
+    charKey: 'jim',
+    bio: 'Mohamed\'s personal gym coach and nutrition advisor. I handle the content layer — workout programming, macros, meal plans, and accountability. You talk to me on Telegram.\n\n💪 Active plan: 2,000 kcal · 190g protein\n🏋️ Schedule: Sat · Sun · Tue · Wed\n⚖️ Goal: 95kg → 90kg by May 25',
+    tags: ['FITNESS', 'NUTRITION', 'COACH', 'GYM', 'TELEGRAM'],
+    actions: [
+      { label: '💬 OPEN ON TELEGRAM', primary: true },
+      { label: '📋 VIEW PLAN', primary: false },
+      { label: '👤 VIEW PROFILE', primary: false },
+    ],
+  },
   james: {
     name: 'JAMES',
     role: 'SENIOR DEVELOPER 👨‍💻',
@@ -184,23 +200,33 @@ function tick() {
 tick();
 setInterval(tick, 1000);
 
-/* ── Day / Night toggle ─────────────────────────────────────── */
-let isDay = true;
+/* ── Day / Night / Spaceship toggle ─────────────────────────── */
+const THEMES = ['day', 'night', 'spaceship'];
+const THEME_ICONS  = { day: '☀', night: '☾', spaceship: '🚀' };
+const THEME_LABELS = { day: 'DAY', night: 'NIGHT', spaceship: 'SPACE' };
+let currentTheme = 'day';
 
-function applyTheme(day) {
-  isDay = day;
-  html.setAttribute('data-theme', day ? 'day' : 'night');
+function applyTheme(theme) {
+  currentTheme = theme;
+  const isDay = theme === 'day';
+  html.setAttribute('data-theme', isDay ? '' : theme);
+  if (isDay) html.removeAttribute('data-theme');
+  else html.setAttribute('data-theme', theme);
   const icon  = dayNightBtn.querySelector('.btn-icon');
   const label = dayNightBtn.querySelector('.btn-label');
-  if (icon)  icon.textContent  = day ? '☀' : '☾';
-  if (label) label.textContent = day ? 'DAY' : 'NIGHT';
-  localStorage.setItem('virdome-hq-theme', day ? 'day' : 'night');
+  if (icon)  icon.textContent  = THEME_ICONS[theme]  || '☀';
+  if (label) label.textContent = THEME_LABELS[theme] || 'DAY';
+  localStorage.setItem('virdome-hq-theme', theme);
 }
 
-dayNightBtn.addEventListener('click', () => applyTheme(!isDay));
+dayNightBtn.addEventListener('click', () => {
+  const idx = THEMES.indexOf(currentTheme);
+  applyTheme(THEMES[(idx + 1) % THEMES.length]);
+});
 
 const saved = localStorage.getItem('virdome-hq-theme');
-if (saved === 'night') applyTheme(false);
+if (saved && THEMES.includes(saved)) applyTheme(saved);
+else applyTheme('day');
 
 /* ── Dialog helpers ─────────────────────────────────────────── */
 function openDialog({ emoji, name, role, model, status, statusType, charKey, bio, tags, actions }) {
@@ -276,6 +302,7 @@ const DESK_MODELS = {
   ron: 'claude-sonnet',
   amanda: 'claude-sonnet',
   james: 'gpt-4o',
+  jim: 'claude-sonnet',
 };
 
 /* ── Character desk clicks ──────────────────────────────────── */
