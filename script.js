@@ -201,9 +201,9 @@ tick();
 setInterval(tick, 1000);
 
 /* ── Day / Night / Spaceship toggle ─────────────────────────── */
-const THEMES = ['day', 'night', 'spaceship'];
-const THEME_ICONS  = { day: '☀', night: '☾', spaceship: '🚀' };
-const THEME_LABELS = { day: 'DAY', night: 'NIGHT', spaceship: 'SPACE' };
+const THEMES = ['day', 'night'];
+const THEME_ICONS  = { day: '☀', night: '☾' };
+const THEME_LABELS = { day: 'DAY', night: 'NIGHT' };
 let currentTheme = 'day';
 
 function applyTheme(theme) {
