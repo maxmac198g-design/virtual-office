@@ -1,139 +1,84 @@
 /* ================================================================
-   VIRDOME HQ — RETRO PIXEL CYBERPUNK EDITION
-   Neon cyan + magenta + amber on deep purple-black void
+   VIRDOME HQ — CLEAN LIGHT THEME EDITION
+   Soft whites, warm wood tones, clean blue accents
    ================================================================ */
 
-/* ── Tokens — Cyberpunk Palette ──────────────────────────────── */
+/* ── Tokens — Light Palette ──────────────────────────────────── */
 :root {
-  /* Core darkness */
-  --bg:           #0a0010;
-  --wall-bg:      #050008;
-  --wall-border:  rgba(0, 255, 229, 0.15);
+  /* Core light backgrounds */
+  --bg:           #f0f2f5;
+  --wall-bg:      #ffffff;
+  --wall-border:  rgba(37, 99, 235, 0.10);
 
-  /* Room floors with grid tint */
-  --floor-main:   #0d0015;
-  --floor-meet:   #0c0018;
-  --floor-break:  #0d0010;
-  --floor-hall:   #0a000f;
-  --floor-data:   #050008;
+  /* Room floors — warm cream/wood */
+  --floor-main:   #f5f0e8;
+  --floor-meet:   #f0eee8;
+  --floor-break:  #f5f2ec;
+  --floor-hall:   #ebe8e0;
+  --floor-data:   #eef0f5;
 
-  /* Neon accents — primary */
-  --neon-cyan:    #00ffe5;
-  --neon-cyan-glow: rgba(0, 255, 229, 0.3);
-  --neon-magenta: #ff00aa;
-  --neon-mag-glow: rgba(255, 0, 170, 0.25);
-  --neon-amber:   #ffcc00;
-  --neon-amb-glow: rgba(255, 204, 0, 0.2);
-
-  /* Accent (default cyan) */
-  --accent:       #00ffe5;
-  --accent-glow:  rgba(0, 255, 229, 0.2);
+  /* Accent — clean blue */
+  --accent:       #2563eb;
+  --accent-glow:  rgba(37, 99, 235, 0.10);
 
   /* Grid & borders */
-  --grid-line:    rgba(0, 255, 200, 0.06);
-  --glass:        rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(0, 255, 229, 0.1);
+  --grid-line:    rgba(160, 140, 110, 0.10);
+  --glass:        rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(37, 99, 235, 0.10);
 
-  /* Furniture */
-  --desk-face:    #080012;
-  --desk-top:     rgba(0, 255, 229, 0.4);
-  --chair-bg:     #060010;
-  --monitor-case: #040008;
-  --screen-fg:    #00ffe5;
+  /* Furniture — warm wood */
+  --desk-face:    #c4a882;
+  --desk-top:     #a0845c;
+  --chair-bg:     #d4c4a8;
+  --monitor-case: #e2e8f0;
+  --screen-fg:    #2563eb;
 
   /* Text & labels */
-  --room-label:   rgba(0, 255, 229, 0.35);
+  --room-label:   rgba(37, 99, 235, 0.45);
 
-  /* HUD */
-  --hud-bg:       rgba(5, 0, 15, 0.97);
-  --hud-border:   rgba(0, 255, 229, 0.12);
-  --hud-fg:       rgba(255, 255, 255, 0.88);
-  --hud-accent:   #00ffe5;
+  /* HUD — frosted white glass */
+  --hud-bg:       rgba(255, 255, 255, 0.92);
+  --hud-border:   rgba(37, 99, 235, 0.10);
+  --hud-fg:       #1e293b;
+  --hud-accent:   #2563eb;
 
-  /* Dialog */
-  --dialog-bg:    rgba(5, 0, 20, 0.95);
-  --dialog-fg:    #ffffff;
+  /* Dialog — white */
+  --dialog-bg:    rgba(255, 255, 255, 0.97);
+  --dialog-fg:    #1e293b;
 
   /* Fonts */
   --font-ui:      'Inter', system-ui, -apple-system, sans-serif;
   --font-pixel:   'Press Start 2P', monospace;
 }
 
-/* Spaceship theme — deep space, blue-white stars, electric blue neon */
-[data-theme="spaceship"] {
-  --bg:           #00001a;
-  --wall-bg:      #000010;
-  --wall-border:  rgba(100, 180, 255, 0.2);
-  --floor-main:   #00001f;
-  --floor-meet:   #00001a;
-  --floor-break:  #00001a;
-  --floor-hall:   #000015;
-  --floor-data:   #00000f;
-  --accent:       #4fc3f7;
-  --accent-glow:  rgba(79, 195, 247, 0.25);
-  --room-label:   rgba(79, 195, 247, 0.4);
-  --hud-border:   rgba(79, 195, 247, 0.15);
-  --hud-accent:   #4fc3f7;
-  --screen-fg:    #4fc3f7;
-  --grid-line:    rgba(79, 195, 247, 0.05);
-  --wall-border:  rgba(79, 195, 247, 0.15);
-  --desk-top:     rgba(79, 195, 247, 0.4);
-  --glass-border: rgba(79, 195, 247, 0.12);
-  --neon-cyan:    #4fc3f7;
-  --neon-cyan-glow: rgba(79, 195, 247, 0.3);
-  --neon-magenta: #ce93d8;
-  --neon-mag-glow: rgba(206, 147, 216, 0.2);
-  --neon-amber:   #80deea;
-}
-
-/* Spaceship starfield background */
-[data-theme="spaceship"] body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
-    radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 40% 8%,  rgba(255,255,255,0.9) 0%, transparent 100%),
-    radial-gradient(1px 1px at 60% 22%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 75% 55%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 88% 12%, rgba(255,255,255,0.8) 0%, transparent 100%),
-    radial-gradient(1px 1px at 15% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 50% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 92% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 33% 90%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(2px 2px at 5%  30%, rgba(79,195,247,0.6)  0%, transparent 100%),
-    radial-gradient(2px 2px at 70% 75%, rgba(206,147,216,0.5) 0%, transparent 100%),
-    radial-gradient(2px 2px at 45% 50%, rgba(79,195,247,0.4)  0%, transparent 100%);
-}
-
-[data-theme="spaceship"] .office-world {
-  position: relative;
-  z-index: 1;
-}
-
-/* Night theme — violet/purple neon instead of cyan */
+/* ── Night theme — clean dark navy (no neon) ─────────────────── */
 [data-theme="night"] {
-  --bg:           #030008;
-  --wall-bg:      #020005;
-  --wall-border:  rgba(191, 95, 255, 0.15);
-  --floor-main:   #0a0010;
-  --floor-meet:   #0a0015;
-  --floor-break:  #0a000f;
-  --floor-hall:   #060008;
-  --floor-data:   #040006;
-  --accent:       #bf5fff;
-  --accent-glow:  rgba(191, 95, 255, 0.2);
-  --room-label:   rgba(191, 95, 255, 0.35);
-  --hud-border:   rgba(191, 95, 255, 0.12);
-  --hud-accent:   #bf5fff;
-  --screen-fg:    #bf5fff;
-  --grid-line:    rgba(191, 95, 255, 0.04);
-  --wall-border:  rgba(191, 95, 255, 0.15);
-  --desk-top:     rgba(191, 95, 255, 0.35);
-  --glass-border: rgba(191, 95, 255, 0.1);
+  --bg:           #1a1f2e;
+  --wall-bg:      #151a28;
+  --wall-border:  rgba(96, 165, 250, 0.12);
+  --floor-main:   #1e2336;
+  --floor-meet:   #1c2132;
+  --floor-break:  #1e2230;
+  --floor-hall:   #181c2a;
+  --floor-data:   #161a28;
+  --accent:       #60a5fa;
+  --accent-glow:  rgba(96, 165, 250, 0.12);
+  --room-label:   rgba(96, 165, 250, 0.45);
+  --hud-bg:       rgba(20, 25, 40, 0.95);
+  --hud-border:   rgba(96, 165, 250, 0.12);
+  --hud-fg:       rgba(255, 255, 255, 0.88);
+  --hud-accent:   #60a5fa;
+  --screen-fg:    #60a5fa;
+  --grid-line:    rgba(96, 165, 250, 0.05);
+  --wall-border:  rgba(96, 165, 250, 0.12);
+  --desk-face:    #2a3040;
+  --desk-top:     rgba(96, 165, 250, 0.3);
+  --chair-bg:     #252b3a;
+  --monitor-case: #1e2436;
+  --glass:        rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(96, 165, 250, 0.12);
+  --dialog-bg:    rgba(22, 27, 42, 0.97);
+  --dialog-fg:    #ffffff;
 }
 
 /* ── Reset ───────────────────────────────────────────────────── */
@@ -162,6 +107,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.5s ease;
 }
 
 button { cursor: pointer; font-family: inherit; background: none; border: none; }
@@ -182,13 +128,17 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 .hud-top {
   border-bottom: 1px solid var(--hud-border);
-  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
   z-index: 100;
 }
 
 .hud-bottom {
   border-top: 1px solid var(--hud-border);
   z-index: 100;
+}
+
+[data-theme="night"] .hud-top {
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
 }
 
 .hud-section {
@@ -199,11 +149,11 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 /* Logo dot + title */
 .hud-logo-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent-glow);
+  box-shadow: 0 0 6px var(--accent-glow);
   animation: logoPulse 3s ease-in-out infinite;
   flex-shrink: 0;
   transition: background 0.5s, box-shadow 0.5s;
@@ -211,7 +161,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 @keyframes logoPulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(0.85); }
+  50% { opacity: 0.7; transform: scale(0.85); }
 }
 
 .hud-title {
@@ -219,6 +169,10 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   font-weight: 600;
   letter-spacing: 0.12em;
   color: var(--hud-fg);
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Center pill + clock */
@@ -240,7 +194,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   height: 7px;
   border-radius: 50%;
   background: #22c55e;
-  box-shadow: 0 0 6px #22c55e, 0 0 12px rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 4px rgba(34, 197, 94, 0.4);
   animation: dotPulse 2.4s ease-in-out infinite;
   flex-shrink: 0;
 }
@@ -282,16 +236,10 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 .hud-btn:hover {
   background: var(--accent-glow);
-  border-color: rgba(0, 212, 255, 0.35);
+  border-color: rgba(37, 99, 235, 0.3);
   color: var(--accent);
 }
 .hud-btn:active { transform: scale(0.97); }
-
-[data-theme="night"] .hud-btn:hover {
-  background: var(--accent-glow);
-  border-color: rgba(168, 85, 247, 0.35);
-  color: var(--accent);
-}
 
 .btn-icon { font-size: 14px; }
 
@@ -299,24 +247,20 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 .status-text {
   font-size: 12px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(100, 116, 139, 0.8);
   letter-spacing: 0.02em;
 }
-.status-keys {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.25);
-  white-space: nowrap;
+[data-theme="night"] .status-text {
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* ── Office World ─────────────────────────────────────────────── */
-.office-world {
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: background 0.5s ease;
-  position: relative;
+.status-keys {
+  font-size: 11px;
+  color: rgba(100, 116, 139, 0.4);
+  white-space: nowrap;
+}
+[data-theme="night"] .status-keys {
+  color: rgba(255, 255, 255, 0.2);
 }
 
 /* ── Office Map ──────────────────────────────────────────────── */
@@ -326,12 +270,13 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   height: 540px;
   background: var(--wall-bg);
   border: 1px solid var(--wall-border);
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.5),
-    0 0 60px rgba(0, 0, 0, 0.8),
-    inset 0 0 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   transition: background 0.5s ease, border-color 0.5s ease;
   flex-shrink: 0;
+}
+
+[data-theme="night"] .office-map {
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* ── Rooms (shared) ──────────────────────────────────────────── */
@@ -340,7 +285,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transition: background 0.5s ease;
 }
 
-/* Floor tile grid lines — cyberpunk neon grid */
+/* Floor tile grid lines — warm subtle */
 .room::before {
   content: '';
   position: absolute;
@@ -365,8 +310,8 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
     2deg,
     transparent,
     transparent 47px,
-    rgba(255, 255, 255, 0.008) 47px,
-    rgba(255, 255, 255, 0.008) 48px
+    rgba(160, 140, 110, 0.04) 47px,
+    rgba(160, 140, 110, 0.04) 48px
   );
 }
 
@@ -384,8 +329,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   pointer-events: none;
   z-index: 20;
   text-transform: uppercase;
-  text-shadow: 0 0 12px var(--accent);
-  transition: color 0.5s, text-shadow 0.5s;
+  transition: color 0.5s;
 }
 
 /* ── Room: Hallway ───────────────────────────────────────────── */
@@ -394,6 +338,8 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   width: 920px; height: 44px;
   background: var(--floor-hall);
   border: 1px solid var(--wall-border);
+  position: relative;
+  overflow: hidden;
 }
 
 .hall-light {
@@ -401,7 +347,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   top: 0;
   width: 120px;
   height: 100%;
-  background: radial-gradient(ellipse at 50% 0, rgba(0, 212, 255, 0.07) 0%, transparent 85%);
+  background: radial-gradient(ellipse at 50% 0, rgba(37, 99, 235, 0.04) 0%, transparent 85%);
   pointer-events: none;
   z-index: 1;
   transition: background 0.5s;
@@ -411,7 +357,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 .hl-3 { right: 10%; }
 
 [data-theme="night"] .hall-light {
-  background: radial-gradient(ellipse at 50% 0, rgba(168, 85, 247, 0.06) 0%, transparent 80%);
+  background: radial-gradient(ellipse at 50% 0, rgba(96, 165, 250, 0.06) 0%, transparent 80%);
 }
 
 /* ── Room: Main Office ───────────────────────────────────────── */
@@ -433,14 +379,10 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transition: background 0.3s ease, border-color 0.5s ease, box-shadow 0.3s ease;
 }
 .room-meeting:hover {
-  box-shadow: inset 0 0 50px rgba(0, 212, 255, 0.06), 0 0 0 1px rgba(0, 212, 255, 0.25);
+  box-shadow: inset 0 0 40px rgba(37, 99, 235, 0.04), 0 0 0 1px rgba(37, 99, 235, 0.2);
 }
 .room-meeting:hover .room-hint { opacity: 1; }
 .room-meeting:focus { outline: none; box-shadow: 0 0 0 2px var(--accent); }
-
-[data-theme="night"] .room-meeting:hover {
-  box-shadow: inset 0 0 50px rgba(168, 85, 247, 0.06), 0 0 0 1px rgba(168, 85, 247, 0.25);
-}
 
 /* ── Room: Break Room ────────────────────────────────────────── */
 .room-break {
@@ -452,7 +394,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transition: background 0.3s ease, border-color 0.5s ease, box-shadow 0.3s ease;
 }
 .room-break:hover {
-  box-shadow: inset 0 0 40px rgba(0, 212, 255, 0.05), 0 0 0 1px rgba(0, 212, 255, 0.2);
+  box-shadow: inset 0 0 30px rgba(37, 99, 235, 0.04), 0 0 0 1px rgba(37, 99, 235, 0.15);
 }
 .room-break:hover .room-hint { opacity: 1; }
 .room-break:focus { outline: none; box-shadow: 0 0 0 2px var(--accent); }
@@ -468,7 +410,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--accent);
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   padding: 5px 12px;
   border: 1px solid var(--accent-glow);
@@ -478,6 +420,10 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transition: opacity 0.2s ease;
   pointer-events: none;
   z-index: 15;
+}
+
+[data-theme="night"] .room-hint {
+  background: rgba(20, 25, 40, 0.85);
 }
 
 /* Occupancy badge */
@@ -490,13 +436,18 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   gap: 5px;
   font-size: 10px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(0, 0, 0, 0.5);
+  color: #64748b;
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   padding: 4px 9px;
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   z-index: 15;
+}
+
+[data-theme="night"] .room-badge {
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .occ-dot {
@@ -509,10 +460,9 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 /* ── Door Gaps ───────────────────────────────────────────────── */
 .door-gap {
   position: absolute;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(37, 99, 235, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.12);
   z-index: 5;
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.15);
   transition: background 0.5s, border-color 0.5s;
 }
 .door-meet-top {
@@ -533,10 +483,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   line-height: 1;
   pointer-events: none;
   z-index: 5;
-  filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.1));
 }
-
-
 
 /* ════════════════════════════════════════════════════════════════
    WALL CLOCK
@@ -552,29 +499,28 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 .clock-face {
   width: 52px;
   height: 22px;
-  background: #040c16;
-  border: 1px solid rgba(0, 212, 255, 0.35);
+  background: #f8fafc;
+  border: 1px solid rgba(37, 99, 235, 0.2);
   border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    0 0 12px rgba(0, 212, 255, 0.18),
-    inset 0 0 10px rgba(0, 0, 0, 0.6);
-  transition: border-color 0.5s, box-shadow 0.5s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.5s, box-shadow 0.5s, background 0.5s;
 }
+
 [data-theme="night"] .clock-face {
-  border-color: rgba(168, 85, 247, 0.35);
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.18), inset 0 0 10px rgba(0, 0, 0, 0.6);
+  background: #1e2436;
+  border-color: rgba(96, 165, 250, 0.25);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
 }
 
 .clock-display {
   font-family: var(--font-pixel);
   font-size: 7px;
   color: var(--accent);
-  text-shadow: 0 0 8px var(--accent);
   letter-spacing: 0.08em;
-  transition: color 0.5s, text-shadow 0.5s;
+  transition: color 0.5s;
 }
 
 /* ════════════════════════════════════════════════════════════════
@@ -591,10 +537,10 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 .shelf-plank {
   height: 4px;
-  background: linear-gradient(180deg, #3a2010 0%, #2a1a08 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, #a0845c 0%, #8b7040 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 1px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .shelf-row {
@@ -602,7 +548,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   align-items: flex-end;
   gap: 2px;
   padding: 3px 3px 1px;
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(160, 132, 92, 0.08);
 }
 
 .book {
@@ -610,7 +556,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   height: 20px;
   border-radius: 0 1px 1px 0;
   flex-shrink: 0;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.3), inset 1px 0 0 rgba(255, 255, 255, 0.06);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.15), inset 1px 0 0 rgba(255, 255, 255, 0.2);
 }
 .book.tall { height: 26px; }
 
@@ -641,19 +587,19 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   width: 22px;
   height: 26px;
   background: linear-gradient(180deg,
-    rgba(173, 216, 230, 0.7) 0%,
-    rgba(100, 180, 220, 0.5) 60%,
-    rgba(70, 140, 190, 0.6) 100%);
+    rgba(173, 216, 230, 0.8) 0%,
+    rgba(100, 180, 220, 0.6) 60%,
+    rgba(70, 140, 190, 0.7) 100%);
   border-radius: 4px 4px 1px 1px;
-  border: 1px solid rgba(0, 212, 255, 0.35);
-  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.15), 0 0 8px rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.3);
 }
 
 .wc-body {
   width: 30px;
   height: 32px;
-  background: linear-gradient(180deg, #1a2a3e 0%, #0f1a28 100%);
-  border: 1px solid rgba(0, 212, 255, 0.15);
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 2px;
   position: relative;
   display: flex;
@@ -668,23 +614,23 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 4px;
   right: 4px;
   height: 1px;
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .wc-tap {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
-.wt-hot  { background: rgba(239, 68, 68, 0.7); box-shadow: 0 0 4px rgba(239, 68, 68, 0.3); }
-.wt-cold { background: rgba(59, 130, 246, 0.7); box-shadow: 0 0 4px rgba(59, 130, 246, 0.3); }
+.wt-hot  { background: rgba(239, 68, 68, 0.7); box-shadow: 0 0 3px rgba(239, 68, 68, 0.2); }
+.wt-cold { background: rgba(59, 130, 246, 0.7); box-shadow: 0 0 3px rgba(59, 130, 246, 0.2); }
 
 .wc-base {
   width: 34px;
   height: 7px;
-  background: #0a1420;
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  background: #cbd5e1;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 0 0 3px 3px;
 }
 
@@ -704,28 +650,25 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 /* Positions within room-main — scaled 48% */
 /* Row 1: max, mark, john */
-.desk-slot[data-member="max"]    { left: 10px;  top: 38px; }
-.desk-slot[data-member="mark"]   { left: 125px; top: 38px; }
-.desk-slot[data-member="john"]   { left: 240px; top: 38px; }
-/* Row 2: ron, amanda, james */
-.desk-slot[data-member="ron"]    { left: 10px;  top: 178px; }
-.desk-slot[data-member="amanda"] { left: 125px; top: 178px; }
-.desk-slot[data-member="james"]  { left: 240px; top: 178px; }
+.desk-slot[data-member="max"]      { left: 10px;  top: 38px; }
+.desk-slot[data-member="mark"]     { left: 125px; top: 38px; }
+.desk-slot[data-member="john"]     { left: 240px; top: 38px; }
+
+/* Row 2: ron, amanda, james, jim */
+.desk-slot[data-member="ron"]      { left: 10px;  top: 178px; }
+.desk-slot[data-member="amanda"]   { left: 125px; top: 178px; }
+.desk-slot[data-member="james"]    { left: 240px; top: 178px; }
+.desk-slot[data-member="jim"]      { left: 370px; top: 178px; }
 
 .desk-slot:focus { outline: none; }
 .desk-slot:focus .desk {
-  box-shadow:
-    0 0 0 2px var(--accent),
-    0 0 20px var(--accent-glow),
-    0 0 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 2px var(--accent), 0 2px 12px rgba(37, 99, 235, 0.15);
 }
 .desk-slot:hover .desk {
-  box-shadow:
-    0 0 16px var(--accent-glow),
-    0 0 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 16px rgba(37, 99, 235, 0.12);
 }
 .desk-slot:hover .char-sprite-wrap {
-  filter: brightness(1.15);
+  filter: brightness(1.08);
 }
 
 /* ── Character Shadow ────────────────────────────────────────── */
@@ -736,10 +679,14 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transform: translateX(-50%);
   width: 48px;
   height: 10px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55) 0%, transparent 72%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, transparent 72%);
   pointer-events: none;
   z-index: 1;
   animation: shadowPulse 2.2s ease-in-out infinite;
+}
+
+[data-theme="night"] .char-shadow {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, transparent 72%);
 }
 
 @keyframes shadowPulse {
@@ -756,7 +703,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   width: 42px;
   height: 26px;
   background: var(--chair-bg);
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 4px;
   z-index: 1;
 }
@@ -767,9 +714,13 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 6px;
   right: 6px;
   height: 7px;
-  background: #0a1422;
-  border: 1px solid rgba(0, 212, 255, 0.08);
+  background: #c4b496;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 3px 3px 0 0;
+}
+
+[data-theme="night"] .desk-chair::after {
+  background: #2a3040;
 }
 
 /* ── Desk surface ────────────────────────────────────────────── */
@@ -780,12 +731,12 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   right: 5px;
   height: 36px;
   background: var(--desk-face);
-  border: 1px solid rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-top: 2px solid var(--desk-top);
   border-radius: 4px;
   z-index: 3;
-  transition: box-shadow 0.25s ease, border-color 0.5s;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.25s ease, border-color 0.5s, background 0.5s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* ── Monitor ─────────────────────────────────────────────────── */
@@ -797,7 +748,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   width: 50px;
   height: 22px;
   background: var(--monitor-case);
-  border: 1px solid rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 3px;
   z-index: 4;
 }
@@ -809,10 +760,14 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transform: translateX(-50%);
   width: 18px;
   height: 4px;
-  background: #08111e;
+  background: #d4d8e0;
   border-radius: 0 0 2px 2px;
-  border: 1px solid rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-top: none;
+}
+
+[data-theme="night"] .monitor::after {
+  background: #1e2436;
 }
 
 .monitor-screen {
@@ -821,25 +776,19 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 3px;
   right: 3px;
   bottom: 2px;
-  background: rgba(0, 212, 255, 0.08);
+  background: rgba(37, 99, 235, 0.06);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    0 0 8px rgba(0, 212, 255, 0.4),
-    inset 0 0 10px rgba(0, 212, 255, 0.15);
+  box-shadow: inset 0 0 6px rgba(37, 99, 235, 0.08);
   transition: background 0.5s, box-shadow 0.5s;
   overflow: hidden;
 }
-.monitor-screen::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.06);
+
+[data-theme="night"] .monitor-screen {
+  background: rgba(96, 165, 250, 0.08);
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.2), inset 0 0 8px rgba(96, 165, 250, 0.1);
 }
 
 .screen-text {
@@ -855,11 +804,6 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   48%, 52%  { opacity: 0.5; }
 }
 
-[data-theme="night"] .monitor-screen {
-  background: rgba(168, 85, 247, 0.08);
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4), inset 0 0 12px rgba(168, 85, 247, 0.15);
-}
-
 /* ── Desk Items ──────────────────────────────────────────────── */
 .desk-keyboard {
   position: absolute;
@@ -867,8 +811,8 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   right: 6px;
   width: 30px;
   height: 8px;
-  background: #0d1826;
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  background: #e2e8f0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 1px;
   z-index: 4;
 }
@@ -879,7 +823,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 2px;
   right: 2px;
   height: 1px;
-  background: rgba(0, 212, 255, 0.12);
+  background: rgba(0, 0, 0, 0.06);
 }
 .desk-keyboard::after {
   content: '';
@@ -888,7 +832,12 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 8px;
   right: 2px;
   height: 1px;
-  background: rgba(0, 212, 255, 0.07);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="night"] .desk-keyboard {
+  background: #1e2436;
+  border-color: rgba(96, 165, 250, 0.1);
 }
 
 .desk-cup {
@@ -897,9 +846,9 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   top: 5px;
   width: 9px;
   height: 11px;
-  background: #1a3a5a;
+  background: #e2e8f0;
   border-radius: 0 0 2px 2px;
-  border: 1px solid rgba(0, 212, 255, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 4;
 }
 .desk-cup::before {
@@ -909,7 +858,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 0;
   right: 0;
   height: 3px;
-  background: rgba(0, 180, 220, 0.2);
+  background: rgba(100, 160, 200, 0.2);
   border-radius: 2px 2px 0 0;
 }
 .desk-cup::after {
@@ -919,17 +868,17 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   right: -4px;
   width: 4px;
   height: 6px;
-  border: 1.5px solid rgba(0, 212, 255, 0.2);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
   border-left: none;
   border-radius: 0 3px 3px 0;
 }
 
 .desk-cup-coffee {
-  background: #4a2000;
-  border-color: rgba(139, 90, 43, 0.4);
+  background: #8b6a3e;
+  border-color: rgba(139, 90, 43, 0.3);
 }
-.desk-cup-coffee::before { background: rgba(100, 60, 10, 0.4); }
-.desk-cup-coffee::after  { border-color: rgba(139, 90, 43, 0.25); }
+.desk-cup-coffee::before { background: rgba(100, 60, 10, 0.3); }
+.desk-cup-coffee::after  { border-color: rgba(139, 90, 43, 0.2); }
 
 .desk-papers {
   position: absolute;
@@ -945,14 +894,14 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   position: absolute;
   width: 16px;
   height: 10px;
-  background: rgba(230, 240, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 1px;
 }
 .desk-papers::after {
   top: 1px;
   left: 1px;
-  background: rgba(230, 240, 255, 0.03);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .desk-plant-sm {
@@ -962,7 +911,6 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   font-size: 11px;
   line-height: 1;
   z-index: 4;
-  filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.35));
 }
 
 .desk-phone {
@@ -971,8 +919,8 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   top: 6px;
   width: 11px;
   height: 8px;
-  background: #141e2e;
-  border: 1px solid rgba(0, 212, 255, 0.14);
+  background: #d4d8e0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 1px;
   z-index: 4;
 }
@@ -983,8 +931,13 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 1px;
   right: 1px;
   height: 4px;
-  background: rgba(0, 212, 255, 0.06);
+  background: rgba(37, 99, 235, 0.06);
   border-radius: 1px;
+}
+
+[data-theme="night"] .desk-phone {
+  background: #1e2436;
+  border-color: rgba(96, 165, 250, 0.1);
 }
 
 /* ── Nametag ─────────────────────────────────────────────────── */
@@ -994,19 +947,26 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-pixel);
-  font-size: 7px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 5.5px;
+  color: #475569;
   white-space: nowrap;
   letter-spacing: 0.14em;
-  text-shadow:
-    0 0 8px var(--accent),
-    1px 1px 0 rgba(0, 0, 0, 0.9);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   pointer-events: none;
   z-index: 2;
-  transition: text-shadow 0.5s;
+  transition: color 0.5s, background 0.5s;
 }
 
-/* ── Desk Model Badge ─────────────────────────────────────────– */
+[data-theme="night"] .char-nametag {
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(96, 165, 250, 0.1);
+}
+
+/* ── Desk Model Badge ────────────────────────────────────────── */
 .desk-model-badge {
   position: absolute;
   bottom: -2px;
@@ -1015,21 +975,14 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   font-family: 'Courier New', monospace;
   font-size: 6px;
   color: var(--accent);
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.25);
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.15);
   border-radius: 3px;
   padding: 1px 4px;
   white-space: nowrap;
   pointer-events: none;
   z-index: 10;
   letter-spacing: 0.04em;
-  text-shadow: 0 0 6px var(--accent);
-}
-
-[data-theme="night"] .desk-model-badge {
-  color: var(--accent);
-  background: rgba(168, 85, 247, 0.08);
-  border-color: rgba(168, 85, 247, 0.25);
 }
 
 /* ── AI Badge (MAX only) ─────────────────────────────────────── */
@@ -1040,23 +993,54 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transform: translateX(-50%);
   font-family: var(--font-pixel);
   font-size: 5px;
-  color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
-  border: 1px solid rgba(0, 212, 255, 0.45);
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.3);
   padding: 2px 6px;
   border-radius: 3px;
   white-space: nowrap;
   z-index: 8;
-  text-shadow: 0 0 8px #00d4ff;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
   animation: aiBadge 2.5s ease-in-out infinite;
   letter-spacing: 0.1em;
   pointer-events: none;
 }
 
+[data-theme="night"] .ai-badge {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
 @keyframes aiBadge {
-  0%, 100% { box-shadow: 0 0 10px rgba(0, 212, 255, 0.2); transform: translateX(-50%) translateY(0); }
-  50%       { box-shadow: 0 0 18px rgba(0, 212, 255, 0.55); transform: translateX(-50%) translateY(-2px); }
+  0%, 100% { box-shadow: 0 0 6px rgba(37, 99, 235, 0.1); transform: translateX(-50%) translateY(0); }
+  50%       { box-shadow: 0 0 12px rgba(37, 99, 235, 0.2); transform: translateX(-50%) translateY(-2px); }
+}
+
+/* ── FOUNDER Badge (MOHAMED) ─────────────────────────────────── */
+.founder-badge {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-pixel);
+  font-size: 5px;
+  color: #b8860b;
+  background: rgba(184, 134, 11, 0.08);
+  border: 1px solid rgba(184, 134, 11, 0.35);
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  z-index: 8;
+  text-shadow: 0 0 4px rgba(184, 134, 11, 0.3);
+  box-shadow: 0 0 8px rgba(184, 134, 11, 0.1);
+  animation: founderBadge 2.5s ease-in-out infinite;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+}
+
+@keyframes founderBadge {
+  0%, 100% { box-shadow: 0 0 8px rgba(184, 134, 11, 0.1); transform: translateX(-50%) translateY(0); }
+  50%       { box-shadow: 0 0 16px rgba(184, 134, 11, 0.25); transform: translateX(-50%) translateY(-2px); }
 }
 
 /* ════════════════════════════════════════════════════════════════
@@ -1095,17 +1079,17 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 .status-online {
   background: #22c55e;
-  box-shadow: 0 0 6px #22c55e, 0 0 14px rgba(34, 197, 94, 0.5);
+  box-shadow: 0 0 4px rgba(34, 197, 94, 0.4);
   animation: statusPulse 2.4s ease-in-out infinite;
 }
 .status-busy {
   background: #f59e0b;
-  box-shadow: 0 0 6px #f59e0b, 0 0 14px rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 4px rgba(245, 158, 11, 0.4);
   animation: statusPulse 1.8s ease-in-out infinite;
 }
 .status-offline {
-  background: #4b5563;
-  box-shadow: 0 0 4px rgba(75, 85, 99, 0.4);
+  background: #94a3b8;
+  box-shadow: 0 0 3px rgba(148, 163, 184, 0.3);
 }
 
 @keyframes statusPulse {
@@ -1126,66 +1110,47 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   MAX — Sleek Robot: visor/eye-slit (cyan bar), antenna with LED,
-         dark metallic body with glowing circuit lines
-   Colors: head #1a2a3a  visor #00ffe5  body #0d1e2e  
-           circuits #00ffe5  LED-red #ff0040  leg #0a1420  foot #050a10
+   MAX — Sleek Robot
    ════════════════════════════════════════════════════════════════ */
 .sprite-max {
   box-shadow:
-    /* Row 0 — antenna top tip (blinking red LED) */
     28px  0px 0 0 #ff0040, 32px  0px 0 0 #ff0040,
-    /* Row 1 — antenna stem */
     28px  4px 0 0 #1a2a3a, 32px  4px 0 0 #1a2a3a,
-    /* Row 2 — antenna base + head start */
     24px  8px 0 0 #1a2a3a, 28px  8px 0 0 #1a2a3a, 32px  8px 0 0 #1a2a3a, 36px  8px 0 0 #1a2a3a,
-    /* Row 3 — head wide */
     16px 12px 0 0 #1a2a3a, 20px 12px 0 0 #1a2a3a, 24px 12px 0 0 #1a2a3a, 28px 12px 0 0 #1a2a3a,
     32px 12px 0 0 #1a2a3a, 36px 12px 0 0 #1a2a3a, 40px 12px 0 0 #1a2a3a, 44px 12px 0 0 #1a2a3a,
-    /* Row 4 — visor eye-slit (cyan bar across face) */
     16px 16px 0 0 #0d1e2e, 44px 16px 0 0 #0d1e2e,
-    20px 16px 0 0 #00ffe5, 24px 16px 0 0 #00ffe5, 28px 16px 0 0 #00ffe5,
-    32px 16px 0 0 #00ffe5, 36px 16px 0 0 #00ffe5, 40px 16px 0 0 #00ffe5,
-    /* Row 5 — head lower */
+    20px 16px 0 0 #2563eb, 24px 16px 0 0 #2563eb, 28px 16px 0 0 #2563eb,
+    32px 16px 0 0 #2563eb, 36px 16px 0 0 #2563eb, 40px 16px 0 0 #2563eb,
     16px 20px 0 0 #1a2a3a, 44px 20px 0 0 #1a2a3a,
     20px 20px 0 0 #1a2a3a, 24px 20px 0 0 #1a2a3a, 28px 20px 0 0 #0d1e2e,
     32px 20px 0 0 #0d1e2e, 36px 20px 0 0 #1a2a3a, 40px 20px 0 0 #1a2a3a,
-    /* Row 6 — mouth plate (dark metal) */
     16px 24px 0 0 #0d1e2e, 20px 24px 0 0 #0d1e2e, 24px 24px 0 0 #0d1e2e,
     28px 24px 0 0 #0a1420, 32px 24px 0 0 #0a1420, 36px 24px 0 0 #0d1e2e,
     40px 24px 0 0 #0d1e2e, 44px 24px 0 0 #0d1e2e,
-    /* Row 7 — neck + upper body */
     20px 28px 0 0 #0d1e2e, 24px 28px 0 0 #0d1e2e, 28px 28px 0 0 #0d1e2e,
     32px 28px 0 0 #0d1e2e, 36px 28px 0 0 #0d1e2e, 40px 28px 0 0 #0d1e2e,
-    /* Row 8 — body wide + arms (circuit line) */
     12px 32px 0 0 #0d1e2e, 16px 32px 0 0 #0d1e2e,
-    20px 32px 0 0 #0d1e2e, 24px 32px 0 0 #0d1e2e, 28px 32px 0 0 #00ffe5,
+    20px 32px 0 0 #0d1e2e, 24px 32px 0 0 #0d1e2e, 28px 32px 0 0 #2563eb,
     32px 32px 0 0 #0d1e2e, 36px 32px 0 0 #0d1e2e, 40px 32px 0 0 #0d1e2e,
     44px 32px 0 0 #0d1e2e, 48px 32px 0 0 #0d1e2e,
-    /* Row 9 — body (vertical circuit line) */
     12px 36px 0 0 #0d1e2e,
-    16px 36px 0 0 #0d1e2e, 20px 36px 0 0 #0d1e2e, 24px 36px 0 0 #00ffe5,
-    28px 36px 0 0 #0d1e2e, 32px 36px 0 0 #0d1e2e, 36px 36px 0 0 #00ffe5,
+    16px 36px 0 0 #0d1e2e, 20px 36px 0 0 #0d1e2e, 24px 36px 0 0 #2563eb,
+    28px 36px 0 0 #0d1e2e, 32px 36px 0 0 #0d1e2e, 36px 36px 0 0 #2563eb,
     40px 36px 0 0 #0d1e2e, 44px 36px 0 0 #0d1e2e,
     48px 36px 0 0 #0d1e2e,
-    /* Row 10 — body middle (chest panel) */
-    16px 40px 0 0 #0d1e2e, 20px 40px 0 0 #0d1e2e, 24px 40px 0 0 #0d1e2e, 28px 40px 0 0 #00ffe5,
+    16px 40px 0 0 #0d1e2e, 20px 40px 0 0 #0d1e2e, 24px 40px 0 0 #0d1e2e, 28px 40px 0 0 #2563eb,
     32px 40px 0 0 #0d1e2e, 36px 40px 0 0 #0d1e2e, 40px 40px 0 0 #0d1e2e, 44px 40px 0 0 #0d1e2e,
-    /* Row 11 — lower body */
     16px 44px 0 0 #0d1e2e, 20px 44px 0 0 #0d1e2e, 24px 44px 0 0 #0d1e2e, 28px 44px 0 0 #0d1e2e,
     32px 44px 0 0 #0d1e2e, 36px 44px 0 0 #0d1e2e, 40px 44px 0 0 #0d1e2e, 44px 44px 0 0 #0d1e2e,
-    /* Row 12 — legs */
     16px 48px 0 0 #0a1420, 20px 48px 0 0 #0a1420, 24px 48px 0 0 #0a1420,
     36px 48px 0 0 #0a1420, 40px 48px 0 0 #0a1420, 44px 48px 0 0 #0a1420,
-    /* Row 13 — legs narrow */
     16px 52px 0 0 #0a1420, 20px 52px 0 0 #0a1420,
     40px 52px 0 0 #0a1420, 44px 52px 0 0 #0a1420,
-    /* Row 14 — feet */
     16px 56px 0 0 #050a10, 20px 56px 0 0 #050a10,
     40px 56px 0 0 #050a10, 44px 56px 0 0 #050a10;
 }
 
-/* Max antenna LED blink (red light) — overlays top antenna pixel */
 .sprite-max-blink {
   box-shadow:
     28px  0px 0 0 #ff3040,
@@ -1200,11 +1165,10 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   100%     { opacity: 0; }
 }
 
-/* Max glowing eyes overlay — creates pulsing glow effect */
 .sprite-max-eyes-glow {
   box-shadow:
-    24px 16px 0 0 rgba(0, 212, 255, 0.8),
-    36px 16px 0 0 rgba(0, 212, 255, 0.8);
+    24px 16px 0 0 rgba(37, 99, 235, 0.7),
+    36px 16px 0 0 rgba(37, 99, 235, 0.7);
   opacity: 0;
   filter: blur(1px);
   animation: eyePulse 3s ease-in-out infinite;
@@ -1212,70 +1176,51 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 @keyframes eyePulse {
   0%, 100% { opacity: 0.3; }
-  50%       { opacity: 0.85; }
+  50%       { opacity: 0.75; }
 }
 
 /* ════════════════════════════════════════════════════════════════
-   MARK — Creative: dark hair with glowing magenta tips, artistic,
-          paint-splatter vibes on jacket
-   Colors: hair #1a0a2e  hair-tips #ff00aa  skin #f5c5a3  
-           smock #2d0a4e  paint-splatter #ff00aa (magenta)
-           pupils #1a0a04  pants #2a1a0a  shoes #0f0a14
+   MARK — Creative
    ════════════════════════════════════════════════════════════════ */
 .sprite-mark {
   box-shadow:
-    /* Row 1 — hair top (dark purple base) */
     20px  4px 0 0 #1a0a2e, 24px  4px 0 0 #1a0a2e, 28px  4px 0 0 #1a0a2e,
     32px  4px 0 0 #1a0a2e, 36px  4px 0 0 #1a0a2e,
-    /* Row 2 — hair wide with tips */
     16px  8px 0 0 #1a0a2e, 20px  8px 0 0 #ff00aa, 24px  8px 0 0 #1a0a2e,
     28px  8px 0 0 #1a0a2e, 32px  8px 0 0 #1a0a2e, 36px  8px 0 0 #ff00aa, 40px  8px 0 0 #1a0a2e,
-    /* Row 3 — hair sides, face */
     16px 12px 0 0 #1a0a2e, 40px 12px 0 0 #1a0a2e,
     20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
     32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
-    /* Row 4 — eyes (dreamy expression) */
     16px 16px 0 0 #1a0a2e, 40px 16px 0 0 #1a0a2e,
     20px 16px 0 0 #f0f0f0, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f0f0f0,
     24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
-    /* Row 5 — face lower */
     16px 20px 0 0 #1a0a2e, 40px 20px 0 0 #1a0a2e,
     20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
     32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
-    /* Row 6 — creative smile */
     20px 24px 0 0 #1a0a2e, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #e8a882,
     32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #1a0a2e,
-    /* Row 7 — smock collar (dark purple artistic jacket) */
     12px 28px 0 0 #2d0a4e,
     20px 28px 0 0 #2d0a4e, 24px 28px 0 0 #2d0a4e, 28px 28px 0 0 #2d0a4e,
     32px 28px 0 0 #2d0a4e, 36px 28px 0 0 #2d0a4e,
     44px 28px 0 0 #2d0a4e,
-    /* Row 8 — smock + paint splatters */
     12px 32px 0 0 #2d0a4e,
     16px 32px 0 0 #2d0a4e, 20px 32px 0 0 #ff00aa, 24px 32px 0 0 #2d0a4e, 28px 32px 0 0 #2d0a4e,
     32px 32px 0 0 #2d0a4e, 36px 32px 0 0 #ff00aa, 40px 32px 0 0 #2d0a4e,
     44px 32px 0 0 #2d0a4e,
-    /* Row 9 — smock with artistic marks */
     16px 36px 0 0 #2d0a4e, 20px 36px 0 0 #2d0a4e, 24px 36px 0 0 #ff00aa, 28px 36px 0 0 #2d0a4e,
     32px 36px 0 0 #ff00aa, 36px 36px 0 0 #2d0a4e, 40px 36px 0 0 #2d0a4e,
-    /* Row 10 — smock lower (more paint) */
     16px 40px 0 0 #2d0a4e, 20px 40px 0 0 #2d0a4e, 24px 40px 0 0 #2d0a4e, 28px 40px 0 0 #ff00aa,
     32px 40px 0 0 #2d0a4e, 36px 40px 0 0 #2d0a4e, 40px 40px 0 0 #2d0a4e,
-    /* Row 11 — pants */
     16px 44px 0 0 #2a1a0a, 20px 44px 0 0 #2a1a0a, 24px 44px 0 0 #2a1a0a,
     32px 44px 0 0 #2a1a0a, 36px 44px 0 0 #2a1a0a, 40px 44px 0 0 #2a1a0a,
-    /* Row 12 — pants */
     16px 48px 0 0 #2a1a0a, 20px 48px 0 0 #2a1a0a, 24px 48px 0 0 #2a1a0a,
     32px 48px 0 0 #2a1a0a, 36px 48px 0 0 #2a1a0a, 40px 48px 0 0 #2a1a0a,
-    /* Row 13 — pants narrowed */
     16px 52px 0 0 #2a1a0a, 20px 52px 0 0 #2a1a0a,
     36px 52px 0 0 #2a1a0a, 40px 52px 0 0 #2a1a0a,
-    /* Row 14 — shoes */
     16px 56px 0 0 #0f0a14, 20px 56px 0 0 #0f0a14,
     36px 56px 0 0 #0f0a14, 40px 56px 0 0 #0f0a14;
 }
 
-/* Mark blink — cover eyes with skin */
 .sprite-mark-blink {
   box-shadow:
     20px 16px 0 0 #f5c5a3,
@@ -1288,65 +1233,47 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   JOHN — Analyst: light hair, cyan AR glasses, smart data-analyst
-          green casual shirt
-   Colors: hair #b8a050  skin #f5c5a3  eyes #f0f0f0  pupils #1a0a04
-           glasses-lens #00ffe5  shirt #0a7a48  pants #1e293b  shoes #0f172a
+   JOHN — Analyst
    ════════════════════════════════════════════════════════════════ */
 .sprite-john {
   box-shadow:
-    /* Row 1 — hair top */
     20px  4px 0 0 #b8a050, 24px  4px 0 0 #b8a050, 28px  4px 0 0 #b8a050,
     32px  4px 0 0 #b8a050, 36px  4px 0 0 #b8a050,
-    /* Row 2 — hair wide */
     16px  8px 0 0 #b8a050, 20px  8px 0 0 #b8a050, 24px  8px 0 0 #b8a050,
     28px  8px 0 0 #b8a050, 32px  8px 0 0 #b8a050, 36px  8px 0 0 #b8a050, 40px  8px 0 0 #b8a050,
-    /* Row 3 — hair sides, face */
     16px 12px 0 0 #b8a050, 40px 12px 0 0 #b8a050,
     20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
     32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
-    /* Row 4 — AR glasses with cyan glow lenses */
     16px 16px 0 0 #b8a050, 40px 16px 0 0 #b8a050,
-    20px 16px 0 0 #00ffe5, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #00ffe5,
+    20px 16px 0 0 #2563eb, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #2563eb,
     24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
-    /* Row 5 — face lower + glasses bridge */
     16px 20px 0 0 #b8a050, 40px 20px 0 0 #b8a050,
-    20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #00ffe5, 28px 20px 0 0 #f5c5a3,
-    32px 20px 0 0 #00ffe5, 36px 20px 0 0 #f5c5a3,
-    /* Row 6 — data-focused smile */
+    20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #2563eb, 28px 20px 0 0 #f5c5a3,
+    32px 20px 0 0 #2563eb, 36px 20px 0 0 #f5c5a3,
     20px 24px 0 0 #b8a050, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #c88860,
     32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #b8a050,
-    /* Row 7 — shirt collar (dark green) */
     12px 28px 0 0 #0a7a48,
     20px 28px 0 0 #0a7a48, 24px 28px 0 0 #0a7a48, 28px 28px 0 0 #0a7a48,
     32px 28px 0 0 #0a7a48, 36px 28px 0 0 #0a7a48,
     44px 28px 0 0 #0a7a48,
-    /* Row 8 — shirt + arms */
     12px 32px 0 0 #0a7a48,
     16px 32px 0 0 #0a7a48, 20px 32px 0 0 #0a7a48, 24px 32px 0 0 #0a7a48, 28px 32px 0 0 #0a7a48,
     32px 32px 0 0 #0a7a48, 36px 32px 0 0 #0a7a48, 40px 32px 0 0 #0a7a48,
     44px 32px 0 0 #0a7a48,
-    /* Row 9 — shirt */
     16px 36px 0 0 #0a7a48, 20px 36px 0 0 #0a7a48, 24px 36px 0 0 #0a7a48, 28px 36px 0 0 #0a7a48,
     32px 36px 0 0 #0a7a48, 36px 36px 0 0 #0a7a48, 40px 36px 0 0 #0a7a48,
-    /* Row 10 — shirt bottom */
     16px 40px 0 0 #0a7a48, 20px 40px 0 0 #0a7a48, 24px 40px 0 0 #0a7a48, 28px 40px 0 0 #0a7a48,
     32px 40px 0 0 #0a7a48, 36px 40px 0 0 #0a7a48, 40px 40px 0 0 #0a7a48,
-    /* Row 11 — pants */
     16px 44px 0 0 #1e293b, 20px 44px 0 0 #1e293b, 24px 44px 0 0 #1e293b,
     32px 44px 0 0 #1e293b, 36px 44px 0 0 #1e293b, 40px 44px 0 0 #1e293b,
-    /* Row 12 — pants */
     16px 48px 0 0 #1e293b, 20px 48px 0 0 #1e293b, 24px 48px 0 0 #1e293b,
     32px 48px 0 0 #1e293b, 36px 48px 0 0 #1e293b, 40px 48px 0 0 #1e293b,
-    /* Row 13 — pants narrowed */
     16px 52px 0 0 #1e293b, 20px 52px 0 0 #1e293b,
     36px 52px 0 0 #1e293b, 40px 52px 0 0 #1e293b,
-    /* Row 14 — shoes */
     16px 56px 0 0 #0f172a, 20px 56px 0 0 #0f172a,
     36px 56px 0 0 #0f172a, 40px 56px 0 0 #0f172a;
 }
 
-/* John blink */
 .sprite-john-blink {
   box-shadow:
     24px 16px 0 0 #f5c5a3,
@@ -1356,7 +1283,6 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   animation-delay: -0.9s;
 }
 
-/* Shared blink keyframe */
 @keyframes blink {
   0%, 85%  { opacity: 0; }
   87%, 92% { opacity: 1; }
@@ -1364,63 +1290,46 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   RON — Security Guard: dark uniform, glowing amber badge,
-         stern professional look
-   Colors: hair #0a0a14  skin #f5c5a3  uniform #0a1a3a
-           badge #ffcc00  badge-glow #ffcc00  eye #1a0a04  pants #1a1a2e
+   RON — Security Guard
    ════════════════════════════════════════════════════════════════ */
 .sprite-ron {
   box-shadow:
-    /* Row 1 — hair top (very dark) */
     20px  4px 0 0 #0a0a14, 24px  4px 0 0 #0a0a14, 28px  4px 0 0 #0a0a14,
     32px  4px 0 0 #0a0a14, 36px  4px 0 0 #0a0a14,
-    /* Row 2 — hair wide */
     16px  8px 0 0 #0a0a14, 20px  8px 0 0 #0a0a14, 24px  8px 0 0 #0a0a14,
     28px  8px 0 0 #0a0a14, 32px  8px 0 0 #0a0a14, 36px  8px 0 0 #0a0a14, 40px  8px 0 0 #0a0a14,
-    /* Row 3 — hair sides, face */
     16px 12px 0 0 #0a0a14, 40px 12px 0 0 #0a0a14,
     20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
     32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
-    /* Row 4 — stern eyes */
     16px 16px 0 0 #0a0a14, 40px 16px 0 0 #0a0a14,
     20px 16px 0 0 #f5c5a3, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f5c5a3,
     24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
-    /* Row 5 — face lower (serious) */
     16px 20px 0 0 #0a0a14, 40px 20px 0 0 #0a0a14,
     20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
     32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
-    /* Row 6 — grim mouth, chin */
     20px 24px 0 0 #0a0a14, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #c88860,
     32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #0a0a14,
-    /* Row 7 — uniform collar + amber badge */
-    12px 28px 0 0 #0a1a3a,
-    16px 28px 0 0 #0a1a3a, 20px 28px 0 0 #0a1a3a, 24px 28px 0 0 #ffcc00,
-    28px 28px 0 0 #0a1a3a, 32px 28px 0 0 #ffcc00, 36px 28px 0 0 #0a1a3a,
-    40px 28px 0 0 #0a1a3a,
-    44px 28px 0 0 #0a1a3a,
-    /* Row 8 — uniform + arms (glowing badge) */
-    12px 32px 0 0 #0a1a3a,
-    16px 32px 0 0 #0a1a3a, 20px 32px 0 0 #0a1a3a, 24px 32px 0 0 #ffcc00, 28px 32px 0 0 #0a1a3a,
-    32px 32px 0 0 #ffcc00, 36px 32px 0 0 #0a1a3a, 40px 32px 0 0 #0a1a3a,
-    44px 32px 0 0 #0a1a3a,
-    /* Row 9 — uniform lower */
-    16px 36px 0 0 #0a1a3a, 20px 36px 0 0 #0a1a3a, 24px 36px 0 0 #0a1a3a, 28px 36px 0 0 #0a1a3a,
-    32px 36px 0 0 #0a1a3a, 36px 36px 0 0 #0a1a3a, 40px 36px 0 0 #0a1a3a,
-    /* Row 10 — belt/lower armor */
-    16px 40px 0 0 #050a14, 20px 40px 0 0 #050a14, 24px 40px 0 0 #050a14, 28px 40px 0 0 #050a14,
-    32px 40px 0 0 #050a14, 36px 40px 0 0 #050a14, 40px 40px 0 0 #050a14,
-    /* Row 11 — pants */
+    12px 28px 0 0 #1e3a5a,
+    16px 28px 0 0 #1e3a5a, 20px 28px 0 0 #1e3a5a, 24px 28px 0 0 #d4a017,
+    28px 28px 0 0 #1e3a5a, 32px 28px 0 0 #d4a017, 36px 28px 0 0 #1e3a5a,
+    40px 28px 0 0 #1e3a5a,
+    44px 28px 0 0 #1e3a5a,
+    12px 32px 0 0 #1e3a5a,
+    16px 32px 0 0 #1e3a5a, 20px 32px 0 0 #1e3a5a, 24px 32px 0 0 #d4a017, 28px 32px 0 0 #1e3a5a,
+    32px 32px 0 0 #d4a017, 36px 32px 0 0 #1e3a5a, 40px 32px 0 0 #1e3a5a,
+    44px 32px 0 0 #1e3a5a,
+    16px 36px 0 0 #1e3a5a, 20px 36px 0 0 #1e3a5a, 24px 36px 0 0 #1e3a5a, 28px 36px 0 0 #1e3a5a,
+    32px 36px 0 0 #1e3a5a, 36px 36px 0 0 #1e3a5a, 40px 36px 0 0 #1e3a5a,
+    16px 40px 0 0 #152a40, 20px 40px 0 0 #152a40, 24px 40px 0 0 #152a40, 28px 40px 0 0 #152a40,
+    32px 40px 0 0 #152a40, 36px 40px 0 0 #152a40, 40px 40px 0 0 #152a40,
     16px 44px 0 0 #1a1a2e, 20px 44px 0 0 #1a1a2e, 24px 44px 0 0 #1a1a2e,
     32px 44px 0 0 #1a1a2e, 36px 44px 0 0 #1a1a2e, 40px 44px 0 0 #1a1a2e,
-    /* Row 12 — pants */
     16px 48px 0 0 #1a1a2e, 20px 48px 0 0 #1a1a2e, 24px 48px 0 0 #1a1a2e,
     32px 48px 0 0 #1a1a2e, 36px 48px 0 0 #1a1a2e, 40px 48px 0 0 #1a1a2e,
-    /* Row 13 — pants narrowed */
     16px 52px 0 0 #1a1a2e, 20px 52px 0 0 #1a1a2e,
     36px 52px 0 0 #1a1a2e, 40px 52px 0 0 #1a1a2e,
-    /* Row 14 — combat boots */
-    16px 56px 0 0 #050a10, 20px 56px 0 0 #050a10,
-    36px 56px 0 0 #050a10, 40px 56px 0 0 #050a10;
+    16px 56px 0 0 #0a0a18, 20px 56px 0 0 #0a0a18,
+    36px 56px 0 0 #0a0a18, 40px 56px 0 0 #0a0a18;
 }
 
 .sprite-ron-blink {
@@ -1433,65 +1342,46 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   AMANDA — Secretary: auburn hair (bun), professional magenta blazer,
-            holographic earpiece with cyan glow
-   Colors: hair #8B3A1A  bun #a04422  skin #f5c5a3
-           blazer #1a0a2e  earpiece #00ffe5  eye #1a0a04
-           pants #4a3060  shoes #2d1a40
+   AMANDA — Secretary
    ════════════════════════════════════════════════════════════════ */
 .sprite-amanda {
   box-shadow:
-    /* Row 0 — hair bun top */
     24px  0px 0 0 #a04422, 28px  0px 0 0 #a04422, 32px  0px 0 0 #a04422,
-    /* Row 1 — hair bun wide */
     20px  4px 0 0 #8B3A1A, 24px  4px 0 0 #a04422, 28px  4px 0 0 #a04422,
     32px  4px 0 0 #a04422, 36px  4px 0 0 #8B3A1A,
-    /* Row 2 — hair wide */
     16px  8px 0 0 #8B3A1A, 20px  8px 0 0 #8B3A1A, 24px  8px 0 0 #8B3A1A,
     28px  8px 0 0 #8B3A1A, 32px  8px 0 0 #8B3A1A, 36px  8px 0 0 #8B3A1A, 40px  8px 0 0 #8B3A1A,
-    /* Row 3 — hair sides, face */
-    16px 12px 0 0 #8B3A1A, 40px 12px 0 0 #00ffe5,
+    16px 12px 0 0 #8B3A1A, 40px 12px 0 0 #2563eb,
     20px 12px 0 0 #f5c5a3, 24px 12px 0 0 #f5c5a3, 28px 12px 0 0 #f5c5a3,
     32px 12px 0 0 #f5c5a3, 36px 12px 0 0 #f5c5a3,
-    /* Row 4 — eyes + cyan earpiece holo-glow */
-    16px 16px 0 0 #8B3A1A, 40px 16px 0 0 #00ffe5,
+    16px 16px 0 0 #8B3A1A, 40px 16px 0 0 #2563eb,
     20px 16px 0 0 #f5c5a3, 28px 16px 0 0 #f5c5a3, 36px 16px 0 0 #f5c5a3,
     24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
-    /* Row 5 — face lower + earpiece */
-    16px 20px 0 0 #8B3A1A, 40px 20px 0 0 #00ffe5,
+    16px 20px 0 0 #8B3A1A, 40px 20px 0 0 #2563eb,
     20px 20px 0 0 #f5c5a3, 24px 20px 0 0 #f5c5a3, 28px 20px 0 0 #f5c5a3,
     32px 20px 0 0 #f5c5a3, 36px 20px 0 0 #f5c5a3,
-    /* Row 6 — warm smile (secretary charm) */
     16px 24px 0 0 #f8d0b8, 40px 24px 0 0 #f8d0b8,
     20px 24px 0 0 #e8956a, 24px 24px 0 0 #f5c5a3, 28px 24px 0 0 #e8a882,
     32px 24px 0 0 #f5c5a3, 36px 24px 0 0 #e8956a,
-    /* Row 7 — blazer collar (dark elegant) */
-    12px 28px 0 0 #1a0a2e,
-    16px 28px 0 0 #1a0a2e, 20px 28px 0 0 #1a0a2e, 24px 28px 0 0 #1a0a2e,
-    28px 28px 0 0 #1a0a2e, 32px 28px 0 0 #1a0a2e, 36px 28px 0 0 #1a0a2e,
-    40px 28px 0 0 #1a0a2e,
-    44px 28px 0 0 #1a0a2e,
-    /* Row 8 — blazer + arms */
-    12px 32px 0 0 #1a0a2e,
-    16px 32px 0 0 #1a0a2e, 20px 32px 0 0 #1a0a2e, 24px 32px 0 0 #1a0a2e, 28px 32px 0 0 #1a0a2e,
-    32px 32px 0 0 #1a0a2e, 36px 32px 0 0 #1a0a2e, 40px 32px 0 0 #1a0a2e,
-    44px 32px 0 0 #1a0a2e,
-    /* Row 9 — blazer (professional) */
-    16px 36px 0 0 #1a0a2e, 20px 36px 0 0 #1a0a2e, 24px 36px 0 0 #1a0a2e, 28px 36px 0 0 #1a0a2e,
-    32px 36px 0 0 #1a0a2e, 36px 36px 0 0 #1a0a2e, 40px 36px 0 0 #1a0a2e,
-    /* Row 10 — blazer lower */
-    16px 40px 0 0 #1a0a2e, 20px 40px 0 0 #1a0a2e, 24px 40px 0 0 #1a0a2e, 28px 40px 0 0 #1a0a2e,
-    32px 40px 0 0 #1a0a2e, 36px 40px 0 0 #1a0a2e, 40px 40px 0 0 #1a0a2e,
-    /* Row 11 — pants (elegant) */
+    12px 28px 0 0 #1e293b,
+    16px 28px 0 0 #1e293b, 20px 28px 0 0 #1e293b, 24px 28px 0 0 #1e293b,
+    28px 28px 0 0 #1e293b, 32px 28px 0 0 #1e293b, 36px 28px 0 0 #1e293b,
+    40px 28px 0 0 #1e293b,
+    44px 28px 0 0 #1e293b,
+    12px 32px 0 0 #1e293b,
+    16px 32px 0 0 #1e293b, 20px 32px 0 0 #1e293b, 24px 32px 0 0 #1e293b, 28px 32px 0 0 #1e293b,
+    32px 32px 0 0 #1e293b, 36px 32px 0 0 #1e293b, 40px 32px 0 0 #1e293b,
+    44px 32px 0 0 #1e293b,
+    16px 36px 0 0 #1e293b, 20px 36px 0 0 #1e293b, 24px 36px 0 0 #1e293b, 28px 36px 0 0 #1e293b,
+    32px 36px 0 0 #1e293b, 36px 36px 0 0 #1e293b, 40px 36px 0 0 #1e293b,
+    16px 40px 0 0 #1e293b, 20px 40px 0 0 #1e293b, 24px 40px 0 0 #1e293b, 28px 40px 0 0 #1e293b,
+    32px 40px 0 0 #1e293b, 36px 40px 0 0 #1e293b, 40px 40px 0 0 #1e293b,
     16px 44px 0 0 #4a3060, 20px 44px 0 0 #4a3060, 24px 44px 0 0 #4a3060,
     32px 44px 0 0 #4a3060, 36px 44px 0 0 #4a3060, 40px 44px 0 0 #4a3060,
-    /* Row 12 — pants */
     16px 48px 0 0 #4a3060, 20px 48px 0 0 #4a3060, 24px 48px 0 0 #4a3060,
     32px 48px 0 0 #4a3060, 36px 48px 0 0 #4a3060, 40px 48px 0 0 #4a3060,
-    /* Row 13 — pants narrowed */
     16px 52px 0 0 #4a3060, 20px 52px 0 0 #4a3060,
     36px 52px 0 0 #4a3060, 40px 52px 0 0 #4a3060,
-    /* Row 14 — professional heels */
     16px 56px 0 0 #2d1a40, 20px 56px 0 0 #2d1a40,
     36px 56px 0 0 #2d1a40, 40px 56px 0 0 #2d1a40;
 }
@@ -1506,58 +1396,41 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 /* ════════════════════════════════════════════════════════════════
-   JAMES — Developer: dark hoodie with cyan code glyph </> on chest,
-           dark skin, focused developer stance
-   Colors: skin #5a3010  hoodie #1a1a2e  code-glyph #00ffe5
-           pants #1a1a2e  shoes #0a0a14
+   JAMES — Developer
    ════════════════════════════════════════════════════════════════ */
 .sprite-james {
   box-shadow:
-    /* Row 1 — hair top (black) */
     20px  4px 0 0 #0a0a0a, 24px  4px 0 0 #0a0a0a, 28px  4px 0 0 #0a0a0a,
     32px  4px 0 0 #0a0a0a, 36px  4px 0 0 #0a0a0a,
-    /* Row 2 — hair wide */
     16px  8px 0 0 #0a0a0a, 20px  8px 0 0 #0a0a0a, 24px  8px 0 0 #0a0a0a,
     28px  8px 0 0 #0a0a0a, 32px  8px 0 0 #0a0a0a, 36px  8px 0 0 #0a0a0a, 40px  8px 0 0 #0a0a0a,
-    /* Row 3 — hair sides, face */
     16px 12px 0 0 #0a0a0a, 40px 12px 0 0 #0a0a0a,
     20px 12px 0 0 #5a3010, 24px 12px 0 0 #5a3010, 28px 12px 0 0 #5a3010,
     32px 12px 0 0 #5a3010, 36px 12px 0 0 #5a3010,
-    /* Row 4 — eyes (focused) */
     16px 16px 0 0 #0a0a0a, 40px 16px 0 0 #0a0a0a,
     20px 16px 0 0 #5a3010, 28px 16px 0 0 #5a3010, 36px 16px 0 0 #5a3010,
     24px 16px 0 0 #1a0a04, 32px 16px 0 0 #1a0a04,
-    /* Row 5 — face lower */
     16px 20px 0 0 #0a0a0a, 40px 20px 0 0 #0a0a0a,
     20px 20px 0 0 #5a3010, 24px 20px 0 0 #5a3010, 28px 20px 0 0 #5a3010,
     32px 20px 0 0 #5a3010, 36px 20px 0 0 #5a3010,
-    /* Row 6 — focused mouth */
     20px 24px 0 0 #3a2008, 24px 24px 0 0 #5a3010, 28px 24px 0 0 #4a2810,
     32px 24px 0 0 #5a3010, 36px 24px 0 0 #3a2008,
-    /* Row 7 — hoodie collar */
     12px 28px 0 0 #1a1a2e, 16px 28px 0 0 #1a1a2e, 20px 28px 0 0 #2a2a3e, 24px 28px 0 0 #1a1a2e,
     28px 28px 0 0 #2a2a3e, 32px 28px 0 0 #1a1a2e, 36px 28px 0 0 #2a2a3e,
     40px 28px 0 0 #1a1a2e, 44px 28px 0 0 #1a1a2e,
-    /* Row 8 — hoodie body (with code glyph start) */
-    12px 32px 0 0 #1a1a2e, 16px 32px 0 0 #1a1a2e, 20px 32px 0 0 #1a1a2e, 24px 32px 0 0 #00ffe5,
-    28px 32px 0 0 #1a1a2e, 32px 32px 0 0 #1a1a2e, 36px 32px 0 0 #00ffe5,
+    12px 32px 0 0 #1a1a2e, 16px 32px 0 0 #1a1a2e, 20px 32px 0 0 #1a1a2e, 24px 32px 0 0 #2563eb,
+    28px 32px 0 0 #1a1a2e, 32px 32px 0 0 #1a1a2e, 36px 32px 0 0 #2563eb,
     40px 32px 0 0 #1a1a2e, 44px 32px 0 0 #1a1a2e,
-    /* Row 9 — hoodie (code glyph > on chest) */
-    16px 36px 0 0 #1a1a2e, 20px 36px 0 0 #1a1a2e, 24px 36px 0 0 #1a1a2e, 28px 36px 0 0 #00ffe5,
+    16px 36px 0 0 #1a1a2e, 20px 36px 0 0 #1a1a2e, 24px 36px 0 0 #1a1a2e, 28px 36px 0 0 #2563eb,
     32px 36px 0 0 #1a1a2e, 36px 36px 0 0 #1a1a2e, 40px 36px 0 0 #1a1a2e,
-    /* Row 10 — hoodie lower */
     16px 40px 0 0 #1a1a2e, 20px 40px 0 0 #1a1a2e, 24px 40px 0 0 #1a1a2e, 28px 40px 0 0 #1a1a2e,
     32px 40px 0 0 #1a1a2e, 36px 40px 0 0 #1a1a2e, 40px 40px 0 0 #1a1a2e,
-    /* Row 11 — pants */
     16px 44px 0 0 #1a1a2e, 20px 44px 0 0 #1a1a2e, 24px 44px 0 0 #1a1a2e,
     32px 44px 0 0 #1a1a2e, 36px 44px 0 0 #1a1a2e, 40px 44px 0 0 #1a1a2e,
-    /* Row 12 — pants */
     16px 48px 0 0 #1a1a2e, 20px 48px 0 0 #1a1a2e, 24px 48px 0 0 #1a1a2e,
     32px 48px 0 0 #1a1a2e, 36px 48px 0 0 #1a1a2e, 40px 48px 0 0 #1a1a2e,
-    /* Row 13 — pants narrowed */
     16px 52px 0 0 #1a1a2e, 20px 52px 0 0 #1a1a2e,
     36px 52px 0 0 #1a1a2e, 40px 52px 0 0 #1a1a2e,
-    /* Row 14 — shoes */
     16px 56px 0 0 #0a0a14, 20px 56px 0 0 #0a0a14,
     36px 56px 0 0 #0a0a14, 40px 56px 0 0 #0a0a14;
 }
@@ -1571,60 +1444,48 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   animation-delay: -2s;
 }
 
-/* ── JIM — Coach & Nutrition Advisor ────────────────────────── */
+/* ════════════════════════════════════════════════════════════════
+   JIM — Coach & Nutrition
+   ════════════════════════════════════════════════════════════════ */
 .sprite-jim {
   box-shadow:
-    /* Row 1 — short buzzcut */
     20px  4px 0 0 #1a0800, 24px  4px 0 0 #1a0800, 28px  4px 0 0 #1a0800,
     32px  4px 0 0 #1a0800, 36px  4px 0 0 #1a0800,
-    /* Row 2 — hair */
     16px  8px 0 0 #1a0800, 20px  8px 0 0 #1a0800, 24px  8px 0 0 #1a0800,
     28px  8px 0 0 #1a0800, 32px  8px 0 0 #1a0800, 36px  8px 0 0 #1a0800, 40px  8px 0 0 #1a0800,
-    /* Row 3 — face (warm tan skin) */
     16px 12px 0 0 #1a0800, 40px 12px 0 0 #1a0800,
     20px 12px 0 0 #c47a45, 24px 12px 0 0 #c47a45, 28px 12px 0 0 #c47a45,
     32px 12px 0 0 #c47a45, 36px 12px 0 0 #c47a45,
-    /* Row 4 — eyes (determined) */
     16px 16px 0 0 #1a0800, 40px 16px 0 0 #1a0800,
     20px 16px 0 0 #c47a45, 28px 16px 0 0 #c47a45, 36px 16px 0 0 #c47a45,
     24px 16px 0 0 #1a0800, 32px 16px 0 0 #1a0800,
-    /* Row 5 — face lower */
     16px 20px 0 0 #1a0800, 40px 20px 0 0 #1a0800,
     20px 20px 0 0 #c47a45, 24px 20px 0 0 #c47a45, 28px 20px 0 0 #c47a45,
     32px 20px 0 0 #c47a45, 36px 20px 0 0 #c47a45,
-    /* Row 6 — strong jaw / slight smirk */
     20px 24px 0 0 #a05e30, 24px 24px 0 0 #c47a45, 28px 24px 0 0 #7a3a10,
     32px 24px 0 0 #c47a45, 36px 24px 0 0 #a05e30,
-    /* Row 7 — wide neck / tank top shoulder neon green */
     12px 28px 0 0 #00e676, 16px 28px 0 0 #00e676, 20px 28px 0 0 #c47a45,
     24px 28px 0 0 #c47a45, 28px 28px 0 0 #c47a45,
     32px 28px 0 0 #c47a45, 36px 28px 0 0 #00e676, 40px 28px 0 0 #00e676, 44px 28px 0 0 #00e676,
-    /* Row 8 — tank top body (wide, buff) */
     8px  32px 0 0 #00e676, 12px 32px 0 0 #009944, 16px 32px 0 0 #009944,
     20px 32px 0 0 #009944, 24px 32px 0 0 #00c853, 28px 32px 0 0 #009944,
     32px 32px 0 0 #009944, 36px 32px 0 0 #009944, 40px 32px 0 0 #009944,
     44px 32px 0 0 #00e676, 48px 32px 0 0 #00e676,
-    /* Row 9 — tank body lower / bicep bump */
     8px  36px 0 0 #c47a45, 12px 36px 0 0 #009944, 16px 36px 0 0 #009944,
     20px 36px 0 0 #009944, 24px 36px 0 0 #009944, 28px 36px 0 0 #00c853,
     32px 36px 0 0 #009944, 36px 36px 0 0 #009944, 40px 36px 0 0 #009944,
     44px 36px 0 0 #c47a45, 48px 36px 0 0 #c47a45,
-    /* Row 10 — arms exposed skin */
     8px  40px 0 0 #c47a45, 12px 40px 0 0 #009944, 16px 40px 0 0 #009944,
     20px 40px 0 0 #009944, 24px 40px 0 0 #009944, 28px 40px 0 0 #009944,
     32px 40px 0 0 #009944, 36px 40px 0 0 #009944, 40px 40px 0 0 #009944,
     44px 40px 0 0 #c47a45, 48px 40px 0 0 #c47a45,
-    /* Row 11 — shorts (dark) */
     12px 44px 0 0 #1a1a2e, 16px 44px 0 0 #1a1a2e, 20px 44px 0 0 #1a1a2e,
     24px 44px 0 0 #1a1a2e, 28px 44px 0 0 #1a1a2e, 32px 44px 0 0 #1a1a2e,
     36px 44px 0 0 #1a1a2e, 40px 44px 0 0 #1a1a2e, 44px 44px 0 0 #1a1a2e,
-    /* Row 12 — shorts */
     12px 48px 0 0 #1a1a2e, 16px 48px 0 0 #1a1a2e, 20px 48px 0 0 #1a1a2e,
     32px 48px 0 0 #1a1a2e, 36px 48px 0 0 #1a1a2e, 40px 48px 0 0 #1a1a2e,
-    /* Row 13 — legs */
     16px 52px 0 0 #c47a45, 20px 52px 0 0 #c47a45,
     36px 52px 0 0 #c47a45, 40px 52px 0 0 #c47a45,
-    /* Row 14 — sneakers (neon green) */
     16px 56px 0 0 #00e676, 20px 56px 0 0 #00e676,
     36px 56px 0 0 #00e676, 40px 56px 0 0 #00e676;
 }
@@ -1638,57 +1499,63 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   animation-delay: -1s;
 }
 
-/* Dialog portrait colors for Ron, Amanda & James */
+/* ════════════════════════════════════════════════════════════════
+   
+
+/* Dialog portrait colors */
 .dialog-portrait[data-char="ron"] {
-  background: rgba(26, 58, 110, 0.18);
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 0 24px rgba(59, 130, 246, 0.2);
+  background: rgba(30, 58, 90, 0.12);
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.1);
 }
 .dialog-portrait[data-char="amanda"] {
-  background: rgba(236, 72, 153, 0.12);
-  border-color: rgba(236, 72, 153, 0.5);
-  box-shadow: 0 0 24px rgba(236, 72, 153, 0.2);
+  background: rgba(236, 72, 153, 0.08);
+  border-color: rgba(236, 72, 153, 0.4);
+  box-shadow: 0 2px 12px rgba(236, 72, 153, 0.1);
 }
 .dialog-portrait[data-char="james"] {
-  background: rgba(138, 120, 230, 0.12);
-  border-color: rgba(138, 120, 230, 0.5);
-  box-shadow: 0 0 24px rgba(138, 120, 230, 0.2);
+  background: rgba(138, 120, 230, 0.08);
+  border-color: rgba(138, 120, 230, 0.4);
+  box-shadow: 0 2px 12px rgba(138, 120, 230, 0.1);
 }
 
-/* Ron & Amanda minimap dots */
+
+/* Minimap dots */
 .mm-ron {
   background: #3b82f6;
-  box-shadow: 0 0 5px #3b82f6;
+  box-shadow: 0 0 4px rgba(59, 130, 246, 0.4);
   left: 10px; top: 28px;
 }
 .mm-amanda {
   background: #ec4899;
-  box-shadow: 0 0 5px #ec4899;
+  box-shadow: 0 0 4px rgba(236, 72, 153, 0.4);
   left: 26px; top: 28px;
 }
 .mm-james {
   background: #8a78e6;
-  box-shadow: 0 0 5px #8a78e6;
+  box-shadow: 0 0 4px rgba(138, 120, 230, 0.4);
   left: 42px; top: 28px;
+}
+
+.mm-jim {
+  background: #22c55e;
+  box-shadow: 0 0 4px rgba(34, 197, 94, 0.4);
+  left: 56px; top: 28px;
 }
 
 /* ── Coffee Machine Sprite ─────────────────────────────────────── */
 .sprite-coffee {
   box-shadow:
-    /* water tank */
-     4px  0px 0 0 #1a6888,  8px  0px 0 0 #1a6888, 12px  0px 0 0 #1a6888,
-     4px  4px 0 0 #1a6888,  8px  4px 0 0 #1a6888, 12px  4px 0 0 #1a6888,
-    /* body */
-     4px  8px 0 0 #0e1828,  8px  8px 0 0 #0e1828, 12px  8px 0 0 #0e1828,
-     0px 12px 0 0 #0e1828,  4px 12px 0 0 #0e1828,  8px 12px 0 0 #0e1828, 12px 12px 0 0 #0e1828,
-     0px 16px 0 0 #0e1828,  4px 16px 0 0 #0e1828,  8px 16px 0 0 #00d4ff, 12px 16px 0 0 #0e1828,
-     0px 20px 0 0 #0e1828,  4px 20px 0 0 #0e1828,  8px 20px 0 0 #0e1828, 12px 20px 0 0 #0e1828,
-    /* nozzle */
-     4px 24px 0 0 #0e1828,  8px 24px 0 0 #0e1828,
-    /* cup */
-     4px 28px 0 0 #c8d8f0,  8px 28px 0 0 #c8d8f0,
-     0px 32px 0 0 #c8d8f0,  4px 32px 0 0 #c8d8f0,  8px 32px 0 0 #c8d8f0,
-     4px 36px 0 0 #c8d8f0,  8px 36px 0 0 #c8d8f0;
+    4px  0px 0 0 #1a6888,  8px  0px 0 0 #1a6888, 12px  0px 0 0 #1a6888,
+    4px  4px 0 0 #1a6888,  8px  4px 0 0 #1a6888, 12px  4px 0 0 #1a6888,
+    4px  8px 0 0 #475569,  8px  8px 0 0 #475569, 12px  8px 0 0 #475569,
+    0px 12px 0 0 #475569,  4px 12px 0 0 #475569,  8px 12px 0 0 #475569, 12px 12px 0 0 #475569,
+    0px 16px 0 0 #475569,  4px 16px 0 0 #475569,  8px 16px 0 0 #2563eb, 12px 16px 0 0 #475569,
+    0px 20px 0 0 #475569,  4px 20px 0 0 #475569,  8px 20px 0 0 #475569, 12px 20px 0 0 #475569,
+    4px 24px 0 0 #475569,  8px 24px 0 0 #475569,
+    4px 28px 0 0 #e2e8f0,  8px 28px 0 0 #e2e8f0,
+    0px 32px 0 0 #e2e8f0,  4px 32px 0 0 #e2e8f0,  8px 32px 0 0 #e2e8f0,
+    4px 36px 0 0 #e2e8f0,  8px 36px 0 0 #e2e8f0;
 }
 
 /* ── Coffee Area ─────────────────────────────────────────────── */
@@ -1710,12 +1577,16 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 .coffee-steam {
   font-size: 11px;
-  color: rgba(0, 212, 255, 0.4);
+  color: rgba(100, 116, 139, 0.4);
   animation: steamRise 2.4s ease-in-out infinite;
   line-height: 1;
   margin-bottom: 2px;
   letter-spacing: -2px;
   transition: color 0.5s;
+}
+
+[data-theme="night"] .coffee-steam {
+  color: rgba(96, 165, 250, 0.3);
 }
 
 @keyframes steamRise {
@@ -1730,33 +1601,46 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   right: 12px;
   width: 62px;
   height: 38px;
-  background: #111e2e;
-  border: 1px solid rgba(0, 212, 255, 0.15);
+  background: #e2e8f0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 3px;
   z-index: 3;
   display: flex;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="night"] .microwave {
+  background: #1e2436;
+  border-color: rgba(96, 165, 250, 0.12);
 }
 
 .mw-door {
   flex: 1;
   margin: 4px 2px 4px 4px;
-  background: #0a1420;
-  border: 1px solid rgba(0, 212, 255, 0.12);
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+[data-theme="night"] .mw-door {
+  background: #151a28;
+  border-color: rgba(96, 165, 250, 0.1);
+}
+
 .mw-viewport {
   font-family: var(--font-pixel);
   font-size: 5px;
-  color: rgba(0, 212, 255, 0.65);
-  text-shadow: 0 0 6px rgba(0, 212, 255, 0.4);
+  color: rgba(37, 99, 235, 0.6);
   letter-spacing: 0.05em;
   transition: color 0.5s;
+}
+
+[data-theme="night"] .mw-viewport {
+  color: rgba(96, 165, 250, 0.6);
 }
 
 .mw-panel {
@@ -1772,11 +1656,11 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   width: 8px;
   height: 8px;
   border-radius: 1px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
-.mb1 { background: rgba(0, 212, 255, 0.12); }
+.mb1 { background: rgba(37, 99, 235, 0.12); }
 .mb2 { background: rgba(245, 158, 11, 0.12); }
-.mb3 { background: rgba(255, 255, 255, 0.05); }
+.mb3 { background: rgba(0, 0, 0, 0.04); }
 
 /* ── Break Counter ───────────────────────────────────────────── */
 .break-counter {
@@ -1786,7 +1670,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   width: 185px;
   height: 32px;
   background: var(--desk-face);
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-top: 2px solid var(--desk-top);
   border-radius: 4px;
   transition: background 0.5s, border-color 0.5s;
@@ -1797,7 +1681,6 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 .counter-snack {
   font-size: 13px;
-  filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.3));
 }
 
 /* ════════════════════════════════════════════════════════════════
@@ -1819,16 +1702,14 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transform: translateX(-50%);
   width: 120px;
   height: 80px;
-  background: rgba(10, 18, 40, 0.9);
-  border: 1px solid rgba(0, 212, 255, 0.18);
-  border-top: 2px solid rgba(0, 212, 255, 0.4);
+  background: var(--desk-face);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 2px solid var(--desk-top);
   border-radius: 8px;
   z-index: 2;
   overflow: hidden;
-  box-shadow:
-    0 4px 30px rgba(0, 0, 0, 0.6),
-    inset 0 0 20px rgba(0, 212, 255, 0.03);
-  transition: border-color 0.5s, box-shadow 0.5s;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.5s, box-shadow 0.5s, background 0.5s;
 }
 
 .conf-table-shine {
@@ -1837,17 +1718,16 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 8px;
   width: 35px;
   height: 3px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 2px;
 }
 
-/* Table items (laptops + cup) */
 .ti-laptop {
   position: absolute;
   width: 22px;
   height: 14px;
-  background: #0c1828;
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: #e2e8f0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 1px;
   z-index: 3;
 }
@@ -1855,8 +1735,13 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   content: '';
   position: absolute;
   inset: 2px;
-  background: rgba(0, 212, 255, 0.06);
+  background: rgba(37, 99, 235, 0.06);
   border-radius: 1px;
+}
+
+[data-theme="night"] .ti-laptop {
+  background: #1e2436;
+  border-color: rgba(96, 165, 250, 0.15);
 }
 
 .ti-laptop-l { left: 6px;  top: 20px; }
@@ -1866,7 +1751,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   position: absolute;
   width: 8px;
   height: 9px;
-  background: #c8d8f0;
+  background: #e2e8f0;
   border-radius: 0 0 2px 2px;
   top: 50%;
   left: 50%;
@@ -1877,7 +1762,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 .conf-chair {
   position: absolute;
   background: var(--chair-bg);
-  border: 1px solid rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 3px;
   z-index: 1;
   transition: background 0.5s;
@@ -1900,15 +1785,19 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transform: translateX(-50%);
   width: 130px;
   height: 76px;
-  background: rgba(235, 245, 255, 0.04);
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(37, 99, 235, 0.15);
   border-radius: 2px;
   z-index: 3;
   overflow: hidden;
-  box-shadow:
-    0 0 24px rgba(0, 212, 255, 0.1),
-    inset 0 0 30px rgba(0, 212, 255, 0.04);
-  transition: border-color 0.5s, box-shadow 0.5s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.5s, box-shadow 0.5s, background 0.5s;
+}
+
+[data-theme="night"] .projector-screen {
+  background: rgba(30, 36, 54, 0.9);
+  border-color: rgba(96, 165, 250, 0.2);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.06);
 }
 
 .proj-content {
@@ -1921,9 +1810,9 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   margin-bottom: 9px;
   animation: projLinePulse 4s ease-in-out infinite;
 }
-.pl1 { background: rgba(0, 212, 255, 0.25); width: 80%;  animation-delay: 0s; }
-.pl2 { background: rgba(0, 212, 255, 0.18); width: 60%;  animation-delay: 0.3s; }
-.pl3 { background: rgba(0, 212, 255, 0.22); width: 70%;  animation-delay: 0.6s; }
+.pl1 { background: rgba(37, 99, 235, 0.3); width: 80%;  animation-delay: 0s; }
+.pl2 { background: rgba(37, 99, 235, 0.2); width: 60%;  animation-delay: 0.3s; }
+.pl3 { background: rgba(37, 99, 235, 0.25); width: 70%;  animation-delay: 0.6s; }
 
 @keyframes projLinePulse {
   0%, 100% { opacity: 0.7; }
@@ -1933,10 +1822,13 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 .proj-label {
   font-family: var(--font-pixel);
   font-size: 5px;
-  color: rgba(0, 212, 255, 0.55);
+  color: rgba(37, 99, 235, 0.5);
   letter-spacing: 0.08em;
   margin-top: 4px;
-  text-shadow: 0 0 6px rgba(0, 212, 255, 0.3);
+}
+
+[data-theme="night"] .proj-label {
+  color: rgba(96, 165, 250, 0.5);
 }
 
 .proj-glow {
@@ -1946,7 +1838,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: rgba(0, 212, 255, 0.15);
+  background: rgba(37, 99, 235, 0.08);
   filter: blur(4px);
 }
 
@@ -1959,11 +1851,17 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   right: 10px;
   width: 72px;
   height: 60px;
-  background: rgba(230, 240, 255, 0.04);
-  border: 1px solid rgba(0, 212, 255, 0.18);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 2px;
   z-index: 3;
 }
+
+[data-theme="night"] .whiteboard {
+  background: rgba(30, 36, 54, 0.9);
+  border-color: rgba(96, 165, 250, 0.15);
+}
+
 .whiteboard::before {
   content: '';
   position: absolute;
@@ -1971,14 +1869,14 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 8px;
   right: 8px;
   height: 3px;
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(0, 0, 0, 0.04);
   border-radius: 0 0 2px 2px;
 }
 
 .wb-line {
   position: absolute;
   height: 1px;
-  background: rgba(0, 212, 255, 0.22);
+  background: rgba(37, 99, 235, 0.2);
   border-radius: 1px;
 }
 .wbl1 { top: 14px; left: 7px; right: 7px; }
@@ -1992,7 +1890,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   border-radius: 50%;
   top: 46px;
 }
-.wbd1 { background: rgba(0, 212, 255, 0.5);   left: 8px; }
+.wbd1 { background: rgba(37, 99, 235, 0.5);   left: 8px; }
 .wbd2 { background: rgba(239, 68, 68, 0.5);   left: 18px; }
 .wbd3 { background: rgba(34, 197, 94, 0.5);   left: 28px; }
 
@@ -2002,55 +1900,55 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   right: 8px;
   width: 3px;
   height: 14px;
-  background: rgba(0, 212, 255, 0.3);
+  background: rgba(37, 99, 235, 0.25);
   border-radius: 1px;
   transform: rotate(15deg);
 }
 
 /* ════════════════════════════════════════════════════════════════
-   GLASS DIALOG — Enhanced
+   GLASS DIALOG
    ════════════════════════════════════════════════════════════════ */
 .dialog-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 5000;
 }
 
+[data-theme="night"] .dialog-overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+
 .dialog-box {
   background: var(--dialog-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(0, 212, 255, 0.22);
-  border-radius: 16px;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 20px;
   color: var(--dialog-fg);
   font-family: var(--font-ui);
   width: 480px;
   max-width: 92vw;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.5),
-    0 0 60px rgba(0, 212, 255, 0.07),
-    0 30px 100px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
   animation: dialogIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
   transition: border-color 0.5s, box-shadow 0.5s;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme="night"] .dialog-box {
+  border-color: rgba(96, 165, 250, 0.2);
+  box-shadow: 0 8px 60px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes dialogIn {
   from { opacity: 0; transform: scale(0.94) translateY(10px); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-[data-theme="night"] .dialog-box {
-  border-color: rgba(168, 85, 247, 0.22);
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.5),
-    0 0 60px rgba(168, 85, 247, 0.07),
-    0 30px 100px rgba(0, 0, 0, 0.85);
 }
 
 /* Dialog Header */
@@ -2061,58 +1959,55 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   padding: 22px 20px 16px;
 }
 
-/* Portrait — enhanced with character-specific colors */
 .dialog-portrait {
-  width: 72px;
-  height: 72px;
-  border-radius: 12px;
+  width: 76px;
+  height: 76px;
+  border-radius: 14px;
   background: var(--accent-glow);
-  border: 2px solid rgba(0, 212, 255, 0.3);
+  border: 2px solid rgba(37, 99, 235, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
+  font-size: 34px;
   flex-shrink: 0;
-  box-shadow: 0 0 24px var(--accent-glow);
+  box-shadow: 0 2px 12px var(--accent-glow);
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
-  animation: portraitGlow 3s ease-in-out infinite;
+  animation: portraitFloat 4s ease-in-out infinite;
 }
 
-@keyframes portraitGlow {
-  0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
-  50%       { box-shadow: 0 0 35px var(--accent-glow); }
+@keyframes portraitFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
 }
 
-/* Character-specific portrait colors */
 .dialog-portrait[data-char="max"] {
-  background: rgba(0, 180, 220, 0.12);
-  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.3);
 }
 .dialog-portrait[data-char="mark"] {
-  background: rgba(37, 99, 235, 0.12);
-  border-color: rgba(37, 99, 235, 0.5);
-  box-shadow: 0 0 24px rgba(37, 99, 235, 0.2);
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.1);
 }
 .dialog-portrait[data-char="john"] {
-  background: rgba(22, 163, 74, 0.12);
-  border-color: rgba(22, 163, 74, 0.5);
-  box-shadow: 0 0 24px rgba(22, 163, 74, 0.2);
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.3);
+  box-shadow: 0 2px 12px rgba(22, 163, 74, 0.1);
 }
 .dialog-portrait[data-char="meeting"] {
-  background: rgba(124, 58, 237, 0.12);
-  border-color: rgba(124, 58, 237, 0.4);
-  box-shadow: 0 0 24px rgba(124, 58, 237, 0.2);
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.1);
 }
 .dialog-portrait[data-char="break"] {
-  background: rgba(245, 158, 11, 0.12);
-  border-color: rgba(245, 158, 11, 0.4);
-  box-shadow: 0 0 24px rgba(245, 158, 11, 0.2);
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.1);
 }
-
-[data-theme="night"] .dialog-portrait {
-  background: var(--accent-glow);
-  border-color: rgba(168, 85, 247, 0.3);
-  box-shadow: 0 0 24px var(--accent-glow);
+.dialog-portrait[data-char="datalab"] {
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.1);
 }
 
 .dialog-meta {
@@ -2121,35 +2016,35 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 .dialog-name {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: #ffffff;
+  color: var(--dialog-fg);
   margin-bottom: 5px;
 }
 
 .dialog-role {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.10em;
-  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.14em;
+  color: var(--accent);
   text-transform: uppercase;
   margin-bottom: 8px;
+  opacity: 0.8;
 }
 
 .dialog-model {
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.08em;
-  color: rgba(0, 212, 255, 0.7);
+  color: var(--accent);
   font-family: 'Courier New', monospace;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: var(--accent-glow);
+  border: 1px solid rgba(37, 99, 235, 0.15);
   padding: 4px 8px;
   border-radius: 6px;
   display: none;
   margin-bottom: 8px;
-  text-shadow: 0 0 6px rgba(0, 212, 255, 0.3);
 }
 
 .dialog-model-badge {
@@ -2157,7 +2052,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   font-size: 10px;
   color: var(--accent);
   background: var(--accent-glow);
-  border: 1px solid rgba(0,212,255,0.2);
+  border: 1px solid rgba(37, 99, 235, 0.15);
   border-radius: 4px;
   padding: 2px 8px;
   display: inline-block;
@@ -2166,14 +2061,6 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   opacity: 0.85;
 }
 
-[data-theme="night"] .dialog-model {
-  color: rgba(168, 85, 247, 0.7);
-  background: rgba(168, 85, 247, 0.08);
-  border-color: rgba(168, 85, 247, 0.2);
-  text-shadow: 0 0 6px rgba(168, 85, 247, 0.3);
-}
-
-/* Animated status with dot */
 .dialog-status {
   display: flex;
   align-items: center;
@@ -2181,6 +2068,10 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.04em;
+  color: #64748b;
+}
+
+[data-theme="night"] .dialog-status {
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -2193,25 +2084,25 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 .status-anim-dot.online {
   background: #22c55e;
-  box-shadow: 0 0 8px #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.4);
   animation: dotPulse 2s ease-in-out infinite;
 }
 .status-anim-dot.busy {
   background: #f59e0b;
-  box-shadow: 0 0 8px #f59e0b;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.4);
   animation: dotPulse 1.4s ease-in-out infinite;
 }
 .status-anim-dot.offline {
-  background: #6b7280;
+  background: #94a3b8;
 }
 
 .dialog-close {
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: #64748b;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -2220,9 +2111,15 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 .dialog-close:hover {
-  background: rgba(255, 60, 60, 0.15);
-  border-color: rgba(255, 60, 60, 0.3);
-  color: #ff6060;
+  background: rgba(255, 60, 60, 0.08);
+  border-color: rgba(255, 60, 60, 0.2);
+  color: #ef4444;
+}
+
+[data-theme="night"] .dialog-close {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Divider */
@@ -2230,28 +2127,24 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   height: 1px;
   background: linear-gradient(90deg,
     transparent,
-    rgba(0, 212, 255, 0.2) 20%,
-    rgba(0, 212, 255, 0.2) 80%,
+    rgba(37, 99, 235, 0.12) 20%,
+    rgba(37, 99, 235, 0.12) 80%,
     transparent);
   margin: 0 20px;
   transition: background 0.5s;
 }
 
-[data-theme="night"] .dialog-divider {
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(168, 85, 247, 0.2) 20%,
-    rgba(168, 85, 247, 0.2) 80%,
-    transparent);
-}
-
 /* Dialog body */
 .dialog-body {
-  padding: 16px 20px 12px;
-  font-size: 14px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.72);
+  padding: 16px 22px 12px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #475569;
   white-space: pre-line;
+}
+
+[data-theme="night"] .dialog-body {
+  color: rgba(255, 255, 255, 0.72);
 }
 
 /* Tags */
@@ -2269,19 +2162,13 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   text-transform: uppercase;
   color: var(--accent);
   background: var(--accent-glow);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.12);
   padding: 3px 10px;
   border-radius: 20px;
   transition: background 0.5s, color 0.5s, border-color 0.5s;
 }
 
-[data-theme="night"] .dlg-tag {
-  color: var(--accent);
-  background: var(--accent-glow);
-  border-color: rgba(168, 85, 247, 0.2);
-}
-
-/* Action buttons — pixel-art styled */
+/* Action buttons */
 .dialog-actions {
   display: flex;
   flex-wrap: wrap;
@@ -2291,48 +2178,33 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 .dlg-action {
   padding: 9px 18px;
-  background: var(--glass);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  border-radius: 8px;
+  background: rgba(37, 99, 235, 0.04);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: 10px;
   color: var(--accent);
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+  transition: background 0.15s ease, border-color 0.15s, transform 0.15s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.15s;
 }
 .dlg-action:hover {
-  background: var(--accent-glow);
-  border-color: rgba(0, 212, 255, 0.45);
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
 }
 .dlg-action:active { transform: translateY(0); }
 
-/* Primary action buttons */
 .dlg-action.primary {
-  background: var(--accent-glow);
-  border-color: rgba(0, 212, 255, 0.4);
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.25);
   font-weight: 600;
 }
 .dlg-action.primary:hover {
-  background: rgba(0, 212, 255, 0.2);
+  background: rgba(37, 99, 235, 0.14);
   border-color: var(--accent);
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.25);
-}
-
-[data-theme="night"] .dlg-action {
-  border-color: rgba(168, 85, 247, 0.2);
-  color: var(--accent);
-}
-[data-theme="night"] .dlg-action:hover {
-  background: var(--accent-glow);
-  border-color: rgba(168, 85, 247, 0.4);
-}
-[data-theme="night"] .dlg-action.primary {
-  border-color: rgba(168, 85, 247, 0.4);
-  background: var(--accent-glow);
 }
 
 /* Cursor row */
@@ -2346,7 +2218,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   font-size: 12px;
   color: var(--accent);
   animation: cursorBob 1.2s ease-in-out infinite;
-  opacity: 0.6;
+  opacity: 0.5;
   transition: color 0.5s;
 }
 
@@ -2355,32 +2227,38 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   50%       { transform: translateY(4px); }
 }
 
-/* ── Toast notification (existing) ──────────────────────────── */
+/* ── Toast notification ──────────────────────────────────────── */
 #pixelToast {
   position: fixed;
   bottom: 56px;
   left: 50%;
   transform: translateX(-50%) translateY(8px);
-  background: rgba(10, 14, 26, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  border-radius: 10px;
-  color: #00d4ff;
-  padding: 10px 20px;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: 12px;
+  color: var(--accent);
+  padding: 11px 24px;
   font-family: var(--font-ui);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.02em;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1), transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
   z-index: 8000;
   white-space: nowrap;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="night"] #pixelToast {
+  background: rgba(22, 27, 42, 0.95);
+  border-color: rgba(96, 165, 250, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* ════════════════════════════════════════════════════════════════
-   NOTIFICATION AREA (top-right toasts)
+   NOTIFICATION AREA
    ════════════════════════════════════════════════════════════════ */
 .notif-area {
   position: fixed;
@@ -2398,46 +2276,50 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 14px;
-  background: rgba(6, 10, 22, 0.94);
-  border: 1px solid rgba(0, 212, 255, 0.25);
-  border-radius: 10px;
+  padding: 11px 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  border-radius: 12px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  color: rgba(255, 255, 255, 0.85);
+  color: #1e293b;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.01em;
   opacity: 0;
   transform: translateX(16px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  box-shadow:
-    0 4px 20px rgba(0, 0, 0, 0.5),
-    0 0 16px rgba(0, 212, 255, 0.06);
+  transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1), transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   white-space: nowrap;
 }
 .notif-toast.notif-visible {
   opacity: 1;
   transform: translateX(0);
 }
+
 [data-theme="night"] .notif-toast {
-  border-color: rgba(168, 85, 247, 0.25);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(168, 85, 247, 0.06);
+  background: rgba(22, 27, 42, 0.95);
+  border-color: rgba(96, 165, 250, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .notif-icon {
-  font-size: 15px;
+  font-size: 16px;
   flex-shrink: 0;
 }
 
 .notif-text {
   flex: 1;
+  color: #475569;
+}
+[data-theme="night"] .notif-text {
   color: rgba(255, 255, 255, 0.8);
 }
 
 .notif-time {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.3);
+  color: #94a3b8;
   letter-spacing: 0.02em;
   margin-left: 4px;
   flex-shrink: 0;
@@ -2451,16 +2333,19 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   bottom: 8px;
   right: 8px;
   z-index: 20;
-  background: rgba(0, 0, 0, 0.75);
-  border: 1px solid rgba(0, 212, 255, 0.22);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(37, 99, 235, 0.12);
   border-radius: 6px;
   padding: 6px 6px 5px;
   backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3);
-  transition: border-color 0.5s;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.5s, background 0.5s;
 }
+
 [data-theme="night"] .minimap {
-  border-color: rgba(168, 85, 247, 0.22);
+  background: rgba(20, 25, 40, 0.9);
+  border-color: rgba(96, 165, 250, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .mm-header {
@@ -2477,73 +2362,105 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 .mm-world {
   position: relative;
   width: 116px;
-  height: 68px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(0, 212, 255, 0.08);
+  height: 80px;
+  background: rgba(37, 99, 235, 0.03);
+  border: 1px solid rgba(37, 99, 235, 0.06);
   border-radius: 2px;
   overflow: hidden;
+}
+
+[data-theme="night"] .mm-world {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .mm-hall {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 5px;
-  background: rgba(0, 212, 255, 0.06);
-  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  background: rgba(37, 99, 235, 0.04);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.06);
 }
 
 .mm-main {
   position: absolute;
   top: 5px; left: 0;
   width: 70px; height: 38px;
-  background: rgba(0, 212, 255, 0.04);
-  border-right: 1px solid rgba(0, 212, 255, 0.1);
-  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  background: rgba(37, 99, 235, 0.03);
+  border-right: 1px solid rgba(37, 99, 235, 0.06);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.06);
 }
 
 .mm-meeting {
   position: absolute;
   top: 5px; right: 0;
   width: 44px; height: 38px;
-  background: rgba(124, 58, 237, 0.05);
-  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  background: rgba(124, 58, 237, 0.03);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.06);
 }
 
 .mm-break {
   position: absolute;
-  bottom: 0; left: 0;
-  width: 36px; height: 24px;
-  background: rgba(245, 158, 11, 0.04);
-  border-right: 1px solid rgba(0, 212, 255, 0.1);
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  bottom: 17px; left: 0;
+  width: 36px; height: 17px;
+  background: rgba(245, 158, 11, 0.03);
+  border-right: 1px solid rgba(37, 99, 235, 0.06);
+  border-top: 1px solid rgba(37, 99, 235, 0.06);
+}
+
+.mm-corridor {
+  position: absolute;
+  bottom: 17px;
+  left: 38px;
+  width: 32px;
+  height: 17px;
+  background: rgba(37, 99, 235, 0.02);
+  border-top: 1px solid rgba(37, 99, 235, 0.06);
+  border-right: 1px solid rgba(37, 99, 235, 0.06);
+}
+
+.mm-datalab {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 44px;
+  height: 17px;
+  background: rgba(37, 99, 235, 0.03);
+  border-top: 1px solid rgba(37, 99, 235, 0.06);
+  border-left: 1px solid rgba(37, 99, 235, 0.06);
 }
 
 .mm-dot {
   position: absolute;
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   transition: left 0.6s ease, top 0.6s ease;
+  animation: mmDotPulse 2.5s ease-in-out infinite;
 }
 
-.mm-max  {
-  background: #00d4ff;
-  box-shadow: 0 0 5px #00d4ff;
+@keyframes mmDotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(0.75); opacity: 0.65; }
+}
+
+.mm-max {
+  background: #2563eb;
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.4);
   left: 10px; top: 16px;
 }
 .mm-mark {
   background: #3b82f6;
-  box-shadow: 0 0 5px #3b82f6;
+  box-shadow: 0 0 4px rgba(59, 130, 246, 0.4);
   left: 26px; top: 16px;
 }
 .mm-john {
   background: #22c55e;
-  box-shadow: 0 0 5px #22c55e;
+  box-shadow: 0 0 4px rgba(34, 197, 94, 0.4);
   left: 44px; top: 16px;
 }
 
 /* ════════════════════════════════════════════════════════════════
-   AMBIENT PARTICLES
+   AMBIENT PARTICLES — warm golden dust motes
    ════════════════════════════════════════════════════════════════ */
 .particle-container {
   position: absolute;
@@ -2557,7 +2474,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   position: absolute;
   width: 2px;
   height: 2px;
-  background: rgba(0, 212, 255, 0.55);
+  background: rgba(184, 134, 11, 0.4);
   border-radius: 50%;
   pointer-events: none;
   animation: particleFloat var(--dur, 9s) ease-in-out infinite var(--delay, 0s);
@@ -2565,85 +2482,44 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 }
 
 [data-theme="night"] .particle {
-  background: rgba(168, 85, 247, 0.55);
+  background: rgba(96, 165, 250, 0.35);
 }
 
 @keyframes particleFloat {
   0%   { transform: translate(0, 0);           opacity: 0; }
-  10%  { opacity: 0.7; }
-  50%  { transform: translate(var(--dx, 20px), var(--dy, -50px)); opacity: 0.5; }
-  90%  { opacity: 0.3; }
+  10%  { opacity: 0.6; }
+  50%  { transform: translate(var(--dx, 20px), var(--dy, -50px)); opacity: 0.4; }
+  90%  { opacity: 0.2; }
   100% { transform: translate(var(--dx2, 40px), var(--dy2, -100px)); opacity: 0; }
 }
 
-/* ── Fullscreen / all-screen layout ─────────────────────────── */
-/* Always hide scrollbars; scale is handled by JS */
+/* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 960px), (max-height: 540px) {
   .notif-area { right: 8px; max-width: 240px; }
   .minimap    { display: none; }
 }
 
-/* ================================================================
-   ViRDOME HQ — ENHANCEMENT ADDITIONS
-   ================================================================ */
-
-/* ── Title branding override ────────────────────────────────── */
-.hud-title {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--hud-fg);
-  background: linear-gradient(90deg, #00d4ff, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ── ViRDOME Neon Sign in Hallway — Cyberpunk Flicker ────────– */
-.room-hallway {
-  position: relative;
-  overflow: hidden;
-}
-
+/* ── ViRDOME Hallway Sign — Clean ────────────────────────────── */
 .virdome-sign {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-pixel);
-  font-size: 7px;
+  font-size: 8px;
   letter-spacing: 0.3em;
-  color: #ff00aa;
-  text-shadow:
-    0 0 4px #ff00aa,
-    0 0 12px #ff00aa,
-    0 0 30px rgba(255, 0, 170, 0.5),
-    0 0 60px rgba(255, 0, 170, 0.2);
+  color: #2563eb;
   white-space: nowrap;
-  animation: neonFlicker 7s steps(1) infinite;
   pointer-events: none;
   z-index: 10;
-  filter: brightness(1.1);
 }
 
 [data-theme="night"] .virdome-sign {
-  color: #bf5fff;
-  text-shadow:
-    0 0 4px #bf5fff,
-    0 0 12px #bf5fff,
-    0 0 30px rgba(191, 95, 255, 0.5),
-    0 0 60px rgba(191, 95, 255, 0.2);
+  color: #60a5fa;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
 }
 
-@keyframes neonFlicker {
-  0%,88%,100% { opacity: 1; }
-  90%          { opacity: 0.2; }
-  92%          { opacity: 1; }
-  94%          { opacity: 0.4; }
-  96%          { opacity: 1; }
-}
-
-/* ── Founder's Corner ───────────────────────────────────────── */
+/* ── Founder's Corner — Clean ───────────────────────────────── */
 .founder-corner {
   position: absolute;
   top: 16px;
@@ -2651,103 +2527,47 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   z-index: 6;
   pointer-events: none;
   text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(184, 134, 11, 0.12);
+}
+
+[data-theme="night"] .founder-corner {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(184, 134, 11, 0.1);
 }
 
 .fc-badge {
   font-family: var(--font-pixel);
   font-size: 5px;
   letter-spacing: 0.2em;
-  color: #ffd700;
-  background: rgba(255, 215, 0, 0.08);
-  border: 1px solid rgba(255, 215, 0, 0.35);
+  color: #b8860b;
+  background: rgba(184, 134, 11, 0.06);
+  border: 1px solid rgba(184, 134, 11, 0.25);
   padding: 2px 8px;
   border-radius: 3px;
   margin-bottom: 4px;
-  text-shadow: 0 0 8px #ffd700;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.15);
 }
 
 .fc-name {
   font-family: var(--font-pixel);
   font-size: 6px;
-  color: #ffd700;
-  text-shadow: 0 0 10px #ffd700;
+  color: #b8860b;
   letter-spacing: 0.12em;
   margin-bottom: 2px;
 }
 
 .fc-title {
   font-size: 9px;
-  color: rgba(255, 215, 0, 0.5);
+  color: rgba(184, 134, 11, 0.6);
   letter-spacing: 0.08em;
   font-weight: 500;
 }
 
 .fc-glow {
-  position: absolute;
-  inset: -6px;
-  background: radial-gradient(ellipse at center, rgba(255,215,0,0.04) 0%, transparent 70%);
-  pointer-events: none;
+  display: none;
 }
-
-/* ── Doha skyline window — Torch Tower ─────────────────────── */
-.wb-torch {
-  position: absolute;
-  bottom: 0;
-  right: 20px;
-  width: 6px;
-  height: 46px;
-  background: rgba(12, 20, 40, 0.88);
-}
-
-.wb-torch::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  background: rgba(12, 20, 40, 0.88);
-  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-}
-
-.wb-torch::after {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 6px;
-  background: rgba(255, 80, 80, 0.9);
-  box-shadow: 0 0 4px rgba(255, 80, 80, 0.8);
-  animation: torchLight 1.8s steps(1) infinite;
-}
-
-@keyframes torchLight {
-  0%,45%  { opacity: 0; }
-  50%,95% { opacity: 1; }
-  100%    { opacity: 0; }
-}
-
-[data-theme="night"] .wb-torch {
-  background: rgba(5, 8, 18, 0.95);
-}
-[data-theme="night"] .wb-torch::before {
-  background: rgba(5, 8, 18, 0.95);
-}
-
-.wb5 {
-  position: absolute;
-  bottom: 0;
-  right: 2px;
-  width: 12px;
-  height: 24px;
-  background: rgba(15, 25, 45, 0.75);
-}
-
-[data-theme="night"] .wb5 { background: rgba(5, 8, 18, 0.92); }
 
 /* ── Bottom Corridor ────────────────────────────────────────── */
 .room-corridor {
@@ -2766,15 +2586,11 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   top: 0;
   width: 80px;
   height: 100%;
-  background: radial-gradient(ellipse at 50% 0, rgba(0, 212, 255, 0.05) 0%, transparent 80%);
+  background: radial-gradient(ellipse at 50% 0, rgba(37, 99, 235, 0.03) 0%, transparent 80%);
   pointer-events: none;
 }
 .cl-1 { left: 20%; }
 .cl-2 { right: 20%; }
-
-[data-theme="night"] .corridor-light {
-  background: radial-gradient(ellipse at 50% 0, rgba(168, 85, 247, 0.05) 0%, transparent 80%);
-}
 
 /* ── Data Lab ───────────────────────────────────────────────── */
 .room-data-lab {
@@ -2783,54 +2599,18 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   top: 384px;
   width: 350px;
   height: 146px;
-  background: rgba(4, 8, 20, 0.98);
-  border: 1px solid rgba(0, 212, 255, 0.22);
+  background: var(--floor-data);
+  border: 1px solid var(--wall-border);
   cursor: pointer;
   overflow: hidden;
   transition: box-shadow 0.3s ease, border-color 0.5s;
 }
 
-.room-data-lab::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    linear-gradient(rgba(0,212,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,212,255,0.025) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-/* Scanlines overlay on data lab */
-.room-data-lab::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 3px,
-    rgba(0, 0, 0, 0.08) 3px,
-    rgba(0, 0, 0, 0.08) 4px
-  );
-  pointer-events: none;
-  z-index: 30;
-}
-
 .room-data-lab:hover {
-  box-shadow: inset 0 0 60px rgba(0, 212, 255, 0.06), 0 0 0 1px rgba(0, 212, 255, 0.3);
+  box-shadow: inset 0 0 40px rgba(37, 99, 235, 0.04), 0 0 0 1px rgba(37, 99, 235, 0.2);
 }
 .room-data-lab:hover .room-hint { opacity: 1; }
 .room-data-lab:focus { outline: none; box-shadow: 0 0 0 2px var(--accent); }
-
-[data-theme="night"] .room-data-lab {
-  border-color: rgba(168, 85, 247, 0.22);
-  background: rgba(4, 2, 12, 0.98);
-}
-[data-theme="night"] .room-data-lab:hover {
-  box-shadow: inset 0 0 60px rgba(168, 85, 247, 0.06), 0 0 0 1px rgba(168, 85, 247, 0.3);
-}
 
 .room-badge-lab {
   position: absolute;
@@ -2845,8 +2625,8 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   top: 28px;
   bottom: 24px;
   width: 26px;
-  background: #060c18;
-  border: 1px solid rgba(0,212,255,0.15);
+  background: #e2e8f0;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -2855,18 +2635,28 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   z-index: 5;
 }
 
+[data-theme="night"] .server-rack {
+  background: #1e2436;
+  border-color: rgba(96, 165, 250, 0.12);
+}
+
 .sr-left  { left: 10px; }
 .sr-right { right: 10px; }
 
 .server-unit {
   flex: 1;
-  background: #0a1428;
-  border: 1px solid rgba(0,212,255,0.08);
+  background: #f1f5f9;
+  border: 1px solid rgba(0, 0, 0, 0.04);
   border-radius: 1px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 3px;
+}
+
+[data-theme="night"] .server-unit {
+  background: #151a28;
+  border-color: rgba(96, 165, 250, 0.06);
 }
 
 .su-led {
@@ -2876,10 +2666,10 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   animation: ledBlink 1.8s ease-in-out infinite;
 }
 
-.led-green  { background: #22c55e; box-shadow: 0 0 4px #22c55e; animation-delay: 0s; }
-.led-blue   { background: #00d4ff; box-shadow: 0 0 4px #00d4ff; animation-delay: 0.4s; }
-.led-amber  { background: #f59e0b; box-shadow: 0 0 4px #f59e0b; animation-delay: 0.8s; }
-.led-red    { background: #ef4444; box-shadow: 0 0 4px #ef4444; animation-delay: 1.2s; }
+.led-green  { background: #22c55e; box-shadow: 0 0 3px rgba(34, 197, 94, 0.4); animation-delay: 0s; }
+.led-blue   { background: #2563eb; box-shadow: 0 0 3px rgba(37, 99, 235, 0.4); animation-delay: 0.4s; }
+.led-amber  { background: #f59e0b; box-shadow: 0 0 3px rgba(245, 158, 11, 0.4); animation-delay: 0.8s; }
+.led-red    { background: #ef4444; box-shadow: 0 0 3px rgba(239, 68, 68, 0.4); animation-delay: 1.2s; }
 
 @keyframes ledBlink {
   0%,100% { opacity: 1; }
@@ -2893,8 +2683,8 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   left: 44px;
   right: 44px;
   bottom: 18px;
-  background: rgba(0, 212, 255, 0.04);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(37, 99, 235, 0.03);
+  border: 1px solid rgba(37, 99, 235, 0.12);
   border-radius: 3px;
   z-index: 10;
   overflow: hidden;
@@ -2902,27 +2692,22 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   flex-direction: column;
   align-items: center;
   padding: 8px 8px 6px;
-  box-shadow:
-    0 0 20px rgba(0, 212, 255, 0.06),
-    inset 0 0 20px rgba(0, 212, 255, 0.03);
 }
 
 [data-theme="night"] .data-screen {
-  background: rgba(168,85,247,0.04);
-  border-color: rgba(168,85,247,0.2);
-  box-shadow: 0 0 20px rgba(168,85,247,0.06), inset 0 0 20px rgba(168,85,247,0.03);
+  background: rgba(96, 165, 250, 0.04);
+  border-color: rgba(96, 165, 250, 0.2);
 }
 
 .ds-title {
   font-family: var(--font-pixel);
   font-size: 5px;
-  color: rgba(0, 212, 255, 0.75);
+  color: rgba(37, 99, 235, 0.7);
   letter-spacing: 0.1em;
   margin-bottom: 7px;
-  text-shadow: 0 0 8px rgba(0,212,255,0.4);
   transition: color 0.5s;
 }
-[data-theme="night"] .ds-title { color: rgba(168,85,247,0.75); text-shadow: 0 0 8px rgba(168,85,247,0.4); }
+[data-theme="night"] .ds-title { color: rgba(96, 165, 250, 0.7); }
 
 .data-bars {
   display: flex;
@@ -2934,16 +2719,14 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 
 .data-bar {
   width: 10px;
-  background: rgba(0, 212, 255, 0.5);
+  background: rgba(37, 99, 235, 0.4);
   border-radius: 1px 1px 0 0;
   animation: barPulse 2.5s ease-in-out infinite;
-  box-shadow: 0 0 6px rgba(0,212,255,0.3);
-  transition: background 0.5s, box-shadow 0.5s;
+  transition: background 0.5s;
 }
 
 [data-theme="night"] .data-bar {
-  background: rgba(168,85,247,0.5);
-  box-shadow: 0 0 6px rgba(168,85,247,0.3);
+  background: rgba(96, 165, 250, 0.4);
 }
 
 .db-1 { height: 18px; animation-delay: 0s; }
@@ -2975,28 +2758,27 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
 .ds-num {
   font-family: var(--font-pixel);
   font-size: 6px;
-  color: #00d4ff;
-  text-shadow: 0 0 6px #00d4ff;
+  color: #2563eb;
   transition: color 0.5s;
 }
-[data-theme="night"] .ds-num { color: #a855f7; text-shadow: 0 0 6px #a855f7; }
+[data-theme="night"] .ds-num { color: #60a5fa; }
 
 .ds-lbl {
   font-size: 7px;
   font-weight: 600;
-  color: rgba(255,255,255,0.28);
+  color: #94a3b8;
   letter-spacing: 0.06em;
 }
 
 .ds-divider {
-  color: rgba(0,212,255,0.2);
+  color: rgba(37, 99, 235, 0.2);
   font-size: 12px;
 }
 
 .ds-ticker {
   font-family: var(--font-pixel);
   font-size: 4px;
-  color: rgba(0, 212, 255, 0.4);
+  color: rgba(37, 99, 235, 0.4);
   letter-spacing: 0.06em;
   overflow: hidden;
   white-space: nowrap;
@@ -3005,7 +2787,7 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   animation: tickerScroll 18s linear infinite;
   transition: color 0.5s;
 }
-[data-theme="night"] .ds-ticker { color: rgba(168,85,247,0.4); }
+[data-theme="night"] .ds-ticker { color: rgba(96, 165, 250, 0.4); }
 
 @keyframes tickerScroll {
   0%   { transform: translateX(100%); }
@@ -3020,806 +2802,57 @@ button { cursor: pointer; font-family: inherit; background: none; border: none; 
   transform: translateY(-50%);
   width: 10px;
   height: 36px;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(37, 99, 235, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.12);
   z-index: 5;
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.15);
 }
 
-/* ── Minimap additions ──────────────────────────────────────── */
-.mm-corridor {
+/* ── Subtle light pattern on office-map ───────────────────── */
+.office-map::before {
+  content: '';
   position: absolute;
-  bottom: 17px;
-  left: 38px;
-  width: 32px;
-  height: 17px;
-  background: rgba(0, 212, 255, 0.03);
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
-  border-right: 1px solid rgba(0, 212, 255, 0.1);
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 30% 30%,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 50;
 }
 
-.mm-datalab {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 44px;
-  height: 17px;
-  background: rgba(0, 212, 255, 0.04);
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
-  border-left: 1px solid rgba(0, 212, 255, 0.1);
+[data-theme="night"] .office-map::before {
+  background: none;
 }
 
-/* Extend minimap world height for new rooms */
-.mm-world {
-  width: 116px;
-  height: 80px;
-}
-
-.mm-break {
-  width: 36px;
-  height: 17px;
-  bottom: 17px;
-}
-
-/* ── Lab dialog specific colors ─────────────────────────────── */
-.dialog-portrait[data-char="datalab"] {
-  background: rgba(0, 212, 255, 0.1);
-  border-color: rgba(0, 212, 255, 0.5);
-  box-shadow: 0 0 24px rgba(0, 212, 255, 0.2);
-}
-
-/* ── Vignette overlay on whole map ──────────────────────────── */
+/* Soft vignette */
 .office-map::after {
   content: '';
   position: absolute;
   inset: 0;
   background: radial-gradient(
     ellipse at center,
-    transparent 55%,
-    rgba(0,0,0,0.35) 100%
+    transparent 65%,
+    rgba(0,0,0,0.06) 100%
   );
   pointer-events: none;
-  z-index: 25;
-}
-
-/* ================================================================
-   JAMES ENHANCEMENT — Fullscreen 16:9 + Premium Cinematic Style
-   ================================================================ */
-
-/* ── 1. FULLSCREEN 16:9 — office-world fills the grid row ────── */
-.office-world {
-  position: relative;
-  overflow: hidden;
-}
-
-/* The map stays 940×540 in layout; JS scales it via transform */
-.office-map {
-  flex-shrink: 0;
-  /* Deeper wall bg with subtle inner glow */
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,0.7),
-    0 0 0 3px rgba(0,0,0,0.4),
-    0 0 80px rgba(0,212,255,0.12),
-    inset 0 0 60px rgba(0,0,0,0.5),
-    inset 0 0 120px rgba(0,0,0,0.3);
-}
-
-[data-theme="night"] .office-map {
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,0.7),
-    0 0 0 3px rgba(0,0,0,0.4),
-    0 0 80px rgba(168,85,247,0.12),
-    inset 0 0 60px rgba(0,0,0,0.5),
-    inset 0 0 120px rgba(0,0,0,0.3);
-}
-
-/* ── 2. GLOBAL SCANLINE OVERLAY ───────────────────────────────── */
-/* Sits above everything, very low opacity */
-.office-map::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.055) 2px,
-    rgba(0,0,0,0.055) 4px
-  );
-  pointer-events: none;
-  z-index: 50;
-  animation: scanlineShift 8s linear infinite;
-}
-
-@keyframes scanlineShift {
-  0%   { background-position: 0 0; }
-  100% { background-position: 0 40px; }
-}
-
-/* Keep vignette above scanlines */
-.office-map::after {
   z-index: 51;
 }
 
-/* ── 3. HUD — Premium polish ──────────────────────────────────── */
-.hud-top {
-  border-bottom: 1px solid var(--hud-border);
-  box-shadow:
-    0 1px 0 rgba(0,0,0,0.8),
-    0 2px 30px rgba(0,0,0,0.7),
-    0 0 60px rgba(0,212,255,0.04);
-  background: rgba(4, 7, 16, 0.98);
-}
-
-[data-theme="night"] .hud-top {
-  box-shadow:
-    0 1px 0 rgba(0,0,0,0.8),
-    0 2px 30px rgba(0,0,0,0.7),
-    0 0 60px rgba(168,85,247,0.05);
-}
-
-.hud-bottom {
-  border-top: 1px solid var(--hud-border);
-  background: rgba(4, 7, 16, 0.98);
-  box-shadow: 0 -1px 0 rgba(0,0,0,0.6), 0 -4px 20px rgba(0,0,0,0.5);
-}
-
-/* Logo dot — stronger pulse with ring */
-.hud-logo-dot {
-  width: 10px;
-  height: 10px;
-  box-shadow:
-    0 0 0 0 var(--accent),
-    0 0 10px var(--accent),
-    0 0 20px var(--accent-glow);
-  animation: logoPulseRing 3s ease-in-out infinite;
-}
-
-@keyframes logoPulseRing {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 var(--accent), 0 0 10px var(--accent), 0 0 20px var(--accent-glow);
-  }
-  40% {
-    transform: scale(0.85);
-    box-shadow: 0 0 0 4px transparent, 0 0 6px var(--accent), 0 0 10px var(--accent-glow);
-  }
-  60% {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 0 var(--accent), 0 0 14px var(--accent), 0 0 28px var(--accent-glow);
-  }
-}
-
-/* HUD pill — richer glow */
-.hud-pill {
-  border: 1px solid rgba(0,212,255,0.15);
-  box-shadow: 0 0 12px rgba(0,212,255,0.06), inset 0 0 8px rgba(0,0,0,0.3);
-}
-
-/* ── 4. ENHANCED ROOM FLOORS & GLOWS ─────────────────────────── */
-.room-main {
-  background: linear-gradient(
-    135deg,
-    rgba(8, 18, 38, 0.98) 0%,
-    rgba(11, 22, 44, 0.97) 50%,
-    rgba(8, 18, 38, 0.98) 100%
-  );
-  box-shadow: inset 0 0 80px rgba(0,0,0,0.4), inset 0 0 30px rgba(0,212,255,0.015);
-}
-
-/* Ambient desk lamp pools — subtle radial glows under each desk */
-.desk-slot[data-member="max"]::before,
-.desk-slot[data-member="mark"]::before,
-.desk-slot[data-member="john"]::before,
-.desk-slot[data-member="ron"]::before,
-.desk-slot[data-member="amanda"]::before {
-  content: '';
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 130px;
-  height: 50px;
-  background: radial-gradient(ellipse at 50% 100%, rgba(0,212,255,0.05) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 0.3s;
-}
-
-[data-theme="night"] .desk-slot[data-member="max"]::before,
-[data-theme="night"] .desk-slot[data-member="mark"]::before,
-[data-theme="night"] .desk-slot[data-member="john"]::before,
-[data-theme="night"] .desk-slot[data-member="ron"]::before,
-[data-theme="night"] .desk-slot[data-member="amanda"]::before {
-  background: radial-gradient(ellipse at 50% 100%, rgba(168,85,247,0.05) 0%, transparent 70%);
-}
-
-/* Stronger hover state — bolder glow border */
-.desk-slot:hover .desk {
-  box-shadow:
-    0 0 0 1px rgba(0,212,255,0.4),
-    0 0 24px rgba(0,212,255,0.2),
-    0 0 48px rgba(0,212,255,0.08),
-    0 4px 20px rgba(0,0,0,0.4);
-  border-top-color: var(--accent);
-}
-
-[data-theme="night"] .desk-slot:hover .desk {
-  box-shadow:
-    0 0 0 1px rgba(168,85,247,0.4),
-    0 0 24px rgba(168,85,247,0.2),
-    0 0 48px rgba(168,85,247,0.08),
-    0 4px 20px rgba(0,0,0,0.4);
-  border-top-color: var(--accent);
-}
-
-/* Room hover — stronger glow borders */
-.room-meeting:hover {
-  border-color: rgba(0,212,255,0.55) !important;
-  box-shadow:
-    inset 0 0 60px rgba(0,212,255,0.08),
-    0 0 0 2px rgba(0,212,255,0.35),
-    0 0 40px rgba(0,212,255,0.1) !important;
-}
-
-[data-theme="night"] .room-meeting:hover {
-  border-color: rgba(168,85,247,0.55) !important;
-  box-shadow:
-    inset 0 0 60px rgba(168,85,247,0.08),
-    0 0 0 2px rgba(168,85,247,0.35),
-    0 0 40px rgba(168,85,247,0.1) !important;
-}
-
-.room-break:hover {
-  border-color: rgba(0,212,255,0.45) !important;
-  box-shadow:
-    inset 0 0 40px rgba(0,212,255,0.07),
-    0 0 0 2px rgba(0,212,255,0.3),
-    0 0 30px rgba(0,212,255,0.08) !important;
-}
-
-.room-data-lab:hover {
-  border-color: rgba(0,212,255,0.55) !important;
-  box-shadow:
-    inset 0 0 60px rgba(0,212,255,0.07),
-    0 0 0 2px rgba(0,212,255,0.35),
-    0 0 40px rgba(0,212,255,0.1) !important;
-}
-
-/* ── 5. ENHANCED DOHA SKYLINE WINDOW ─────────────────────────── */
-/* Bigger, more atmospheric window */
-.wall-window {
-  top: 12px;
-  left: 160px;
-}
-
-.window-frame {
-  width: 132px;
-  height: 76px;
-  border: 2px solid rgba(0,212,255,0.4);
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,0.5),
-    0 0 30px rgba(0,212,255,0.15),
-    0 0 60px rgba(0,212,255,0.06),
-    inset 0 0 40px rgba(135,206,235,0.06);
-}
-
-[data-theme="night"] .window-frame {
-  border-color: rgba(168,85,247,0.25);
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,0.6),
-    0 0 30px rgba(168,85,247,0.12),
-    0 0 60px rgba(168,85,247,0.04),
-    inset 0 0 40px rgba(10,10,40,0.4);
-}
-
-/* More buildings in the skyline */
-.wb1 { left: 4px;  width: 16px; height: 36px; }
-.wb2 { left: 24px; width: 12px; height: 26px; }
-.wb3 { right: 0;   width: 26px; height: 42px; }
-.wb5 { right: 0;   width: 14px; height: 28px; }
-
-/* Extra window buildings via new elements */
-.wb-torch {
-  right: 28px;
-  width: 7px;
-  height: 52px;
-}
-
-.wb-torch::before {
-  width: 12px;
-  height: 12px;
-}
-
-/* Night building windows — more of them */
-[data-theme="night"] .wb1::after {
-  background: rgba(255,220,100,0.75);
-  box-shadow:
-    8px 0 0 rgba(255,220,100,0.5),
-    0 8px 0 rgba(100,180,255,0.65),
-    8px 8px 0 rgba(255,220,100,0.45),
-    0 16px 0 rgba(255,220,100,0.3),
-    8px 16px 0 rgba(100,180,255,0.4);
-}
-
-[data-theme="night"] .wb3::after {
-  background: rgba(255,220,100,0.7);
-  box-shadow:
-    8px 0 0 rgba(100,180,255,0.55),
-    0 8px 0 rgba(255,220,100,0.5),
-    8px 8px 0 rgba(100,180,255,0.45),
-    0 16px 0 rgba(255,220,100,0.35),
-    8px 16px 0 rgba(100,180,255,0.4),
-    0 24px 0 rgba(255,220,100,0.25);
-}
-
-/* City glow on horizon at night */
-[data-theme="night"] .window-sky::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 18px;
-  background: linear-gradient(
-    0deg,
-    rgba(255,100,30,0.12) 0%,
-    rgba(200,80,20,0.06) 50%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-/* ── 6. PREMIUM NOTIFICATION TOASTS ─────────────────────────── */
-.notif-toast {
-  padding: 11px 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,212,255,0.22);
-  background: linear-gradient(
-    135deg,
-    rgba(4, 8, 22, 0.97) 0%,
-    rgba(8, 14, 32, 0.95) 100%
-  );
-  box-shadow:
-    0 8px 32px rgba(0,0,0,0.6),
-    0 2px 8px rgba(0,0,0,0.4),
-    0 0 20px rgba(0,212,255,0.06),
-    inset 0 1px 0 rgba(255,255,255,0.04);
-  transform: translateX(20px) translateY(-4px);
-  transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1), transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-}
-
-.notif-toast.notif-visible {
-  opacity: 1;
-  transform: translateX(0) translateY(0);
-}
-
-[data-theme="night"] .notif-toast {
-  border-color: rgba(168,85,247,0.22);
-  box-shadow:
-    0 8px 32px rgba(0,0,0,0.6),
-    0 2px 8px rgba(0,0,0,0.4),
-    0 0 20px rgba(168,85,247,0.06),
-    inset 0 1px 0 rgba(255,255,255,0.04);
-}
-
-.notif-icon {
-  font-size: 16px;
-}
-
-.notif-text {
-  font-weight: 500;
-  font-size: 12px;
-  color: rgba(255,255,255,0.85);
-  letter-spacing: 0.01em;
-}
-
-/* ── 7. PREMIUM GLASS DIALOG ─────────────────────────────────── */
-.dialog-overlay {
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(6px) saturate(0.8);
-  -webkit-backdrop-filter: blur(6px) saturate(0.8);
-}
-
-.dialog-box {
-  background: linear-gradient(
-    160deg,
-    rgba(6,10,22,0.97) 0%,
-    rgba(10,16,34,0.96) 60%,
-    rgba(6,10,22,0.97) 100%
-  );
-  border: 1px solid rgba(0,212,255,0.28);
-  border-radius: 20px;
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,0.6),
-    0 0 0 1px rgba(255,255,255,0.03) inset,
-    0 0 80px rgba(0,212,255,0.08),
-    0 40px 120px rgba(0,0,0,0.9);
-  animation: dialogIn 0.28s cubic-bezier(0.34,1.56,0.64,1);
-  /* Inner top highlight */
-  overflow: hidden;
-}
-
-.dialog-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0,212,255,0.4) 30%,
-    rgba(0,212,255,0.4) 70%,
-    transparent
-  );
-  pointer-events: none;
-}
-
-[data-theme="night"] .dialog-box {
-  border-color: rgba(168,85,247,0.28);
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,0.6),
-    0 0 0 1px rgba(255,255,255,0.03) inset,
-    0 0 80px rgba(168,85,247,0.08),
-    0 40px 120px rgba(0,0,0,0.9);
-}
-
-[data-theme="night"] .dialog-box::before {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(168,85,247,0.4) 30%,
-    rgba(168,85,247,0.4) 70%,
-    transparent
-  );
-}
-
-.dialog-name {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  background: linear-gradient(90deg, #fff 60%, rgba(0,212,255,0.7));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-[data-theme="night"] .dialog-name {
-  background: linear-gradient(90deg, #fff 60%, rgba(168,85,247,0.7));
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.dialog-role {
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  color: var(--accent);
-  text-transform: uppercase;
-  opacity: 0.8;
-}
-
-.dialog-body {
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.76);
-  padding: 16px 22px 12px;
-}
-
-/* Portrait enhancement */
-.dialog-portrait {
-  width: 76px;
-  height: 76px;
-  border-radius: 14px;
-  font-size: 34px;
-  animation: portraitGlow 3s ease-in-out infinite, portraitFloat 4s ease-in-out infinite;
-}
-
-@keyframes portraitFloat {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-3px); }
-}
-
-/* ── 8. ENHANCED AMBIENT LIGHTING ────────────────────────────── */
-/* Hallway — stronger ceiling light pools */
-.hall-light {
-  width: 160px;
-  height: 100%;
+[data-theme="night"] .office-map::after {
   background: radial-gradient(
-    ellipse at 50% 0,
-    rgba(0,212,255,0.10) 0%,
-    rgba(0,212,255,0.04) 40%,
-    transparent 85%
+    ellipse at center,
+    transparent 55%,
+    rgba(0,0,0,0.25) 100%
   );
 }
 
-[data-theme="night"] .hall-light {
-  background: radial-gradient(
-    ellipse at 50% 0,
-    rgba(168,85,247,0.09) 0%,
-    rgba(168,85,247,0.03) 40%,
-    transparent 80%
-  );
-}
-
-/* Hallway sign glow intensified */
-.virdome-sign {
-  text-shadow:
-    0 0 4px var(--accent),
-    0 0 10px var(--accent),
-    0 0 22px rgba(0,212,255,0.7),
-    0 0 40px rgba(0,212,255,0.35);
+/* ── Desk Cup Protein (Jim) ──────────────────────────────────── */
+.desk-cup-protein {
+  background: #22c55e;
+  border-color: rgba(34, 197, 94, 0.3);
   font-size: 8px;
-}
-
-[data-theme="night"] .virdome-sign {
-  text-shadow:
-    0 0 4px #a855f7,
-    0 0 10px #a855f7,
-    0 0 22px rgba(168,85,247,0.7),
-    0 0 40px rgba(168,85,247,0.35);
-}
-
-/* Room meeting — ambient purple ceiling glow */
-.room-meeting {
-  background: linear-gradient(
-    160deg,
-    rgba(14,10,34,0.98) 0%,
-    rgba(18,12,40,0.97) 60%,
-    rgba(14,10,34,0.98) 100%
-  );
-}
-
-.room-meeting::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 60px;
-  background: radial-gradient(ellipse at 50% 0, rgba(124,58,237,0.07) 0%, transparent 80%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Break room — warm amber glow */
-.room-break {
-  background: linear-gradient(
-    160deg,
-    rgba(16,12,8,0.98) 0%,
-    rgba(20,16,10,0.97) 100%
-  );
-}
-
-.room-break::after {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 40px;
-  width: 60px;
-  height: 40px;
-  background: radial-gradient(ellipse at center, rgba(245,158,11,0.07) 0%, transparent 75%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ── 9. MONITOR SCREEN GLOW ENHANCEMENT ─────────────────────── */
-.monitor-screen {
-  background: rgba(0,212,255,0.1);
-  box-shadow:
-    0 0 12px rgba(0,212,255,0.5),
-    0 0 24px rgba(0,212,255,0.2),
-    inset 0 0 14px rgba(0,212,255,0.18);
-}
-
-[data-theme="night"] .monitor-screen {
-  background: rgba(168,85,247,0.1);
-  box-shadow:
-    0 0 12px rgba(168,85,247,0.5),
-    0 0 24px rgba(168,85,247,0.2),
-    inset 0 0 14px rgba(168,85,247,0.18);
-}
-
-/* ── 10. PROJECTOR SCREEN ENHANCEMENT ────────────────────────── */
-.projector-screen {
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,0.5),
-    0 0 30px rgba(0,212,255,0.14),
-    0 0 60px rgba(0,212,255,0.06),
-    inset 0 0 40px rgba(0,212,255,0.05);
-  border-color: rgba(0,212,255,0.4);
-}
-
-/* ── 11. NAMETAG ENHANCEMENT ─────────────────────────────────── */
-.char-nametag {
-  font-size: 5.5px;
-  text-shadow:
-    0 0 10px var(--accent),
-    0 0 20px rgba(0,212,255,0.4),
-    1px 1px 0 rgba(0,0,0,0.95);
-  background: rgba(0,0,0,0.5);
-  padding: 2px 6px;
-  border-radius: 3px;
-  border: 1px solid rgba(0,212,255,0.12);
-}
-
-/* ── 12. AI BADGE MAX ENHANCEMENT ───────────────────────────── */
-.ai-badge {
-  font-size: 5.5px;
-  box-shadow: 0 0 14px rgba(0,212,255,0.35), inset 0 0 6px rgba(0,212,255,0.1);
-  border-color: rgba(0,212,255,0.6);
-}
-
-/* ── 13. STATUS DOTS — Richer glow ───────────────────────────── */
-.status-online {
-  box-shadow: 0 0 0 2px rgba(34,197,94,0.2), 0 0 8px #22c55e, 0 0 18px rgba(34,197,94,0.4);
-}
-
-.status-busy {
-  box-shadow: 0 0 0 2px rgba(245,158,11,0.2), 0 0 8px #f59e0b, 0 0 18px rgba(245,158,11,0.4);
-}
-
-/* ── 14. MINIMAP ENHANCEMENT ─────────────────────────────────── */
-.minimap {
-  border: 1px solid rgba(0,212,255,0.3);
-  box-shadow:
-    0 6px 30px rgba(0,0,0,0.7),
-    0 0 20px rgba(0,212,255,0.06),
-    inset 0 0 20px rgba(0,0,0,0.4);
-}
-
-.mm-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  animation: mmDotPulse 2.5s ease-in-out infinite;
-}
-
-@keyframes mmDotPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50%       { transform: scale(0.75); opacity: 0.65; }
-}
-
-/* ── 15. ROOM LABELS — More visible ──────────────────────────── */
-.room-label {
-  font-size: 6.5px;
-  color: rgba(0,212,255,0.5);
-  text-shadow: 0 0 14px var(--accent), 0 0 28px rgba(0,212,255,0.3);
-}
-
-/* ── 16. TOAST (bottom center) ENHANCEMENT ───────────────────── */
-#pixelToast {
-  border-radius: 12px;
-  padding: 11px 24px;
-  font-weight: 600;
-  background: linear-gradient(
-    135deg,
-    rgba(6, 10, 22, 0.96) 0%,
-    rgba(10, 16, 32, 0.94) 100%
-  );
-  box-shadow:
-    0 8px 40px rgba(0,0,0,0.7),
-    0 0 30px rgba(0,212,255,0.1),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-  border: 1px solid rgba(0,212,255,0.35);
-  transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1), transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-}
-
-/* ── 17. DESK ACTION BUTTON UPGRADE ─────────────────────────── */
-.dlg-action {
-  border-radius: 10px;
-  font-size: 12.5px;
-  transition: background 0.2s, border-color 0.2s, transform 0.15s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
-}
-
-.dlg-action:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 22px rgba(0,212,255,0.18);
-}
-
-/* ── 18. WATER COOLER GLOW ───────────────────────────────────── */
-.wc-tank {
-  box-shadow:
-    inset 2px 2px 6px rgba(255,255,255,0.18),
-    0 0 12px rgba(0,212,255,0.14);
-}
-
-/* ── 19. FOUNDER CORNER ENHANCEMENT ─────────────────────────── */
-.founder-corner {
-  background: rgba(0,0,0,0.2);
-  padding: 6px 8px;
-  border-radius: 6px;
-  border: 1px solid rgba(255,215,0,0.1);
-}
-
-.fc-badge {
-  box-shadow: 0 0 16px rgba(255,215,0,0.25), inset 0 0 8px rgba(255,215,0,0.05);
-}
-
-/* ── 20. CONFERENCE TABLE ENHANCEMENT ───────────────────────── */
-.conf-table {
-  border: 1px solid rgba(0,212,255,0.22);
-  box-shadow:
-    0 6px 40px rgba(0,0,0,0.7),
-    0 0 30px rgba(0,212,255,0.06),
-    inset 0 0 30px rgba(0,212,255,0.04);
-}
-
-/* Scan flicker on projector for life */
-.projector-screen::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,212,255,0.04) 0%,
-    transparent 30%,
-    rgba(0,212,255,0.02) 60%,
-    transparent 100%
-  );
-  animation: projFlicker 4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes projFlicker {
-  0%, 100% { opacity: 0.5; }
-  50%       { opacity: 1; }
-}
-
-/* ── END JAMES ENHANCEMENTS ──────────────────────────────────── */
-
-/* ── Extra Doha skyline buildings ───────────────────────────── */
-.wb-mid {
-  position: absolute;
-  bottom: 0;
-  left: 44px;
-  width: 10px;
-  height: 18px;
-  background: rgba(15,25,45,0.75);
-  transition: background 0.6s;
-}
-[data-theme="night"] .wb-mid { background: rgba(5,8,18,0.92); }
-
-.wb4b {
-  position: absolute;
-  bottom: 0;
-  right: 14px;
-  width: 8px;
-  height: 20px;
-  background: rgba(15,25,45,0.75);
-  transition: background 0.6s;
-}
-[data-theme="night"] .wb4b { background: rgba(5,8,18,0.92); }
-
-/* Third cloud (extra drift) */
-.wc3 {
-  width: 14px;
-  top: 6px;
-  left: 60px;
-  height: 5px;
-  border-radius: 5px;
-  background: rgba(255,255,255,0.45);
-  position: absolute;
-  animation: cloudDrift 30s linear infinite;
-  animation-delay: -6s;
-  transition: background 0.6s;
-}
-[data-theme="night"] .wc3 { background: rgba(120,120,160,0.18); }
-
-/* ── Subtle Scanline Overlay on office-map ────────────────── */
-.office-map::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.04) 2px,
-    rgba(0,0,0,0.04) 3px
-  );
-  pointer-events: none;
-  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
